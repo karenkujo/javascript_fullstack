@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#page-one {
+    background-color: #fc0;
+    /* min-height: 100vh; */
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    color: #fff;
+}
+button {
+    outline: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    background-color: #428bca;
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    border-radius: 6px;
+}
+#page-one h1 {
+    margin-top: 100px;
+}
+#page-one p {
+    margin-top: 100px;
+}
+#page-one button {
+    margin-top: 100px;
+}
+.screen {
+    margin-top: 10px;
+}
+.screen .block {
+    float: left;
+    margin: 1px;
+    height: 200px;
+    width: 49%;
+}

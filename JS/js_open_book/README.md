@@ -1,0 +1,4 @@
+- perspective: 定义 3D 元素距视图的距离，以像素计。
+- user-select: none;  鼠标无法选中容器
+- text-indent: 2em; 首行缩进
+- cursor  改变光标样式

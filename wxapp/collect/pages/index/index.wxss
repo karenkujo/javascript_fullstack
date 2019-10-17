@@ -1,0 +1,15 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;  /* 纵向布局 */
+  align-items: center;
+  justify-content: space-around;   /* 垂直方向分散布局 */ 
+} 
+image {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+}
+text {
+  font-size: 50rpx;
+}

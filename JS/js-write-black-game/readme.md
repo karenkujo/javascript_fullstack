@@ -1,0 +1,4 @@
+- indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+        stringObject.indexOf(searchvalue,fromindex)
+        说明:
+        该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 searchvalue。开始检索的位置在字符串的 fromindex 处或字符串的开头（没有指定 fromindex 时）。如果找到一个 searchvalue，则返回 searchvalue 的第一次出现的位置。stringObject 中的字符位置是从 0 开始的。

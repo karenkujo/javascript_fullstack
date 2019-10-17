@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #bg {
+        width: 300px;
+        height: 600px;
+        border: 1px solid red;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        margin-top: 700px;
+        overflow: hidden;
+    }
+    #inner1, #inner2 {
+        width: 100%;
+        height: 100%;
+        background: url("./bg.png");
+        position: absolute;
+    }
+    .white {
+        width: 75px;
+        height: 100px;
+        float: left;
+    }
+    .black {
+        width: 75px;
+        height: 100px;
+        background-color: #000;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div class="score"></div>
+    <div id="bg">
+        <div id="inner2" style="top:0px"></div>
+        <div id="inner1" style="top:-600px">
+           <!--  总 6 行
+            [div, div, div, div] 0~3
+            第一行
+            <div class="white"></div>
+            <div class="white"></div>
+            <div class="white"></div>
+            <div class="white black"></div>
+            第二行
+            <div class="white"></div>
+            <div class="white"></div>
+            <div class="white"></div>
+            <div class="white black"></div> -->
+        </div>
+    </div>
+    <script>
+    draw('inner1');
+    function generateRandom () {
+        let t = [];
+        for (let i = 0; i < 6; i++){
+            var num = Math.floor(Math.random() * 4) + i * 4
+            t.push (num);
+        }
+        return t;
+    }
+    function draw (container) {
+        let drawArr = generateRandom ()
+        document.getElementById(container)
+        .innerHTML = '';
+        for (let i = 0; i < 24; i++) {
+            const ele = document.createElement('div')
+            if (drawArr.indexOf(i) > -1) {
+                ele.classList.add('black')
+                ele.addEventListener('click', function(){
+                    ele.style.backgroundColor = '#666';
+                })
+            }
+            else {
+                ele.classList.add('white')
+            }
+            document.getElementById(container)
+            .appendChild(ele);
+        }
+    }
+    var inner1 = document.getElementById('inner1');
+    var inner2 = document.getElementById('inner2');
+    var inner1Top = parseInt(inner1.style.top);
+    var inner2Top = parseInt(inner2.style.top);
+    function move () {
+        if (inner1Top === 595){
+            draw('inner1')
+            inner1.style.top = '-600px';
+            inner1Top = -600;
+        }
+        if (inner2Top === 595){
+            draw('inner2');
+            inner2.style.top = '-600px';
+            inner2Top = -600;
+        }
+        inner1Top += .5;
+        inner2Top += .5;
+        inner1.style.top = inner1Top + 'px';
+        inner2.style.top = inner2Top + 'px';
+    }
+    setInterval(move,3);
+    setInterval(() => {setInterval(move,1)},10000);
+    
+    </script>
+</body>
+</html>
