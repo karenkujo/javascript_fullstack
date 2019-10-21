@@ -13,9 +13,9 @@
 		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.0",
 	"appid": "wx3d8135d4f7fabf15",
-	"projectname": "shopping",
+	"projectname": "didi_danche",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
