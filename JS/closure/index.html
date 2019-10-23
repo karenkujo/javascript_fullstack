@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function f1() {
+    //   n = 999
+    // }
+    // f1()
+    // console.log(n)
+    function f1() {
+      var n = 999
+      return function f2 () {
+        console.log(999)
+      }
+    }
+    f1()()
+  </script>
+</body>
+</html>
