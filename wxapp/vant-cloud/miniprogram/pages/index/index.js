@@ -34,7 +34,7 @@ Page({
         backgroundColor: '#dc3545'
       })
       self.setData({
-        newGroupModal: ture
+        newGroupModal: true
       })
       self.selectComponent('#new-group-modal').stopLoading()
       return
