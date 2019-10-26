@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>·
+<body>
+  <script>
+    var name = ''
+    function test() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log('猛哥')
+            name = '猛哥'
+            resolve('ok')
+            // reject('error')
+          }, 500)
+        })
+      }
+    function xq () {
+      return new Promise((res, rej) => {
+        setTimeout(() => {
+        console.log(name + '相亲')
+        res('相亲很顺利')
+      }, 1000)
+      })
+      
+      
+    }
+    function marry () {
+      console.log(name + '结婚了')
+    }
+    // test()
+    //   .then(xq)
+    //   .then(marry)
+
+
+    // Promise.all([test(), xq()]).then((value) => {
+    //   console.log(value, '-------------')
+    //   marry()
+    // }) 
+
+    Promise.race([test(), xq()]).then((value) => {
+      console.log(value, '-------------')
+      marry()
+    })
+  </script>
+</body>
+</html>
