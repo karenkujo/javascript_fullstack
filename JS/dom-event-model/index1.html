@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <script>
+    // 点击 li 输出 li里对应的内容
+    // 事件委托 事件代理
+    const liList = document.querySelectorAll('li')
+    const ul = document.querySelector('ul')
+    ul.addEventListener('click', (e) => {
+      if (e.target.nodeName == 'LI') {
+        console.log(e.target.innerHTML)
+      }
+    })
+  </script>
+</body>
+</html>

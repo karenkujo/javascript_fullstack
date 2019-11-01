@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .out {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    .in {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <a href="./README.md" id="md">MD</a>
+  <div class="out">
+    <div class="in">
+      in
+    </div>
+  </div>
+  <script>
+    const inNode = document.querySelector('.in')
+    const out = document.querySelector('.out')
+    const md = document.getElementById('md')
+    window.addEventListener('click', function() {
+      console.log('window')
+    }, false)
+    document.addEventListener('click', function() {
+      console.log('document')
+    }, false)
+    document.documentElement.addEventListener('click', function() {
+      console.log('documentElement')
+    }, false)
+    document.body.addEventListener('click', function() {
+      console.log('body')
+    }, false)
+    out.addEventListener('click', function() {
+      console.log('out')
+    }, false)
+    inNode.addEventListener('click', function(event) {
+      event.stopPropagation()
+      console.log('in')
+    }, false)
+    inNode.addEventListener('click', function() {})
+    // addEventListener 可以添加多个  onClick会覆盖
+    inNode.onClick = () => {}
+    inNode.onClick = () => {}
+    md.addEventListener('click', (e) => {
+      e.preventDefault()
+    })
+  </script>
+</body>
+</html>

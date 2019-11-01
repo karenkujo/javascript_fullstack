@@ -75,7 +75,7 @@ export default {
           vertical-align top
           width 12px
           height 12px
-          margin-top 4px
+          margin-ringt 4px
           background-size 12px 12px
           background-repeat no-repeat
           &.decrease
