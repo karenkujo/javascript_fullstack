@@ -58,6 +58,7 @@ export default {
         display block
         font-size 14px
         color rgb(77, 85, 93)
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         &.router-link-active
           color rgb(240, 20, 20)
 </style>

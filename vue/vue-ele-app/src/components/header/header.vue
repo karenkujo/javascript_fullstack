@@ -35,6 +35,7 @@
             <h1 class="name">{{ seller.name }}</h1>
             <div class="star-wrapper">
               <!-- 星星 -->
+              <v-star :seller="seller" v-if="seller.foodScore"></v-star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -66,6 +67,7 @@
 </template>
 
 <script>
+import star from '../star/star'
 export default {
   props: {
     seller: {
@@ -80,6 +82,9 @@ export default {
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       showDetail: false
     }
+  },
+  components: {
+    'v-star': star
   },
   methods: {
     detailShow () {
