@@ -209,6 +209,7 @@ export default {
       position absolute
       font-size 10px
   .detail
+    z-index 999
     position fixed
     top 0
     left 0

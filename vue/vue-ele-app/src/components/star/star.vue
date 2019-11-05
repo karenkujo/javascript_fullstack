@@ -33,9 +33,7 @@ export default {
     for (let i = 0; i < num; i++) {
       star.push('<img src="../../../static/star.png" />')
     }
-    console.log(star)
     this.star = star.reverse().join('')
-    console.log(this.star)
   }
 }
 </script>
