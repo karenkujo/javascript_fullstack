@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box-wrapper {
+        width: 100%;
+        /* float: left; */
+        /* overflow: hidden; */
+        /* display: table-cell; */
+        /* position: absolute; */
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        line-height: 100px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+    </style>
+</head>
+<body>
+  <!-- bfc -->
+  <!-- block formating context -->
+    <div class="box-wrapper">
+        <div class="box">
+          <div class="box-child"></div>
+        </div>
+        <!-- <div class="box">2</div>
+        <div class="box">3</div> -->
+      </div>
+      <div class="text">hello world</div>
+</body>
+</html>
