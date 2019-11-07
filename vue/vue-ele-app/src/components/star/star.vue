@@ -22,16 +22,16 @@ export default {
     let star = []
     if (this.seller.foodScore > num) {
       for (let i = 0; i < 4 - num; i++) {
-        star.push('<img src="../../../static/star2.png" />')
+        star.push('<img src="../../../static/star2.png" width="30px" height="30px"/>')
       }
-      star.push('<img src="../../../static/star-h.png" />')
+      star.push('<img src="../../../static/star-h.png" width="30px" height="30px"/>')
     } else if (this.seller.foodScore === num) {
       for (let i = 0; i < 5 - num; i++) {
-        star.push('<img src="../../../static/star2.png" />')
+        star.push('<img src="../../../static/star2.png" width="30px" height="30px"/>')
       }
     }
     for (let i = 0; i < num; i++) {
-      star.push('<img src="../../../static/star.png" />')
+      star.push('<img src="../../../static/star.png" width="30px" height="30px"/>')
     }
     this.star = star.reverse().join('')
   }
@@ -42,9 +42,4 @@ export default {
   .star
     text-align center
     margin-top 20px
-    img
-      display inline-block
-      width 10px
-      height 10px
-      margin-left 5px
 </style>
