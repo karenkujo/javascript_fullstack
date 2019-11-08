@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Button {
+      constructor(color) {
+        this.color = color
+      }
+    }  
+    class BuyItNow extends Button {
+      constructor(color) {
+        // super 父类的构造函数
+        super(color)
+        this.innerHTML = '购买'
+        let button = document.createElement('button')
+        button.innerHTML = this.innerHTML
+        button.style.color = this.color
+        document.body.appendChild(button)
+      }
+      click() {
+        console.log('buy it now')
+      }
+    }
+    console.log(new BuyItNow('red'))
+    console.log(new BuyItNow('blue'))
+
+    // es5寄生组合式继承 这也是es6 extends 采用的继承
+    function Btn(color) {
+      this.color = color
+    }
+    console.log(Btn.prototype)
+    Btn.prototype.click = function (params) {
+      console.log('click')
+    }
+    function BIN(color) {
+      // 继承属性
+      Btn.call(this, color) // super()
+      this.innerHTML = '购买'
+    }
+    console.log(BIN.prototype)
+    // 浅复制
+    // 其中一种继承方法 
+    // 把父类的prototype 对象 一个一个复制给 BIN
+    // 不能够继承属性
+    BIN.prototype = Object.create(Btn.prototype)
+    // 修正 constructor
+    BIN.prototype.constructor = BIN
+    var b1 = new BIN('red')
+    console.log(b1)
+  </script>
+</body>
+</html>
