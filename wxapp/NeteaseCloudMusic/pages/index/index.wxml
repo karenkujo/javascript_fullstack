@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="nav-wrap">
+    <!-- 菜单 -->
+    <view class="iconfont icon-caidan" style="font-size: 48rpx; color: black;"></view>
+    <!-- 头部导航栏 -->
+    <view class="nav" bindscroll="scroll">
+      <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">我的</view>
+      <view class="nav-item {{currentId == 1 ? 'nav-item-select' : ''}}" data-id="1" bindtap="switchNav">发现</view>
+      <view class="nav-item {{currentId == 2 ? 'nav-item-select' : ''}}" data-id="2" bindtap="switchNav">云村</view>
+      <view class="nav-item {{currentId == 3 ? 'nav-item-select' : ''}}" data-id="3" bindtap="switchNav">视频</view>
+    </view>
+    <!-- 搜索 -->
+    <view class="iconfont icon-sousuo" style="font-size: 60rpx; color: black;"></view>
+  </view>
+  <!-- 四个页面 -->
+  <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav">
+    <!-- 我的 -->
+    <swiper-item class="swiper-item">
+      我的
+    </swiper-item>
+    <!-- 发现 -->
+    <swiper-item class="swiper-item">
+      <view class="find">
+        <!-- 轮播图 -->
+        <view class="slide">
+          <swiper class="swiper" indicator-dots="true" indicator-color="rgb(208, 214 213)" indicator-active-color="#C62F2F" autoplay="true" interval="3000" circular="true">
+          <block wx:for="{{banners}}" wx:key="index">
+            <swiper-item>
+              <image class="banners-img" mode="widthFix" src="{{item.imageUrl}}" />
+            </swiper-item>
+          </block>
+        </swiper>
+        </view>
+        <!-- 菜单 -->
+        <ul class="menu">
+          <li class="menu-item">
+            <view class="iconfont icon-meirituijian-"></view>
+            <text>每日推荐</text>
+          </li>
+          <li class="menu-item">
+            <view class="iconfont icon-gedan"></view>
+            <text>歌单</text>
+          </li>
+          <li class="menu-item">
+            <view class="iconfont icon-paixingbang"></view>
+            <text>排行榜</text>
+          </li>
+          <li class="menu-item">
+            <view class="iconfont icon-diantai"></view>
+            <text>电台</text>
+          </li>
+          <li class="menu-item">
+            <view class="iconfont icon-zhibo"></view>
+            <text>直播</text>
+          </li>
+        </ul>
+        <view class="line"></view>
+        <!-- 推荐歌单 -->
+        <view class="songList-wrap">
+          <view class="songList-title_wrap">
+            <view class="songList-title">
+              <text>推荐歌单</text>
+            </view>
+            <view class="songList-square">
+              <text>歌单广场</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+    <!-- 云村 -->
+    <swiper-item class="swiper-item">
+      云村
+    </swiper-item>
+    <!-- 视频 -->
+    <swiper-item class="swiper-item">
+      视频
+    </swiper-item>
+  </swiper>
+</view>

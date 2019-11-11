@@ -1,0 +1,49 @@
+/* pages/find/find.wxss */
+@import "../../iconfont/iconfont";
+@import "./wxss/find";
+page {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 100%;
+  overflow: auto;
+}
+/* 导航 */
+.nav-wrap {
+  padding: 10rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.nav {
+  margin-left: 80rpx;
+}
+.nav-item {
+  display: inline-block;
+  font-size: 32rpx;
+  color: #817f7f;
+  margin-left: 65rpx;
+  margin-bottom: 10rpx;
+}
+.iconfont {
+  position: absolute;
+}
+.icon-caidan {
+  left: 26rpx;
+}
+.icon-sousuo {
+  right: 26rpx;
+  bottom: 10rpx;
+}
+.nav-item-select {
+  font-weight: 700;
+  color: #000000;
+  white-space: nowrap;
+}
+.index-pages {
+  width: 100%;
+  min-height: calc(100vh - 98rpx) ;
+}
+.swiper-item {
+  overflow: auto;
+}

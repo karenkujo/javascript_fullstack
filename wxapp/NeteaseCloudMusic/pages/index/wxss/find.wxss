@@ -1,0 +1,79 @@
+.find {
+  width: 100%;
+}
+/* 轮播图 */
+.find .slide {
+  margin-top: 20rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.find .swiper {
+  height: 250rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 90%;
+}
+.find swiper-item {
+  width: 90%;
+  height: 100%;
+}
+.find .banners-img {
+  width: 100%;
+  height: 100%;
+}
+/* 菜单 */
+.menu {
+  width: 96%;
+  margin: 40rpx auto 0;
+  display: flex;
+  justify-content: space-around;
+}
+.menu .menu-item {
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 25rpx;
+  background-color: rgb(198, 47, 47);
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+}
+.menu .menu-item .iconfont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 54rpx;
+}
+.menu .menu-item text {
+  position: relative;
+  top: 114rpx;
+}
+.line {
+  margin-top: 80rpx;
+  border-bottom: 1px solid #000;
+  opacity: 0.1;
+}
+/* 推荐歌单 */
+.songList-wrap {
+  width: 100%;
+  padding: 37.5rpx;
+}
+.songList-wrap .songList-title_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.songList-title {
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.songList-square {
+  font-size: 22rpx;
+  margin-right: 80rpx;
+  border: 1px solid rgb(199, 195, 195);
+  padding: 5rpx 16rpx;
+  border-radius: 20rpx;
+}
