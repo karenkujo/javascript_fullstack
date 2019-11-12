@@ -65,6 +65,19 @@
               <text>歌单广场</text>
             </view>
           </view>
+          <ul class="songList">
+            <li class="song-sheet" wx:for="{{songList}}" wx:key="index">
+              <view class="song-sheet_img">
+                <image class="" mode="widthFix" src="{{item.picUrl}}">
+                  <view class="song-sheet_playCount">
+                    <view class="iconfont icon-play" style="color: #fff;"></view>
+                    <text>{{item.playCount}}</text>
+                  </view>
+                </image>
+              </view>
+              <view class="song-sheet_name">{{item.name}}</view>
+            </li>
+          </ul>
         </view>
       </view>
     </swiper-item>

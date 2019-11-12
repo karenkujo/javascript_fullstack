@@ -6,7 +6,8 @@ Page({
    */
   data: {
     currentId: 1,
-    banners: ''
+    banners: '',
+    songList: ''
   },
   // 点击切换页面
   switchNav (e) {
@@ -35,11 +36,36 @@ Page({
       }
     })
   },
+  // 获取推荐歌单
+  getsongList () {
+    let that = this
+    wx.request({
+      url: 'http://neteasecloudmusicapi.zhaoboy.com/personalized?limit=6',
+      success (res) {
+        // console.log(res.data.result)
+        if (res.data.code == 200) {
+          for (let item of res.data.result) {
+            if (item.playCount >= 100000000) {
+              let num  = item.playCount / 100000000
+              item.playCount = num.toFixed(1) + '亿'
+            }
+            if (item.playCount >= 100000) {
+              item.playCount = Math.round(item.playCount / 10000) + '万'
+            }
+          }
+          that.setData({
+            songList: res.data.result
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getBanner()
+    this.getsongList ()
   },
 
   /**

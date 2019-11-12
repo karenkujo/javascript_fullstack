@@ -59,6 +59,7 @@
 .songList-wrap {
   width: 100%;
   padding: 37.5rpx;
+  box-sizing: border-box;
 }
 .songList-wrap .songList-title_wrap {
   display: flex;
@@ -72,8 +73,50 @@
 }
 .songList-square {
   font-size: 22rpx;
-  margin-right: 80rpx;
   border: 1px solid rgb(199, 195, 195);
   padding: 5rpx 16rpx;
   border-radius: 20rpx;
+}
+.songList {
+  width: 100%;
+  display: block;
+}
+.song-sheet {
+  display: inline-block;
+  width: 213rpx;
+  margin-right: 20rpx;
+}
+.song-sheet:nth-child(3n + 3) {
+  margin-right: 0;
+}
+.song-sheet_img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.song-sheet_img image {
+  width: 100%;
+}
+.song-sheet_img image .song-sheet_playCount {
+  position: absolute;
+  font-size: 18rpx;
+  color: #fff;
+  top: 0;
+  right: 5rpx;
+}
+.song-sheet_img image .song-sheet_playCount .iconfont {
+  display: inline-block;
+}
+.song-sheet_img image .song-sheet_playCount text {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-top: 4rpx;
+}
+.song-sheet_name {
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
