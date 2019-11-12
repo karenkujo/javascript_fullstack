@@ -113,7 +113,7 @@ export default {
               click: true
             })
           } else {
-            this.scroll.refresh()// 刷新效果
+            this.scroll.refresh()
           }
         })
       }

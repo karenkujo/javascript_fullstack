@@ -114,6 +114,7 @@
 }
 .song-sheet_name {
   font-size: 24rpx;
+  /* 显示两行超出打点 */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
