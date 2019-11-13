@@ -9,7 +9,7 @@
           <span class="brand"></span>
           <span class="name">{{ seller.name }}</span>
         </div>
-        <div class="descriptipon">{{ seller.description }}/{{ seller.deliveryTime }}</div>
+        <div class="descriptipon">{{ seller.description }}/{{ seller.deliveryTime }}分钟送达</div>
         <div class="support" v-if="seller.supports">
           <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           <span class="text">{{ seller.supports[0].description }}</span>
@@ -35,7 +35,7 @@
             <h1 class="name">{{ seller.name }}</h1>
             <div class="star-wrapper">
               <!-- 星星 -->
-              <v-star :seller="seller" v-if="seller.foodScore"></v-star>
+              <v-star :foodScore="seller.foodScore" v-if="seller.foodScore"></v-star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -232,6 +232,10 @@ export default {
       .detail-main
         margin-top 64px
         padding-bottom 54px
+        .star-wrapper
+          margin-top 25px
+          img
+            margin-right 5px
       .name
         line-height 16px
         font-size 16px
