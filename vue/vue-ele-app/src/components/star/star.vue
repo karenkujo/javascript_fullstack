@@ -6,11 +6,6 @@
 
 <script>
 export default {
-  data () {
-    return {
-      starScore: ''
-    }
-  },
   props: {
     numScore: {
       type: Number,
@@ -19,8 +14,8 @@ export default {
       }
     }
   },
-  methods: {
-    Star () {
+  computed: {
+    starScore () {
       if (this.numScore == 0) return
       let num = Math.floor(this.numScore)
       let star = []
@@ -37,11 +32,8 @@ export default {
      for (let i = 0; i < num; i++) {
        star.push('<img src="../../../static/star.png" width="30px" height="30px"/>')
       }
-      this.starScore = star.reverse().join('')
+      return star.reverse().join('')
     }
-  },
-  created () {
-     this.Star ()
   }
 }
 </script>

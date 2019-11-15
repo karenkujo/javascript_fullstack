@@ -35,7 +35,7 @@
             <h1 class="name">{{ seller.name }}</h1>
             <div class="star-wrapper">
               <!-- 星星 -->
-              <v-star :foodScore="seller.foodScore" v-if="seller.foodScore"></v-star>
+              <v-star :numScore="seller.foodScore" v-if="seller.foodScore"></v-star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -139,11 +139,11 @@ export default {
       .support
         .icon
           display inline-block
+          width 16px
+          height 16px
           vertical-align top
-          width 12px
-          height 12px
-          margin-ringt 4px
-          background-size 12px 12px
+          margin-ringt 6px
+          background-size 16px 16px
           background-repeat no-repeat
           &.decrease
             bg-image('decrease_1')
