@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { Area } from 'vant'
+import 'vant/lib/index.css';
 
+Vue.use(Area)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
