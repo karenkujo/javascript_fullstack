@@ -1,6 +1,7 @@
 /* pages/find/find.wxss */
 @import "../../iconfont/iconfont";
 @import "./wxss/find";
+@import "./wxss/cloud";
 page {
   margin: 0;
   padding: 0;

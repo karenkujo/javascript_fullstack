@@ -79,13 +79,45 @@
             </li>
           </ul>
         </view>
-        <!-- 新碟 | 新歌 -->
-        
+        <!-- 新碟 -->
+        <view class="albums">
+          <view class="albums-title">
+            <span class="albums-title_item">新碟</span>
+            <span class="more-albums">更多新碟</span>
+          </view>
+          <ul class="albumList">
+            <li class="album" wx:for="{{albums}}" wx:key="index">
+              <view class="album_img">
+                <image class="" mode="widthFix" src="{{item.picUrl}}">
+                </image>
+              </view>
+            <view class="album_name">{{item.name}}</view>
+            <view class="album_artist">{{item.artist.name}}</view>
+            </li>
+          </ul>
+        </view>
       </view>
     </swiper-item>
     <!-- 云村 -->
     <swiper-item class="swiper-item">
-      云村
+      <view class="cloud">
+        <view class="cloud-content">
+          <view class="hotwall">
+            <view class="hotwall-title">
+              <span class="title">云村热评墙</span>
+              <span class="icon"></span>
+            </view>
+            <view class="hotwall-content">
+              <span class="avatar"></span>
+              <span class="desc"></span>
+            </view>
+            <view class="date-content">
+              <span class="month">Nov.</span>
+              <span class="date">16</span>
+            </view>
+          </view>
+        </view>
+      </view>
     </swiper-item>
     <!-- 视频 -->
     <swiper-item class="swiper-item">

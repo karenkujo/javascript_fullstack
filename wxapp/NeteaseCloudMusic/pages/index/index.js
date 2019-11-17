@@ -5,9 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentId: 1,
+    currentId: 2,
     banners: '',
-    songList: ''
+    songList: '',
+    albums: ''
   },
   // 点击切换页面
   switchNav (e) {
@@ -60,12 +61,26 @@ Page({
       }
     })
   },
+  // 获取新碟
+  getAlbums () {
+    let that = this
+    wx.request({
+      url: 'http://neteasecloudmusicapi.zhaoboy.com/top/album?limit=3',
+      success (res) {
+        // console.log(res.data.albums)
+        that.setData({
+          albums: res.data.albums
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getBanner()
-    this.getsongList ()
+    this.getsongList()
+    this.getAlbums()
   },
 
   /**

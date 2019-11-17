@@ -121,3 +121,57 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+/* 新碟 */
+.albums {
+  width: 100%;
+  padding: 10rpx 37.5rpx;
+  box-sizing: border-box;
+}
+.albums-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.albums-title_item {
+  font-size: 34rpx;
+}
+.more-albums {
+  font-size: 20rpx;
+  border-radius: 20px;
+  border: 1px solid rgb(199, 195, 195);
+  line-height: 30rpx;
+  padding: 6rpx 16rpx;
+}
+.albumList {
+  width: 100%;
+  display: block;
+}
+.album {
+  display: inline-block;
+  width: 213rpx;
+  margin-right: 20rpx;
+}
+.album:nth-child(3n + 3) {
+  margin-right: 0
+}
+.album_img {
+  width: 100%;
+  height: 100%;
+}
+.album_img image {
+  width: 100%;
+}
+.album_name {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.album_artist {
+  font-size: 20rpx;
+  padding: 4rpx;
+  color: rgb(138, 141, 141);
+}

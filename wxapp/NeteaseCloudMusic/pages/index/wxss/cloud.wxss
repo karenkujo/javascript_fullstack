@@ -1,0 +1,36 @@
+/* 云村热评 */
+.cloud {
+  width: 100%;
+}
+.cloud-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 26rpx;
+}
+.hotwall {
+  padding: 26rpx 20rpx;
+  background-color: rgb(219, 195, 195);
+  border-radius: 14rpx;
+  background-image: linear-gradient(to bottom right, rgb(95, 92, 94), rgb(173, 168, 168))
+}
+.hotwall-title {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hotwall-title .title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #fff;
+  vertical-align: middle;
+}
+.hotwall-title .icon {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 1.5px solid #fff;
+  border-right: 1.5px solid #fff;
+  transform: rotate(45deg);
+  border-radius: 2rpx;
+}
