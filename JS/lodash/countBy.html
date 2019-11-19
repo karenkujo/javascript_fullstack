@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>countBy</title>
+</head>
+<body>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.min.js"></script>
+  <script>
+    console.log(_.countBy([5.4, 5.6, 5.1, 7], Math.floor)) // {5: 3, 7: 1}
+
+    function myCountBy(arr, func) {
+      let obj = {}
+      for (let i = 0; i < arr.length; i++) {
+        if (!obj[func(arr[i])]) {
+          obj[func(arr[i])] = 1
+        } else {
+          obj[func(arr[i])]++
+        }
+      }
+      return obj
+    }
+    console.log(myCountBy([5.4, 5.6, 5.1, 7, 3.4, 8.4, 3.6], Math.floor))
+    // map filter reduce
+    // 函数式编程风格的api
+
+
+    // 使用reduce
+    function myCountBy1(arr, func) {
+      return arr.reduce((pre, next) => {
+        console.log(pre, next)
+        // 如果有第二个参数 pre === 第二个参数
+        // 一开始pre为{}, next为arr[0]
+        let res = func(next)
+        // 第二次以后的循环 pre 是上一次的返回值
+        if (pre[res] !== undefined) {
+          pre[res]++
+        } else {
+          pre[res] = 1
+        }
+        return pre
+      }, {})
+    }
+    console.log(myCountBy1([5.4, 5.6, 5.1, 7], Math.floor))
+  </script>
+</body>
+</html>y
