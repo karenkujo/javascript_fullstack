@@ -4,9 +4,9 @@
     <view class="iconfont icon-caidan" style="font-size: 48rpx; color: black;"></view>
     <!-- 头部导航栏 -->
     <view class="nav" bindscroll="scroll">
-      <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">我的</view>
+      <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">广场</view>
       <view class="nav-item {{currentId == 1 ? 'nav-item-select' : ''}}" data-id="1" bindtap="switchNav">发现</view>
-      <view class="nav-item {{currentId == 2 ? 'nav-item-select' : ''}}" data-id="2" bindtap="switchNav">云村</view>
+      <view class="nav-item {{currentId == 2 ? 'nav-item-select' : ''}}" data-id="2" bindtap="switchNav">排行</view>
       <view class="nav-item {{currentId == 3 ? 'nav-item-select' : ''}}" data-id="3" bindtap="switchNav">视频</view>
     </view>
     <!-- 搜索 -->
@@ -14,9 +14,9 @@
   </view>
   <!-- 四个页面 -->
   <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav">
-    <!-- 我的 -->
+    <!-- 广场 -->
     <swiper-item class="swiper-item">
-      我的
+      广场
     </swiper-item>
     <!-- 发现 -->
     <swiper-item class="swiper-item">
@@ -24,7 +24,7 @@
         <!-- 轮播图 -->
         <view class="slide">
           <swiper class="swiper" indicator-dots="true" indicator-color="rgb(208, 214 213)" indicator-active-color="#C62F2F" autoplay="true" interval="3000" circular="true">
-          <block wx:for="{{banners}}" wx:key="index">
+          <block wx:for="{{banners}}" wx:key="{{index}}">
             <swiper-item>
               <image class="banners-img" mode="widthFix" src="{{item.imageUrl}}" />
             </swiper-item>
@@ -33,15 +33,15 @@
         </view>
         <!-- 菜单 -->
         <ul class="menu">
-          <li class="menu-item">
+          <li class="menu-item" bindtap="toDateRecommend">
             <view class="iconfont icon-meirituijian-"></view>
             <text>每日推荐</text>
           </li>
-          <li class="menu-item">
+          <li class="menu-item" bindtap="toSongSheet">
             <view class="iconfont icon-gedan"></view>
             <text>歌单</text>
           </li>
-          <li class="menu-item">
+          <li class="menu-item" bindtap="toRank">
             <view class="iconfont icon-paixingbang"></view>
             <text>排行榜</text>
           </li>
@@ -56,17 +56,17 @@
         </ul>
         <view class="line"></view>
         <!-- 推荐歌单 -->
-        <view class="songList-wrap">
-          <view class="songList-title_wrap">
-            <view class="songList-title">
+        <view class="songSheet-wrap">
+          <view class="songSheet-title_wrap">
+            <view class="songSheet-title">
               <text>推荐歌单</text>
             </view>
-            <view class="songList-square">
+            <view class="songSheet-square" bindtap="toSongSheet">
               <text>歌单广场</text>
             </view>
           </view>
-          <ul class="songList">
-            <li class="song-sheet" wx:for="{{songList}}" wx:key="index">
+          <ul class="songSheet">
+            <li class="song-sheet" wx:for="{{songList}}" wx:key="{{index}}">
               <view class="song-sheet_img">
                 <image class="" mode="widthFix" src="{{item.picUrl}}">
                   <view class="song-sheet_playCount">
@@ -76,6 +76,23 @@
                 </image>
               </view>
               <view class="song-sheet_name">{{item.name}}</view>
+            </li>
+          </ul>
+        </view>
+        <!-- 新歌 -->
+        <view class="songs">
+          <view class="songs-title">
+            <span class="songs-title_item">新歌</span>
+            <span class="more-songs">新歌推荐</span>
+          </view>
+          <ul class="songList">
+            <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}">
+              <view class="song_img">
+                <image class="" mode="widthFix" src="{{item.song.album.blurPicUrl}}">
+                </image>
+              </view>
+            <view class="song_name">{{item.name}}</view>
+            <view class="song_artist">{{item.song.artists[0].name}}</view>
             </li>
           </ul>
         </view>
@@ -98,23 +115,72 @@
         </view>
       </view>
     </swiper-item>
-    <!-- 云村 -->
+    <!-- 排行 -->
     <swiper-item class="swiper-item">
-      <view class="cloud">
-        <view class="cloud-content">
-          <view class="hotwall">
-            <view class="hotwall-title">
-              <span class="title">云村热评墙</span>
-              <span class="icon"></span>
-            </view>
-            <view class="hotwall-content">
-              <span class="avatar"></span>
-              <span class="desc"></span>
-            </view>
-            <view class="date-content">
-              <span class="month">Nov.</span>
-              <span class="date">16</span>
-            </view>
+      <view class="rank">
+        <view class="rank-content">
+          <!-- 官方榜 -->
+          <view class="officalRank">
+            <view class="officalRank-title">官方榜</view>
+            <ul class="officalRank-content">
+              <li class="officalRank-item" wx:for="{{rank}}" wx:key="{{index}}" wx:if="{{index < 4}}">
+                <view class="avatar-wrapper">
+                  <image src="{{item.coverImgUrl}}" mode="widthFix" />
+                  <text class="update">{{item.updateFrequency}}</text>
+                </view>
+                <view class="rank-list">
+                  <view class="rank-item"
+                  wx:for="{{item.tracks}}" 
+                  wx:key="{{index}}" 
+                  wx:for-item="track"
+                  >
+                  {{track.first}} - {{track.second}}
+                  </view>
+                </view>
+              </li>
+            </ul>
+          </view>
+          <!-- 推荐榜 -->
+          <view class="recommendRank">
+            <view class="recommendRank-title">推荐榜</view>
+            <ul class="recommendRank-content">
+              <li class="recommendRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
+              wx:if="{{index == 4||index == 6||index == 23||index == 5||index == 7||index == 9}}">
+                <view class="avatar-wrapper">
+                  <image src="{{item.coverImgUrl}}" mode="widthFix" />
+                  <text class="update">{{item.updateFrequency}}</text>
+                </view>
+                <view class="recommendRank-name">{{item.name}}</view>
+              </li>
+            </ul>
+          </view>
+          <!-- 全球榜 -->
+          <view class="globalRank">
+            <view class="globalRank-title">全球榜</view>
+            <ul class="globalRank-content">
+              <li class="globalRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
+              wx:if="{{index == 12||index == 14||index == 15||index == 16||index == 18||index == 19}}">
+                <view class="avatar-wrapper">
+                  <image src="{{item.coverImgUrl}}" mode="widthFix" />
+                  <text class="update">{{item.updateFrequency}}</text>
+                </view>
+                <view class="globalRank-name">{{item.name}}</view>
+              </li>
+            </ul>
+          </view>
+           <!-- 更多榜单 -->
+          <view class="moreRank">
+            <view class="moreRank-title">更多榜单</view>
+            <ul class="moreRank-content">
+              <li class="moreRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
+              wx:if="{{index >= 4&&index !== 12&&index !== 14&&index !== 15&&index !== 16&&index !== 18&&index !== 19&&index !== 23&&index !== 9&&index !== 7&&index !== 6&&index !== 5&&index !==4}}">
+                <view class="avatar-wrapper">
+                  <image src="{{item.coverImgUrl}}" mode="widthFix" />
+                  <text class="update">{{item.updateFrequency}}</text>
+                </view>
+                <view class="moreRank-name">{{item.name}}</view>
+              </li>
+            </ul>
           </view>
         </view>
       </view>

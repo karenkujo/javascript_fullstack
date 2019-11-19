@@ -1,0 +1,213 @@
+.rank {
+  width: 100%;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+.rank-content {
+  min-height: 100vh;
+}
+/* 官方榜 */
+.officalRank {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.officalRank-title {
+  font-size: 38rpx;
+  margin-bottom: 16rpx;
+}
+.officalRank-content {
+  display: block;
+  overflow: hidden;
+}
+.officalRank-item {
+  padding: 20rpx 0;
+  display: flex;
+}
+.officalRank-item .avatar-wrapper {
+  display: inline-block;
+  background-color: rgb(119, 81, 81);
+  width: 220rpx;
+  height: 220rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.officalRank-item .avatar-wrapper image {
+  width: 100%;
+}
+.officalRank-item .avatar-wrapper .update {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  color: #fff;
+}
+.rank-list {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.rank-list .rank-item {
+  font-size: 26rpx;
+  margin: 28rpx 0;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+/* 推荐榜 */
+.recommendRank {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.recommendRank-title {
+  font-size: 38rpx;
+  margin-bottom: 16rpx;
+}
+.recommendRank-content {
+  display: block;
+  overflow: hidden;
+}
+.recommendRank-item {
+  padding: 20rpx 0;
+  display: inline-block;
+  margin-right: 27rpx;
+}
+.recommendRank-item:nth-child(3n+3) {
+  margin-right: 0;
+}
+.recommendRank-item .avatar-wrapper {
+  display: inline-block;
+  background-color: rgb(119, 81, 81);
+  width: 208rpx;
+  height: 208rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.recommendRank-item .avatar-wrapper image {
+  width: 100%;
+}
+.recommendRank-item .avatar-wrapper .update {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  color: #fff;
+}
+.recommendRank-name {
+  width: 208rpx;
+  font-size: 24rpx;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+/* 全球榜 */
+.globalRank {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.globalRank-title {
+  font-size: 38rpx;
+  margin-bottom: 16rpx;
+}
+.globalRank-content {
+  display: block;
+  overflow: hidden;
+}
+.globalRank-item {
+  padding: 20rpx 0;
+  display: inline-block;
+  margin-right: 27rpx;
+}
+.globalRank-item:nth-child(3n+3) {
+  margin-right: 0;
+}
+.globalRank-item .avatar-wrapper {
+  display: inline-block;
+  background-color: rgb(119, 81, 81);
+  width: 208rpx;
+  height: 208rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.globalRank-item .avatar-wrapper image {
+  width: 100%;
+}
+.globalRank-item .avatar-wrapper .update {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  color: #fff;
+}
+.globalRank-name {
+  width: 208rpx;
+  font-size: 24rpx;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+/* 更多榜单 */
+.moreRank {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.moreRank-title {
+  font-size: 38rpx;
+  margin-bottom: 16rpx;
+}
+.moreRank-content {
+  display: block;
+  overflow: hidden;
+}
+.moreRank-item {
+  padding: 20rpx 0;
+  display: inline-block;
+  margin-right: 27rpx;
+}
+.moreRank-item:nth-child(3n+3) {
+  margin-right: 0;
+}
+.moreRank-item .avatar-wrapper {
+  display: inline-block;
+  background-color: rgb(119, 81, 81);
+  width: 208rpx;
+  height: 208rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.moreRank-item .avatar-wrapper image {
+  width: 100%;
+}
+.moreRank-item .avatar-wrapper .update {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  color: #fff;
+}
+.moreRank-name {
+  width: 208rpx;
+  font-size: 24rpx;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

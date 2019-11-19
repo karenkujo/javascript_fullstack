@@ -8,7 +8,9 @@ Page({
     currentId: 2,
     banners: '',
     songList: '',
-    albums: ''
+    albums: '',
+    newSongs: '',
+    rank: ''
   },
   // 点击切换页面
   switchNav (e) {
@@ -61,17 +63,61 @@ Page({
       }
     })
   },
+  // 获取新歌
+  getSongs () {
+    let that = this
+    wx.request({
+      url: 'http://neteasecloudmusicapi.zhaoboy.com/personalized/newsong',
+      success (res) {
+        // console.log(res.data.result)
+        that.setData({
+          newSongs:res.data.result
+        })
+      }
+    })
+  },
   // 获取新碟
   getAlbums () {
     let that = this
     wx.request({
       url: 'http://neteasecloudmusicapi.zhaoboy.com/top/album?limit=3',
       success (res) {
-        // console.log(res.data.albums)
+        // console.log(res.data)
         that.setData({
           albums: res.data.albums
         })
       }
+    })
+  },
+  // 获取排行榜
+  getRank () {
+    let that = this
+    wx.request({
+      url: 'http://neteasecloudmusicapi.zhaoboy.com/toplist/detail',
+      success (res) {
+        console.log(res.data.list)
+        that.setData({
+          rank: res.data.list
+        })
+      }
+    })
+  },
+  // 去排行榜页面
+  toRank () {
+    this.setData({
+      currentId: 2
+    })
+  },
+  // 去歌单页面
+  toSongSheet () {
+    wx.navigateTo({
+      url: '../songSheet/songSheet'
+    })
+  },
+  // 去每日推荐页面
+  toDateRecommend () {
+    wx.navigateTo({
+      url: '../dateRecommend/dateRecommend'
     })
   },
   /**
@@ -81,6 +127,8 @@ Page({
     this.getBanner()
     this.getsongList()
     this.getAlbums()
+    this.getSongs()
+    this.getRank()
   },
 
   /**

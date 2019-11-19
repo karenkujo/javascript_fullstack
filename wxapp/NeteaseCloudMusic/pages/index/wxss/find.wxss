@@ -56,35 +56,37 @@
   opacity: 0.1;
 }
 /* 推荐歌单 */
-.songList-wrap {
+.songSheet-wrap {
   width: 100%;
   padding: 37.5rpx;
   box-sizing: border-box;
 }
-.songList-wrap .songList-title_wrap {
+.songSheet-wrap .songSheet-title_wrap {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 30rpx;
 }
-.songList-title {
+.songSheet-title {
   font-size: 32rpx;
   font-weight: 500;
 }
-.songList-square {
+.songSheet-square {
   font-size: 22rpx;
   border: 1px solid rgb(199, 195, 195);
   padding: 5rpx 16rpx;
   border-radius: 20rpx;
 }
-.songList {
+.songSheet {
   width: 100%;
   display: block;
 }
 .song-sheet {
+  vertical-align: top;
   display: inline-block;
   width: 213rpx;
   margin-right: 20rpx;
+  margin-bottom: 10rpx;
 }
 .song-sheet:nth-child(3n + 3) {
   margin-right: 0;
@@ -120,6 +122,60 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+/* 新歌 */
+.songs {
+  width: 100%;
+  padding: 10rpx 37.5rpx;
+  box-sizing: border-box;
+}
+.songs-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.songs-title_item {
+  font-size: 34rpx;
+}
+.more-songs {
+  font-size: 20rpx;
+  border-radius: 20px;
+  border: 1px solid rgb(199, 195, 195);
+  line-height: 30rpx;
+  padding: 6rpx 16rpx;
+}
+.songList {
+  width: 100%;
+  display: block;
+}
+.song {
+  display: inline-block;
+  width: 213rpx;
+  margin-right: 20rpx;
+}
+.song:nth-child(3n + 3) {
+  margin-right: 0
+}
+.song_img {
+  width: 100%;
+  height: 100%;
+}
+.song_img image {
+  width: 100%;
+}
+.song_name {
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.song_artist {
+  font-size: 20rpx;
+  padding: 4rpx;
+  color: rgb(138, 141, 141);
 }
 /* 新碟 */
 .albums {

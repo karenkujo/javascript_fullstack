@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/songSheet/songSheet",
+    "pages/dateRecommend/dateRecommend"
   ],
   "window": {
     "backgroundTextStyle": "light",
