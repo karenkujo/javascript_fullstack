@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header-icon">
+    <div class="header-icon" @click="leftEvent">
       <slot name="left-icon"></slot>
     </div>
     <div class="header-cont">
@@ -19,6 +19,11 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    leftEvent () {
+      this.$store.dispatch('setShowSidebar', true) // 直接调用actions里的方法
+    }
   }
 }
 </script>
@@ -33,6 +38,7 @@ export default {
   align-items center
   justify-content space-between
   color #746ca8
+  padding 0 8px
   font-size px2rem(30px)
   &icon 
     flex 0 0 px2rem(88px)
