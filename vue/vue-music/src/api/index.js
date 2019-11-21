@@ -5,7 +5,7 @@ const vue = new Vue
 
 // axios 配置
 axios.defaults.timeout = 10000  // 限制最长请求时间
-axios.defaults.baseUrl = 'http://localhost:3000'  // 基础API地址
+axios.defaults.baseURL = 'http://localhost:3000'  // 基础API地址
 
 // 判断返回状态,响应拦截
 axios.interceptors.response.use((res) => {
@@ -47,5 +47,8 @@ export default {
   // 歌单
   DiscLists (parmas) {
     return fetchGet('/top/playlist', parmas)
+  },
+  HotSearchKey () {
+    return fetchGet('/search/hot')
   }
 }
