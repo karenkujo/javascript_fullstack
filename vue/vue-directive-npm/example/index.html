@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="../index.js"></script>
+  <script>
+    Vue.component('my-loading-test', {
+      template: `
+      <div v-loading="loading">
+        <li>1</li>
+        <li>2</li>
+      </div>
+      `,
+      data () {
+        return {
+          loading: false
+        }
+      },
+      mounted () {
+        setTimeout(() => {
+          this.loading = true
+        }, 3000)
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      template: `
+      <div>
+        <my-loading-test />
+      </div>
+      `
+    })
+  </script>
+</body>
+</html>
