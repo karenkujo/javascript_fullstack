@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- scaleAble: none -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <p id="start"></p>
+    <p id="end"></p>
+    <p id="click"></p>
+    <p id="diff"></p>
+  </div>
+  <div id="diff">
+    <button id="Clickme">Click me</button>
+    <button id="Diffme">Diff me</button>
+  </div>
+  <script>
+    document.getElementById('Clickme')
+    .addEventListener('touchstart', function() {
+      document.getElementById('start').innerHTML = Date.now()
+    })
+    document.getElementById('Clickme')
+    .addEventListener('touchend', function(e) {
+      e.preventDefault()
+      // 1、手动触发click事件
+      // document.getElementById('Clickme').click()
+      // 2、自定义click事件
+      let event = document.createEvent('MouseEvents')
+      // 第二个参数指的是是否阻止冒泡 第三个参数是否阻止事件默认行为
+      event.initEvent('click', true, true)
+      document.getElementById('Clickme').dispatchEvent(event) // 给ClickMe派发click事件
+      document.getElementById('end').innerHTML = Date.now()
+    })
+    document.getElementById('Clickme')
+    .addEventListener('click', function() {
+      document.getElementById('click').innerHTML = Date.now()
+    })
+    document.getElementById('Diffme')
+    .addEventListener('click', function () {
+      document.getElementById('diff').innerHTML = document.getElementById('click').innerHTML - document.getElementById('end').innerHTML
+    })
+  </script>
+</body>
+</html>
