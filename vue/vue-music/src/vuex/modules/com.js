@@ -10,6 +10,12 @@ const mutations = {
   },
   [types.COM_SAVE_SEARCH_HISTORY] (state, status) {
     state.searchHistory = status
+  },
+  [types.COM_DELETE_SEARCH_HISTORY] (state, index) {
+    state.searchHistory.splice(index, 1)
+  },
+  [types.COM_CLEAR_SEARCH_HISTORY] (state) {
+    state.searchHistory = ''
   }
 }
 
@@ -18,9 +24,15 @@ const actions = {
     commit(types.COM_SHOW_SIDE_BAR, status)
   },
   saveSearchHistory ({commit, state}, query) {
-    let searchHistory = [query, ...state.searchHistory.slice()]
+    let searchHistory = [query, ...state.searchHistory.splice()]
     searchHistory = [...new Set(searchHistory)]
     commit(types.COM_SAVE_SEARCH_HISTORY, searchHistory)
+  },
+  deleteSearchHistory ({commit}, index) {
+    commit(types.COM_DELETE_SEARCH_HISTORY, index)
+  },
+  clearSearchHistory ({commit}) {
+    commit(types.COM_CLEAR_SEARCH_HISTORY)
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="search-box-wrapper">
-      <v-search-box @query="onQueryChange"></v-search-box>
+      <v-search-box @query="onQueryChange" ref="searchBox"></v-search-box>
     </div>
     <!-- 热门搜索和搜索历史 -->
     <div class="shortcut-wrapper">
@@ -21,14 +21,18 @@
             <h1 class="title">
               <span class="text">搜索历史</span>
               <span class="clear">
-                <i class="icon">&#xe612;</i>
+                <i class="icon" @click="clearSearchHistory">&#xe612;</i>
               </span>
             </h1>
             <!-- 搜索历史列表 -->
-            <v-search-List :searches="searchHistory"></v-search-List>
+            <v-search-List :searches="searchHistory" @select="saveSearch" @delete="deleteSearchHistory"></v-search-List>
           </div>
         </div>
       </v-scroll>
+    </div>
+    <!-- result -->
+    <div class="search-result">
+      <v-suggest :query="query"></v-suggest>
     </div>
   </div>
 </template>
@@ -39,6 +43,8 @@ import scroll from '@/components/scroll'
 import api from '@/api/index.js'
 import searchList from '@/components/searchList'
 import { mapGetters } from 'vuex'
+import { searchMixin } from '@/common/mixin'
+import suggest from '@/components/suggest'
 export default {
   data () {
     return {
@@ -49,12 +55,11 @@ export default {
   components: {
     'v-search-box': searchBox,
     'v-scroll': scroll,
-    'v-search-List': searchList
+    'v-search-List': searchList,
+    'v-suggest': suggest
   },
+  mixins: [searchMixin],  // 扩展
   methods: {
-    onQueryChange (e) {
-      console.log(e)
-    },
     _getHotKey () {
       api.HotSearchKey().then((res) => {
         if (res.code == 200) {
@@ -118,5 +123,9 @@ export default {
             .icon
               font-size 18px
               color hsla(0, 0%, 100%, 0.3)
-
+  .search-result
+    position fixed
+    width 100%
+    bottom 0
+    top px2rem(360px)
 </style>

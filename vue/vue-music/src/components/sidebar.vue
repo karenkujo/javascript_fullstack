@@ -83,7 +83,7 @@ export default {
     top 0
     left px2rem(-400px)
     transform translateZ(0)
-    opacity 1
+    opacity 0
     width px2rem(350px)
     z-index 1002
     height 100%

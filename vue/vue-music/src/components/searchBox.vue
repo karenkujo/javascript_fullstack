@@ -1,8 +1,8 @@
 <template>
   <div class="search-box">
     <i class="icon icon-search">&#xe638;</i>
-    <input type="text" v-model="query" class="box" :placeholder="placeholder">
-    <i class="icon icon-dismiss"></i>
+    <input ref="query" type="text" v-model="query" class="box" :placeholder="placeholder">
+    <i class="icon icon-dismiss" v-show="query" @click="clear">&#xe656;</i>
   </div>
 </template>
 
@@ -24,6 +24,17 @@ export default {
     this.$watch('query', debounce((newQuery) => {
       this.$emit('query', newQuery)
     }, 300))
+  },
+  methods: {
+    blur () {
+      this.$refs.query.blur()
+    },
+    clear () {
+      this.query = ''
+    },
+    setQuery (query) {
+      this.query = query
+    }
   }
 }
 </script>
