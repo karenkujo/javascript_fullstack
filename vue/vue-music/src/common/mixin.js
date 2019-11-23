@@ -1,4 +1,4 @@
-import {mapActions} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export const searchMixin = {
   data () {
@@ -7,22 +7,37 @@ export const searchMixin = {
     }
   },
   methods: {
-    ...mapActions([
-    'saveSearchHistory', 
-    'deleteSearchHistory', 
-    'clearSearchHistory',
-    'selectPlaySong'
-  ]),
-    saveSearch (song) {
-      // this.$refs.searchBox.setQuery(song)
-      this.saveSearchHistory(this.query)
-      this.selectPlaySong(song)
+    onQueryChange (query) {
+      this.query = query.trim()
     },
     blurInput () {
       this.$refs.searchBox.blur()
     },
-    onQueryChange (query) {
-      this.query = query.trim()  // 去空格
-    }
+    saveSearch (song) {
+      // this.$refs.searchBox.setQuery(song)
+      this.saveSearchHistory(this.query)
+      this.selectPlaySong(song)
+      // 为了看效果
+      this.addPlayList(song)
+    },
+    ...mapActions([
+      'addPlayList',
+      'selectPlaySong',
+      'saveSearchHistory',
+      'deleteSearchHistory',
+      'clearSearchHistory'
+    ])
+  }
+}
+
+export const playerMixin = {
+  computed: {
+    ...mapGetters([
+      'currentSong',
+      'playList'
+    ])
+  },
+  methods: {
+
   }
 }

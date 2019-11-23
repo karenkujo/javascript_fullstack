@@ -8,10 +8,12 @@
         <i class="icon">&#xe63c;</i>
       </router-link>
     </v-header>
+    <v-play></v-play>
     <v-sidebar></v-sidebar>
     <!-- tab -->
     <v-tab></v-tab>
     <router-view/>
+    
   </div>
 </template>
 
@@ -19,12 +21,14 @@
 import header from '@/components/header'
 import sidebar from '@/components/sidebar'
 import tab from '@/components/tab'
+import play from '@/components/play'
 export default {
   name: 'App',
   components: {
     'v-header': header,
     'v-sidebar': sidebar,
-    'v-tab': tab
+    'v-tab': tab,
+    'v-play': play
   }
 }
 </script>
