@@ -7,10 +7,16 @@ export const searchMixin = {
     }
   },
   methods: {
-    ...mapActions(['saveSearchHistory', 'deleteSearchHistory', 'clearSearchHistory']),
+    ...mapActions([
+    'saveSearchHistory', 
+    'deleteSearchHistory', 
+    'clearSearchHistory',
+    'selectPlaySong'
+  ]),
     saveSearch (song) {
-      this.$refs.searchBox.setQuery(song)
+      // this.$refs.searchBox.setQuery(song)
       this.saveSearchHistory(this.query)
+      this.selectPlaySong(song)
     },
     blurInput () {
       this.$refs.searchBox.blur()

@@ -1,7 +1,7 @@
 import * as types from '../types'
 const state = {
   showSidebar: false,
-  searchHistory: ['123', '456']
+  searchHistory: ['123']
 }
 
 const mutations = {
@@ -15,7 +15,7 @@ const mutations = {
     state.searchHistory.splice(index, 1)
   },
   [types.COM_CLEAR_SEARCH_HISTORY] (state) {
-    state.searchHistory = ''
+    state.searchHistory = []
   }
 }
 
