@@ -1,0 +1,60 @@
+.singer {
+  box-sizing: border-box;
+  padding: 0 36rpx;
+  width: 100%;
+  background-color: rgba(189, 181, 181, 0.1);
+}
+.singer-content {
+  min-height: 100vh;
+  overflow: hidden;
+}
+.singerList {
+  overflow: hidden
+}
+.singer-item {
+  display: flex;
+  margin: 25rpx auto;
+  line-height: 90rpx;
+  background-image: linear-gradient(to bottom right, rgb(236, 227, 227), rgba(198, 47, 47, .1));
+  border-radius: 18rpx;
+  padding: 20rpx;
+  position: relative;
+  width: 92%;
+  box-shadow: 8rpx 8rpx 4rpx rgb(233, 229, 229);
+}
+.singer-item .avatar-wrapper {
+  width: 100rpx;
+  height: 100rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 28rpx;
+}
+.singer-item .avatar-wrapper image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.singer-name {
+  font-size: 30rpx;
+  margin-right: 28rpx;
+  color: rgba(61, 60, 60, 0.7);
+  font-weight: 600;
+}
+.singer-detail {
+  font-size: 20rpx;
+  line-height: 40rpx;
+  position: absolute;
+  left: 450rpx;
+  top: 30rpx;
+  letter-spacing: 2rpx;
+  color: rgb(107, 107, 104);
+}
+.singer-item .icon{
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 3rpx solid rgb(107, 107, 104);
+  border-right: 3rpx solid rgb(107, 107, 104);
+  position: absolute;
+  right: 40rpx;
+  top: 60rpx;
+  transform: rotate(45deg);
+}

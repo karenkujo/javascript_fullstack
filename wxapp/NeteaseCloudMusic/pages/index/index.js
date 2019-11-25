@@ -1,16 +1,19 @@
-// pages/find/find.js
+// pages/index/index.js
+const baseUrl = 'http://localhost:3000'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentId: 2,
-    banners: '',
-    songList: '',
-    albums: '',
-    newSongs: '',
-    rank: ''
+    currentId: 1,
+    banners: [],
+    songList: [],
+    albums: [],
+    newSongs: [],
+    rank: [],
+    singerList: [],
+    MvList: []
   },
   // 点击切换页面
   switchNav (e) {
@@ -30,7 +33,7 @@ Page({
   getBanner () {
     let that = this
     wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/banner',
+      url: baseUrl + '/banner',
       success (res) {
         // console.log(res.data.banners)
         that.setData({
@@ -43,7 +46,7 @@ Page({
   getsongList () {
     let that = this
     wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/personalized?limit=6',
+      url: baseUrl + '/personalized?limit=6',
       success (res) {
         // console.log(res.data.result)
         if (res.data.code == 200) {
@@ -67,7 +70,7 @@ Page({
   getSongs () {
     let that = this
     wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/personalized/newsong',
+      url: baseUrl + '/personalized/newsong',
       success (res) {
         // console.log(res.data.result)
         that.setData({
@@ -80,7 +83,7 @@ Page({
   getAlbums () {
     let that = this
     wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/top/album?limit=3',
+      url: baseUrl + '/top/album?limit=3',
       success (res) {
         // console.log(res.data)
         that.setData({
@@ -93,11 +96,37 @@ Page({
   getRank () {
     let that = this
     wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/toplist/detail',
+      url: baseUrl + '/toplist/detail',
       success (res) {
-        console.log(res.data.list)
+        // console.log(res.data.list)
         that.setData({
           rank: res.data.list
+        })
+      }
+    })
+  },
+  // 获取歌手
+  getSinger () {
+    let that = this
+    wx.request({
+      url: baseUrl + '/top/artists',
+      success (res) {
+        // console.log(res.data.artists)
+        that.setData({
+          singerList: res.data.artists
+        })
+      }
+    })
+  },
+  // 获取最新mv
+  getMvList () {
+    let that = this
+    wx.request({
+      url: baseUrl + '/mv/first',
+      success (res) {
+        // console.log(res.data.data)
+        that.setData({
+          MvList: res.data.data
         })
       }
     })
@@ -120,6 +149,12 @@ Page({
       url: '../dateRecommend/dateRecommend'
     })
   },
+  // 去搜索界面
+  toSearch () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -129,13 +164,15 @@ Page({
     this.getAlbums()
     this.getSongs()
     this.getRank()
+    this.getSinger()
+    this.getMvList ()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

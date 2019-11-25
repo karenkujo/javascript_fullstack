@@ -1,0 +1,4 @@
+<!--pages/play/play.wxml-->
+<view class="play">
+  <audio src="{{musicUrl}}" controls></audio>
+</view>

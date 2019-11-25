@@ -4,19 +4,35 @@
     <view class="iconfont icon-caidan" style="font-size: 48rpx; color: black;"></view>
     <!-- 头部导航栏 -->
     <view class="nav" bindscroll="scroll">
-      <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">广场</view>
+      <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">歌手</view>
       <view class="nav-item {{currentId == 1 ? 'nav-item-select' : ''}}" data-id="1" bindtap="switchNav">发现</view>
       <view class="nav-item {{currentId == 2 ? 'nav-item-select' : ''}}" data-id="2" bindtap="switchNav">排行</view>
       <view class="nav-item {{currentId == 3 ? 'nav-item-select' : ''}}" data-id="3" bindtap="switchNav">视频</view>
     </view>
     <!-- 搜索 -->
-    <view class="iconfont icon-sousuo" style="font-size: 60rpx; color: black;"></view>
+    <view class="iconfont icon-sousuo" style="font-size: 60rpx; color: black;" bindtap="toSearch"></view>
   </view>
   <!-- 四个页面 -->
   <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav">
-    <!-- 广场 -->
+    <!-- 歌手 -->
     <swiper-item class="swiper-item">
-      广场
+      <view class="singer">
+        <view class="singer-content">
+          <ul class="singerList">
+            <li class="singer-item" wx:for="{{singerList}}" wx:key="index">
+              <view class="avatar-wrapper">
+                <image src="{{item.picUrl}}" mode="aspectFill" />
+              </view>
+              <view class="singer-name">{{item.name}}</view>
+              <view class="singer-detail">
+                <view class="singer-detail_albums">{{item.albumSize}}张专辑</view>
+                <view class="singer-detail_music">{{item.musicSize}}首歌曲</view>
+              </view>
+              <view class="icon"></view>
+            </li>
+          </ul>
+        </view>
+      </view>
     </swiper-item>
     <!-- 发现 -->
     <swiper-item class="swiper-item">
@@ -187,7 +203,19 @@
     </swiper-item>
     <!-- 视频 -->
     <swiper-item class="swiper-item">
-      视频
+      <view class="video">
+        <view class="video-wrapper">
+          <view class="video-item" wx:for="{{MvList}}" wx:key="{{index}}">
+            <view class="playVideo">
+              <image src="{{item.cover}}" mode="widthFit" />
+            </view>
+            <view class="briefDesc" wx:if="{{item.briefDesc !== null}}">{{item.briefDesc}}</view>
+            <view class="name">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
     </swiper-item>
   </swiper>
+  <view class="sideBar">
+  </view>
 </view>

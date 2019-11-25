@@ -1,0 +1,39 @@
+/* pages/search/search.wxss */
+.search {
+  box-sizing: border-box;
+  padding: 0 36rpx;
+  background-color: rgba(189, 181, 181, 0.1);
+}
+.search-wrapper {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.search-box {
+  overflow: hidden;
+}
+.hot-search {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 108rpx;
+  bottom: 0;
+  right: 0;
+  padding: 0 36rpx;
+}
+.suggest {
+  position: absolute;
+  left: 0;
+  top: 108rpx;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+  background-color: rgba(17, 16, 16, 0.1);
+}
+.suggest-content {
+  
+}
+.suggest-item {
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}

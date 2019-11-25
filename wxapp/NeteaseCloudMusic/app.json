@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/search/search",
     "pages/logs/logs",
     "pages/songSheet/songSheet",
-    "pages/dateRecommend/dateRecommend"
+    "pages/dateRecommend/dateRecommend",
+    "pages/play/play"
   ],
   "window": {
     "backgroundTextStyle": "light",

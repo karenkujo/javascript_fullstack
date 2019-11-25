@@ -1,0 +1,46 @@
+.video {
+  box-sizing: border-box;
+  padding: 0 36rpx;
+  background-color: rgba(189, 181, 181, 0.1);
+}
+.video-wrapper {
+  padding: 24rpx 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+}
+.video-item {
+  margin-bottom: 50rpx;
+  width: 670rpx;
+  overflow: hidden;
+  border: 1px solid rgba(187, 184, 184, .1);
+  border-radius: 15rpx;
+  box-shadow: 6rpx 6rpx 6rpx rgba(190, 186, 186, .3);
+  background-color: #fff;
+}
+.playVideo{
+  width: 670rpx;
+  overflow: hidden;
+}
+.playVideo image {
+  width: 670rpx;
+  height: 416rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.briefDesc {
+  margin-top: 8rpx;
+  font-size: 28rpx;
+   /* 显示一行超出打点 */
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+}
+.video-item .name {
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: rgb(175, 171, 166);
+  padding: 14rpx 0 28rpx 0;
+}

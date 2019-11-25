@@ -1,0 +1,25 @@
+<!--pages/search/search.wxml-->
+<view class="search">
+  <view class="search-wrapper">
+    <view class="search-box">
+      <van-search value="{{query}}" placeholder="请输入搜索关键词" bind:change="onChange" autofocus="autofocus"/>
+    </view>
+    <view class="hot-search" wx:if="{{!showsuggest}}">
+      <view class="title">热门搜索</view>
+      <view class="hot-item" wx:for="{{hotSearch}}" wx:key="{{index}}" data-name="{{item.first}}" bindtap="onSearchBox">
+        <view class="hot-name">
+          <view class="text">{{item.first}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="suggest" wx:if="{{showsuggest}}">
+      <view class="suggest-content">
+        <block wx:for="{{songs}}" wx:key="{{index}}">
+          <view class="suggest-item" data-id="{{item.id}}" bindtap="play">
+            <view class="text">{{item.name}} - {{item.artists[0].name}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

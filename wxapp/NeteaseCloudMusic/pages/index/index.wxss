@@ -2,6 +2,8 @@
 @import "../../iconfont/iconfont";
 @import "./wxss/find";
 @import "./wxss/rank";
+@import "./wxss/singer.wxss";
+@import "./wxss/video";
 page {
   margin: 0;
   padding: 0;
@@ -43,7 +45,7 @@ page {
 }
 .index-pages {
   width: 100%;
-  min-height: calc(100vh - 98rpx) ;
+  min-height: 100vh
 }
 /* 取消侧边滚动条 */
 ::-webkit-scrollbar {
