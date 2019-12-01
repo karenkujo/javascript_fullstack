@@ -1,12 +1,12 @@
 /* pages/search/search.wxss */
+@import "../../iconfont/iconfont";
 .search {
-  box-sizing: border-box;
-  padding: 0 36rpx;
   background-color: rgba(189, 181, 181, 0.1);
 }
 .search-wrapper {
   min-height: 100vh;
   overflow: hidden;
+  width: 100%;
   position: relative;
 }
 .search-box {
@@ -17,23 +17,100 @@
   position: absolute;
   left: 0;
   top: 108rpx;
-  bottom: 0;
   right: 0;
   padding: 0 36rpx;
+}
+.hot-search .title {
+  font-size: 30rpx;
+  margin-top: 18rpx;
+  font-weight: 500;
+}
+.hot-content {
+  box-sizing: border-box;
+  padding: 16rpx 0;
+}
+.hot-item {
+  padding: 10rpx 0;
+}
+.hot-name {
+  font-size: 34rpx;
+  display: flex;
+}
+.hot-name .text1 {
+  width: 80rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+.searchHistory {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 846rpx;
+  background-color: #fff;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+.searchHistory .title {
+  font-size: 30rpx;
+  margin-top: 18rpx;
+  font-weight: 500;
+}
+.searchHistory-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 62rpx;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: scroll;
+}
+.searchHistory-content {
+  box-sizing: border-box;
+  padding: 16rpx 0;
+}
+.searchHistory-item {
+  font-size: 26rpx;
+  border-radius: 20rpx;
+  background-color: rgb(243, 234, 234);
+  display: inline-block;
+  margin: 6rpx 20rpx 6rpx 0;
+}
+.searchHistory-item .name {
+  padding: 4rpx 16rpx;
 }
 .suggest {
   position: absolute;
+  top: 105rpx;
+  right: 900rpx;
   left: 0;
-  top: 108rpx;
-  right: 0;
   bottom: 0;
-  overflow: scroll;
-  background-color: rgba(17, 16, 16, 0.1);
-}
-.suggest-content {
-  
+  background-color: rgb(160, 157, 156);
+  color: rgb(243, 240, 240);
 }
 .suggest-item {
-  padding: 0 36rpx;
+  padding: 20rpx 0;
   box-sizing: border-box;
+  font-size: 30rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.3);
+  display: flex;
+}
+.suggest-item .iconfont {
+  margin: 0 20rpx;
+}
+.suggest-item .text {
+ /* 显示一行超出打点 */
+ overflow: hidden;
+ text-overflow: ellipsis;
+ display: -webkit-box;
+ -webkit-line-clamp: 1;
+ -webkit-box-orient: vertical;
+}
+.loading {
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
 }

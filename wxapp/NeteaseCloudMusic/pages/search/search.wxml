@@ -2,24 +2,46 @@
 <view class="search">
   <view class="search-wrapper">
     <view class="search-box">
-      <van-search value="{{query}}" placeholder="请输入搜索关键词" bind:change="onChange" autofocus="autofocus"/>
+      <van-search value="{{query}}" placeholder="请输入搜索关键词" bind:change="onChange" background="#C62F2F" />
     </view>
     <view class="hot-search" wx:if="{{!showsuggest}}">
       <view class="title">热门搜索</view>
-      <view class="hot-item" wx:for="{{hotSearch}}" wx:key="{{index}}" data-name="{{item.first}}" bindtap="onSearchBox">
-        <view class="hot-name">
-          <view class="text">{{item.first}}</view>
+      <view class="hot-content">
+        <view class="hot-item" wx:for="{{hotSearch}}" wx:key="{{index}}" data-name="{{item.first}}" bindtap="onSearchBox">
+          <view class="hot-name">
+            <view class="text1">{{index + 1}}</view>
+            <view class="text2">{{item.first}}</view>
+          </view>
         </view>
       </view>
     </view>
-    <view class="suggest" wx:if="{{showsuggest}}">
+    <view class="searchHistory">
+      <view class="title">搜索历史</view>
+      <view class="searchHistory-wrapper">
+        <view class="searchHistory-content">
+          <view class="searchHistory-item" 
+          wx:for="{{SearchHistory}}" 
+          wx:key="{{item.id}}" 
+          wx:if="{{index < 10}}"
+          data-id="{{item.id}}"
+          data-name="{{item.name}}"
+          bindtap="onSearchBox"
+          >
+            <view class="name">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" bindscrolltolower="scrollLower" lower-threshold="{{30||20||10||0}}" class="suggest" wx:if="{{showsuggest}}">
       <view class="suggest-content">
         <block wx:for="{{songs}}" wx:key="{{index}}">
-          <view class="suggest-item" data-id="{{item.id}}" bindtap="play">
+          <view class="suggest-item" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="play">
+            <view class="iconfont icon-sousuo" style="font-size: 40rpx; color: #fff;" ></view>
             <view class="text">{{item.name}} - {{item.artists[0].name}}</view>
           </view>
         </block>
+        <view class="loading" wx:if="{{showLoading}}">加载中...</view>
       </view>
-    </view>
+    </scroll-view>
   </view>
 </view>

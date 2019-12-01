@@ -1,1 +1,135 @@
 /* pages/play/play.wxss */
+@import "../../iconfont/iconfont";
+.play {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+/* 背景 */
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  background-color: #000;
+  opacity: .4;
+}
+.background image {
+  width: 750rpx;
+  height: 100%;
+  filter: blur(35px);
+}
+
+/* playhandle */
+.play-handle {
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  z-index: 1;
+}
+.play-handle image {
+  transform: scale(.6);
+  position: absolute;
+  left: 90rpx;
+  top: -60rpx;
+}
+
+/* disc */
+.disc {
+  position: relative;
+  width: 100%;
+  height: 600rpx;
+}
+.disc-wrapper {
+  position: relative;
+  width: 750rpx;
+  height: 600rpx;
+  text-align: center;
+}
+.discCase {
+  width: 600rpx;
+  height: 600rpx;
+}
+.discImg-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 366rpx;
+  height: 366rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.discImg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 366rpx;
+  height: 366rpx;
+}
+
+/* control */
+.control {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 850rpx;
+  bottom: 0;
+}
+.operation {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20rpx;
+}
+.control-wrapper {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+.iconfont {
+  color: rgb(235, 224, 224);
+  font-size: 60rpx;
+  flex: 1;
+  text-align: center;
+  line-height: 60rpx;
+}
+.icon-zanting {
+  color: rgb(235, 224, 224);
+  font-size: 100rpx;
+  flex: 1;
+  text-align: center;
+}
+
+/* 进度条 */
+.progress {
+  display: flex;
+  color: rgb(235, 224, 224);
+  width: 90%;
+  margin: 0 auto;
+  padding: 40rpx 0;
+  align-items: center;
+}
+.progress-wrapper {
+  height: 4rpx;
+  flex: 1;
+  margin: 0 30rpx;
+  background-color: rgba(214, 203, 203, .4);
+}
+.currentTime, .countTime {
+  font-size: 26rpx;
+  color: rgba(214, 203, 203, .4);
+}

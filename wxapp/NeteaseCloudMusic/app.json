@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/play/play",
     "pages/search/search",
+    "pages/index/index",
     "pages/logs/logs",
     "pages/songSheet/songSheet",
-    "pages/dateRecommend/dateRecommend",
-    "pages/play/play"
+    "pages/dateRecommend/dateRecommend"
   ],
+  "requiredBackgroundModes": ["audio"] ,
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#C62F2F",

@@ -10,7 +10,10 @@ Page({
     query: '',
     songCount: 0,
     songs: [],
-    showsuggest: false
+    showsuggest: false,
+    page: 0,
+    showLoading: false,
+    SearchHistory: []
   },
 
   // 获取热门搜索
@@ -31,6 +34,10 @@ Page({
   // 获取搜索建议
   getSuggest (query) {
     let that = this
+    that.setData({
+      page: 0,
+      showLoading: true
+    })
     wx.request({
       url: baseUrl + '/search',
       data: {
@@ -42,7 +49,46 @@ Page({
           // console.log(res.data.result.songs)
           that.setData({
             songCount: res.data.result.songCount,
-            songs: res.data.result.songs
+            songs: res.data.result.songs,
+            showLoading: false
+          })
+        }
+      }
+    })
+  },
+  // 滚动到底部加载
+  scrollLower () {
+    let page = this.data.page + 1
+    this.setData({
+      page: page,
+      showLoading: true
+    })
+    this.getMoreSuggest (this.data.query)
+  },
+  // 上拉加载更多
+  getMoreSuggest (query) {
+    let that = this
+    if (that.data.songs.length === that.data.songCount) {
+      that.setData({
+        showLoading: false
+      })
+      return
+    }
+    wx.request({
+      url: baseUrl + '/search',
+      data: {
+        keywords: query,
+        offset: that.data.page * 30
+      },
+      success (res) {
+        console.log(res.data.result.songs)
+        if (res.data.code === 200) {
+          let moreSongs = that.data.songs
+          let loadSongs = res.data.result.songs
+          moreSongs = [...moreSongs, ...loadSongs]
+          that.setData({
+            songs: moreSongs,
+            showLoading: false
           })
         }
       }
@@ -65,20 +111,41 @@ Page({
     })
     that.getSuggest(that.data.query)
   },
+  // 存储搜索历史
+  saveSearchHistory(name, id) {
+    let history = {
+      name: name,
+      id: id
+    }
+    let currentHistory = this.data.SearchHistory
+    for (let item of currentHistory) {
+      if (item.id === history.id) {
+        return
+      }
+    }
+    currentHistory = [...new Set([history, ...currentHistory])]
+    this.setData({
+      SearchHistory: currentHistory
+    })
+    // console.log(this.data.SearchHistory)
+  },
   // 去播放音乐界面
   play (e) {
     let id = e.currentTarget.dataset.id
+    this.saveSearchHistory(e.currentTarget.dataset.name, e.currentTarget.dataset.id)
     wx.navigateTo({
       url: '../play/play?id=' + id
     })
   },
-  // 点击热门搜索
+  // 点击热门搜索或者搜索历史
   onSearchBox (e) {
     // console.log(e.currentTarget.dataset.name)
-    this.setData({
-      query: e.currentTarget.dataset.name
+    let that = this
+    that.setData({
+      query: e.currentTarget.dataset.name,
+      showsuggest: true
     })
-    this.onChange(e.currentTarget.dataset.name)
+    that.getSuggest(that.data.query)
   },
   /**
    * 生命周期函数--监听页面加载

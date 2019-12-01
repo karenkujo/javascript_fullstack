@@ -1,4 +1,40 @@
-<!--pages/play/play.wxml-->
 <view class="play">
-  <audio src="{{musicUrl}}" controls></audio>
+  <view class="background">
+    <image class="" src="{{picUrl}}" mode="scaleToFill" />
+    <view class="mask"></view>
+  </view>
+  <view class="play-handle">
+    <image class="" src="../../images/play-handle.png" mode="aspectFit" />
+  </view>
+  <view class="disc">
+    <view class="disc-wrapper">
+      <image class="discCase" src="../../images/disc.png" mode="aspectFill" />
+      <view class="discImg-wrapper">
+        <image class="discImg" src="{{picUrl}}" mode="aspectFill" />
+      </view>
+    </view>
+  </view>
+  <view class="control">
+    <view class="operation">
+      <view class="iconfont icon-xihuan"></view>
+      <view class="iconfont icon-xiazai"></view>
+      <view class="iconfont icon-jingyunyinxiaopt-wangyiicon"></view>
+      <view class="iconfont icon-pinglunpt-wangyiicon"></view>
+      <view class="iconfont icon-gengduo"></view>
+    </view>
+    <view class="progress">
+      <view class="currentTime">00:00</view>
+      <view class="progress-wrapper">
+        <view class="progress-bar"></view>
+      </view>
+      <view class="countTime">05:08</view>
+    </view>
+    <view class="control-wrapper">
+      <view class="iconfont icon-xunhuanbofang"></view>
+      <view class="iconfont icon-shangyiqu"></view>
+      <view class="iconfont icon-zanting"></view>
+      <view class="iconfont icon-xiayiqu"></view>
+      <view class="iconfont icon-caidan1"></view>
+    </view>
+  </view>
 </view>
