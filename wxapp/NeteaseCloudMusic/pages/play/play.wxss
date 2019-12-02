@@ -58,6 +58,18 @@
   width: 750rpx;
   height: 600rpx;
   text-align: center;
+  animation: rotate 27s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .discCase {
   width: 600rpx;
@@ -93,12 +105,13 @@
   display: flex;
   width: 90%;
   margin: 0 auto;
-  padding: 20rpx;
+  padding: 20rpx 0 0 0;
 }
 .control-wrapper {
   display: flex;
   width: 90%;
   margin: 0 auto;
+  margin-top: 20rpx;
 }
 .iconfont {
   color: rgb(235, 224, 224);
@@ -107,7 +120,7 @@
   text-align: center;
   line-height: 60rpx;
 }
-.icon-zanting {
+.icon-zanting, .icon-bofang-wangyiicon{
   color: rgb(235, 224, 224);
   font-size: 100rpx;
   flex: 1;

@@ -23,16 +23,16 @@
       <view class="iconfont icon-gengduo"></view>
     </view>
     <view class="progress">
-      <view class="currentTime">00:00</view>
+      <view class="currentTime">{{currentTime}}</view>
       <view class="progress-wrapper">
         <view class="progress-bar"></view>
       </view>
-      <view class="countTime">05:08</view>
+      <view class="countTime">{{duration}}</view>
     </view>
     <view class="control-wrapper">
       <view class="iconfont icon-xunhuanbofang"></view>
       <view class="iconfont icon-shangyiqu"></view>
-      <view class="iconfont icon-zanting"></view>
+      <view class="iconfont {{state ? 'icon-bofang-wangyiicon' : 'icon-zanting'}} " bindtap="swichState"></view>
       <view class="iconfont icon-xiayiqu"></view>
       <view class="iconfont icon-caidan1"></view>
     </view>
