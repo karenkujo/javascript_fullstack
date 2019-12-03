@@ -15,8 +15,8 @@ Vue.prototype.$http = axios
 Vue.config.productionTip = false
 router.beforeEach((to, from, next) => { // 导航守卫
   document.title = to.meta.title
-  console.log(to)
-  console.log(from)
+  // console.log(to)
+  // console.log(from)
   next()
 })
 
