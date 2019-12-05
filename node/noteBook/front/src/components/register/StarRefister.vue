@@ -42,13 +42,19 @@ export default {
         method: 'post',
         url: 'http://localhost:3000/users/userRegister',
         data: {
-          nickname: this.nickname.trim(),
           username: this.username.trim(),
-          userpwd: this.userpwd.trim()
+          userpwd: this.userpwd.trim(),
+          nickname: this.nickname.trim()
         }
       })
       .then(res => {
-        
+        console.log(res)
+        if (res.data.code === 200) {
+          this.$toast(res.data.mess)
+          this.$router.push({ path: '/StarLogin'})
+        } else {
+          this.$toast(res.data.mess)
+        }
       })
     },
     login () {
