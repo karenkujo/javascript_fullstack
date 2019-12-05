@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name1: '123',
+      fn: function () {
+        console.log(this)
+        console.log(this.name1)
+      }
+    }
+    obj.fn() // 123
+    var p = obj.fn // 将p赋值为一个window下的方法
+    p() // undefined
+  </script>
+</body>
+</html>

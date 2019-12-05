@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    this.a = 20
+    function Go () {
+      // {}
+      // 继承 {}.__proto__ = Go.prototype
+      // this === 实例
+      console.log(this.a)
+      // 赋值属性
+      this.a = 30
+      // return {}
+    }
+    Go.prototype.a = 40
+    var test = {
+      a: 50,
+      init: function (fn) {
+        fn()
+        console.log(this.a)
+        return fn
+      }
+    }
+    // 1.
+    // let p = new Go
+    console.log(new Go().a)
+
+    // 2.
+    test.init(Go) // 20 50 
+
+    // 3.
+    var p = test.init(Go) // 30 50      上一步把window下的a改成了30!!!!!
+    p() // 30
+  </script>
+</body>
+</html>
