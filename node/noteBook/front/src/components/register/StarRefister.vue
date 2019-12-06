@@ -40,7 +40,7 @@ export default {
       }
       this.$http({
         method: 'post',
-        url: 'http://localhost:3000/users/userRegister',
+        url: 'http://192.168.31.25:3000/users/userRegister',
         data: {
           username: this.username.trim(),
           userpwd: this.userpwd.trim(),

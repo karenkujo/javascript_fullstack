@@ -6,6 +6,8 @@ import StarLogin from '@/components/login/StarLogin'
 import StarRefister from '@/components/register/StarRefister'
 import NoteClass from '@/components/noteClass/noteClass'
 import NoteList from '@/components/noteList/noteList'
+import NoteDetail from '@/components/noteDetail/noteDetail'
+import publishNote from '@/components/publishNote/publishNote'
 
 Vue.use(Router)
 
@@ -57,6 +59,22 @@ export default new Router({
       component: NoteList,
       meta: {
         title: '笔记列表' // 配置当前路由的title
+      }
+    },
+    {
+      path: '/noteDeatil',
+      name: 'NoteDetail',
+      component: NoteDetail,
+      meta: {
+        title: '笔记详情' // 配置当前路由的title
+      }
+    },
+    {
+      path: '/publishNote',
+      name: 'publishNote',
+      component: publishNote,
+      meta: {
+        title: '写笔记' // 配置当前路由的title
       }
     }
   ]

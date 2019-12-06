@@ -2,9 +2,9 @@ const config = {
   database: {
     DATABASE: 'test',
     USERNAME: 'root',
-    PASSWORD: '993698262',
+    PASSWORD: 'xfwnx1023',
     PORT: '3306',
-    HOST: 'localhost'
+    HOST: '192.168.31.25'
   }
 }
 
