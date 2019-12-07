@@ -34,7 +34,7 @@
         @cancel="onCancel"
         />
       </div>
-      <div class="publish-btn">发布笔记</div>
+      <div class="publish-btn" @click="publish">发布笔记</div>
     </div>
   </div>
 </template>
@@ -108,7 +108,10 @@ export default {
     onEditorFocus (editor) {},
     // 富文本编辑器 内容改变事件
     onEditorChange (editor) {},
-    onRead () {},
+    onRead (file) {
+      console.log(file)
+      this.preImg = file.content
+    },
     onSelect (item, index) {
       // console.log(item)
       this.selectCon = item.subname
@@ -119,9 +122,32 @@ export default {
     },
     selectType() {
       this.show = true
+    },
+    publish () {
+      let curUserId = JSON.parse(sessionStorage.getItem('userInfo')).id
+      let curNickname = JSON.parse(sessionStorage.getItem('userInfo')).nickname
+      this.$http({
+        url: 'http://192.168.31.25:3000/users/insertNote',
+        method: 'post',
+        data: {
+          note_content: this.content,
+          head_img: this.preImg,
+          title: this.title,
+          note_type: this.selectCon,
+          useId: curUserId,
+          nickname: curNickname
+        }
+      })
+      .then((res) => {
+        console.log(res)
+        this.$toast(res.data.mess)
+        setTimeout(() => {
+          this.$router.push({ path: '/noteClass'})
+        }, 500)
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
