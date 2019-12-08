@@ -3,11 +3,11 @@
     <image class="" src="{{picUrl}}" mode="scaleToFill" />
     <view class="mask"></view>
   </view>
-  <view class="play-handle">
+  <view class="play-handle {{handleState ? '' : 'play-handle_paused'}}">
     <image class="" src="../../images/play-handle.png" mode="aspectFit" />
   </view>
   <view class="disc">
-    <view class="disc-wrapper">
+    <view class="disc-wrapper" style="animation-play-state: {{state ? 'running' : 'paused'}};">
       <image class="discCase" src="../../images/disc.png" mode="aspectFill" />
       <view class="discImg-wrapper">
         <image class="discImg" src="{{picUrl}}" mode="aspectFill" />
@@ -24,15 +24,21 @@
     </view>
     <view class="progress">
       <view class="currentTime">{{currentTime}}</view>
-      <view class="progress-wrapper">
-        <view class="progress-bar"></view>
+      <view class="progress-wrapper" bind:touchstart="skip">
+        <view class="progress-bar" style="width: {{left * 2}}rpx;"></view>
+        <!-- touchstart 事件阻止冒泡 -->
+        <view class="progress-circle" style="left: {{left * 2}}rpx;" 
+        catchtouchstart="dragStart"  
+        bind:touchmove="dragMove"
+        bind:touchend="dragEnd"
+        ></view>
       </view>
       <view class="countTime">{{duration}}</view>
     </view>
     <view class="control-wrapper">
       <view class="iconfont icon-xunhuanbofang"></view>
       <view class="iconfont icon-shangyiqu"></view>
-      <view class="iconfont {{state ? 'icon-bofang-wangyiicon' : 'icon-zanting'}} " bindtap="swichState"></view>
+      <view class="iconfont {{handleState ? 'icon-bofang-wangyiicon' : 'icon-zanting'}} " bindtap="swichState"></view>
       <view class="iconfont icon-xiayiqu"></view>
       <view class="iconfont icon-caidan1"></view>
     </view>

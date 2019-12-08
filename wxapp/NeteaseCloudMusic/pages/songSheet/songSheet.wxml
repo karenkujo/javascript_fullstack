@@ -1,2 +1,83 @@
-<!--pages/songSheet/songSheet.wxml-->
-<text>pages/songSheet/songSheet.wxml</text>
+<!-- pages/songSheet/songSheet.wxml -->
+<view class="songSheet">
+  <view class="nav">
+    <view class="nav-item {{currentId == 0 ? 'active' : ''}}" data-id="0" bindtap="switchNav">
+      推荐
+    </view>
+    <view class="nav-item {{currentId == 1 ? 'active' : ''}}" data-id="1" bindtap="switchNav">
+      华语
+    </view>
+    <view class="nav-item {{currentId == 2 ? 'active' : ''}}" data-id="2" bindtap="switchNav">
+      日语
+    </view>
+    <view class="nav-item {{currentId == 3 ? 'active' : ''}}" data-id="3" bindtap="switchNav">
+      ACG
+    </view>
+  </view>
+  <swiper class="songSheet-tag" current="{{currentId}}" bindchange="scollNav" >
+    <!-- 推荐 -->
+    <swiper-item class="songSheet-wrapper">
+      <ul class="songSheet-item">
+        <li class="song-sheet" wx:for="{{recSongList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
+          <view class="song-sheet_img">
+            <image class="" mode="widthFix" src="{{item.picUrl}}">
+              <view class="song-sheet_playCount">
+                <view class="iconfont icon-play" style="color: #fff;"></view>
+                <text>{{item.playCount}}</text>
+              </view>
+            </image>
+          </view>
+          <view class="song-sheet_name">{{item.name}}</view>
+        </li>
+      </ul>
+    </swiper-item>
+    <!-- 华语 -->
+    <swiper-item class="songSheet-wrapper">
+      <ul class="songSheet-item">
+        <li class="song-sheet" wx:for="{{chiSongList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
+          <view class="song-sheet_img">
+            <image class="" mode="widthFix" src="{{item.coverImgUrl}}">
+              <view class="song-sheet_playCount">
+                <view class="iconfont icon-play" style="color: #fff;"></view>
+                <text>{{item.playCount}}</text>
+              </view>
+            </image>
+          </view>
+          <view class="song-sheet_name">{{item.name}}</view>
+        </li>
+      </ul>
+    </swiper-item>
+    <!-- 日语 -->
+    <swiper-item class="songSheet-wrapper">
+      <ul class="songSheet-item">
+        <li class="song-sheet" wx:for="{{japSongList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
+          <view class="song-sheet_img">
+            <image class="" mode="widthFix" src="{{item.coverImgUrl}}">
+              <view class="song-sheet_playCount">
+                <view class="iconfont icon-play" style="color: #fff;"></view>
+                <text>{{item.playCount}}</text>
+              </view>
+            </image>
+          </view>
+          <view class="song-sheet_name">{{item.name}}</view>
+        </li>
+      </ul>
+    </swiper-item>
+    <!-- ACG -->
+    <swiper-item class="songSheet-wrapper">
+      <ul class="songSheet-item">
+        <li class="song-sheet" wx:for="{{acgSongList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
+          <view class="song-sheet_img">
+            <image class="" mode="widthFix" src="{{item.coverImgUrl}}">
+              <view class="song-sheet_playCount">
+                <view class="iconfont icon-play" style="color: #fff;"></view>
+                <text>{{item.playCount}}</text>
+              </view>
+            </image>
+          </view>
+          <view class="song-sheet_name">{{item.name}}</view>
+        </li>
+      </ul>
+    </swiper-item>
+  </swiper>
+</view>

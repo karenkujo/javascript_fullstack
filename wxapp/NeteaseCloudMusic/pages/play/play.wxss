@@ -30,7 +30,7 @@
 .background image {
   width: 750rpx;
   height: 100%;
-  filter: blur(35px);
+  filter: blur(30px);
 }
 
 /* playhandle */
@@ -39,6 +39,11 @@
   width: 100%;
   height: 200rpx;
   z-index: 1;
+  transition: all .5s linear;
+  transform-origin: 49% 41%;
+}
+.play-handle_paused {
+  transform: rotate(-30deg);
 }
 .play-handle image {
   transform: scale(.6);
@@ -141,6 +146,20 @@
   flex: 1;
   margin: 0 30rpx;
   background-color: rgba(214, 203, 203, .4);
+  position: relative;
+}
+.progress-bar {
+  height: 4rpx;
+  background-color: rgba(230, 219, 219, .8);
+}
+.progress-circle {
+  width: 17rpx;
+  height: 17rpx;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  position: absolute;
+  top: -5rpx;
+  transform: translateX(-50%);
 }
 .currentTime, .countTime {
   font-size: 26rpx;

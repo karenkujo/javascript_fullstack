@@ -1,7 +1,7 @@
 <view class="container">
   <view class="nav-wrap">
     <!-- 菜单 -->
-    <view class="iconfont icon-caidan" style="font-size: 48rpx; color: black;"></view>
+    <view class="iconfont icon-caidan" style="font-size: 48rpx;" bind:tap="showSide"></view>
     <!-- 头部导航栏 -->
     <view class="nav" bindscroll="scroll">
       <view class="nav-item {{currentId == 0 ? 'nav-item-select' : ''}}" data-id="0" bindtap="switchNav">歌手</view>
@@ -10,8 +10,9 @@
       <view class="nav-item {{currentId == 3 ? 'nav-item-select' : ''}}" data-id="3" bindtap="switchNav">视频</view>
     </view>
     <!-- 搜索 -->
-    <view class="iconfont icon-sousuo" style="font-size: 60rpx; color: black;" bindtap="toSearch"></view>
+    <view class="iconfont icon-sousuo" style="font-size: 60rpx;" bindtap="toSearch"></view>
   </view>
+
   <!-- 四个页面 -->
   <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav">
     <!-- 歌手 -->
@@ -82,7 +83,7 @@
             </view>
           </view>
           <ul class="songSheet">
-            <li class="song-sheet" wx:for="{{songList}}" wx:key="{{index}}">
+            <li class="song-sheet" wx:for="{{songList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
               <view class="song-sheet_img">
                 <image class="" mode="widthFix" src="{{item.picUrl}}">
                   <view class="song-sheet_playCount">
@@ -216,6 +217,26 @@
       </view>
     </swiper-item>
   </swiper>
-  <view class="sideBar">
+  <view class="mask" style="opacity: {{maskOpacity}}; display: {{maskDisplay}};" bind:tap="hiddenSide"></view>
+  <view class="sideBar {{sideShow ? 'show' : '' }}" style="right: {{sideWidth}}">
+    <view class="side-wrapper">
+      <view class="iconfont icon-arrow-sl" bind:tap="hiddenSide"></view>
+      <view class="user-wrapper">
+        <view class="avatar-wrapper">
+          <image class="" src="../../images/avatar.jpg" />
+        </view>
+        <view class="username">karen</view>
+      </view>
+      <view class="signIn">
+        <span class="iconfont icon-iconfonticon"></span>
+        <span class="text">签到</span>
+      </view>
+      <view class="sideList">
+        <view class="list-item" wx:for="{{sideData}}" wx:key="{{index}}" >
+          <view class="iconfont {{item.iconClass}}"></view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

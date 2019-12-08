@@ -81,7 +81,7 @@ Page({
         offset: that.data.page * 30
       },
       success (res) {
-        console.log(res.data.result.songs)
+        // console.log(res.data.result.songs)
         if (res.data.code === 200) {
           let moreSongs = that.data.songs
           let loadSongs = res.data.result.songs

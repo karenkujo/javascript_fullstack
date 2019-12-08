@@ -1,1 +1,98 @@
 /* pages/songSheet/songSheet.wxss */
+@import "../../iconfont/iconfont";
+.songSheet {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgb(250, 250, 250);
+}
+.nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 16rpx;
+  justify-content: space-around;
+}
+.nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  color: rgb(94, 94, 95);
+}
+.nav-item.active {
+  color: rgb(198, 47, 47);
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.songSheet-tag {
+  position: absolute;
+  top: 100rpx;
+  width: 100%;
+  height: calc(100vh - 100rpx);
+}
+.songSheet-wrapper {
+  width: 100%;
+  overflow: scroll;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+.songSheet-item {
+  width: 100%;
+  display: block;
+}
+.song-sheet {
+  vertical-align: top;
+  display: inline-block;
+  width: 213rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+}
+.song-sheet:nth-child(3n + 3) {
+  margin-right: 0;
+}
+.song-sheet_img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.song-sheet_img image {
+  width: 100%;
+}
+.song-sheet_img image .song-sheet_playCount {
+  position: absolute;
+  font-size: 18rpx;
+  color: #fff;
+  top: 0;
+  right: 5rpx;
+}
+.song-sheet_img image .song-sheet_playCount .iconfont {
+  display: inline-block;
+}
+.song-sheet_img image .song-sheet_playCount text {
+  display: inline-block;
+  font-size: 22rpx;
+  transform: translate(0, -4rpx);
+}
+.song-sheet_name {
+  font-size: 24rpx;
+  /* 显示两行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/* 取消侧边滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

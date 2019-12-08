@@ -11,12 +11,17 @@ page {
 .container {
   width: 100%;
   overflow: auto;
+  position: relative;
+  height: 100vh;
 }
 /* 导航 */
 .nav-wrap {
   padding: 10rpx;
-  margin-top: 20rpx;
-  position: relative;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  right: 0;
+  height: 60rpx;
 }
 .nav {
   margin-left: 80rpx;
@@ -33,19 +38,24 @@ page {
 }
 .icon-caidan {
   left: 26rpx;
+  color:rgb(126, 126, 126)
 }
 .icon-sousuo {
   right: 26rpx;
   bottom: 10rpx;
+  color:rgb(126, 126, 126)
 }
 .nav-item-select {
   font-weight: 700;
-  color: #000000;
+  color: rgb(198, 47, 47);
   white-space: nowrap;
 }
 .index-pages {
-  width: 100%;
-  min-height: 100vh
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100rpx;
+  height: calc(100vh - 100rpx);
 }
 /* 取消侧边滚动条 */
 ::-webkit-scrollbar {
@@ -55,4 +65,108 @@ page {
 }
 .swiper-item {
   overflow: auto;
+}
+
+/* 侧边栏 */
+.sideBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 30%;
+  background-color: #fff;
+  overflow: scroll;
+  z-index: 999;
+  background-color: rgb(252, 248, 248);
+  transform: translate(-526rpx);
+  transition: all .4s ease;
+}
+.sideBar.show {
+  transform: translate(0);
+}
+.side-wrapper {
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.icon-arrow-sl {
+  font-size: 50rpx;
+  transform: rotate(180deg);
+  color: #000000;
+  margin-top: 25rpx;
+}
+.user-wrapper {
+  text-align: center;
+  width: 160rpx;
+  height: 260rpx;
+  margin-left: 50rpx;
+  margin-top: 100rpx;
+  display: inline-block;
+}
+.side-wrapper .avatar-wrapper {
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+}
+.side-wrapper image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.side-wrapper .username {
+  font-size: 36rpx;
+  margin-top: 16rpx;
+  color: #919090;
+}
+.signIn {
+  display: inline-block;
+  padding: 0 10rpx;
+  background-color: rgb(235, 172, 172);
+  border-radius: 40rpx;
+  width: 80rpx;
+  height: 46rpx;
+  margin-left: 100rpx;
+}
+.signIn .iconfont {
+  font-size: 24rpx;
+  display: inline-block;
+  line-height: 46rpx;
+  vertical-align: middle;
+}
+.signIn .text {
+  font-size: 20rpx;
+  margin-left: 30rpx;
+  position: relative;
+  bottom: 8rpx;
+}
+.sideList {
+  padding: 30rpx 15rpx;
+  box-sizing: border-box;
+}
+.sideList .list-item {
+  padding: 20rpx 0;
+}
+.sideList .list-item .iconfont {
+  font-size: 30rpx;
+  display: inline-block;
+  color: rgb(161, 161, 161);
+}
+.sideList .list-item .text {
+  font-size: 26rpx;
+  display: inline-block;
+  position: relative;
+  bottom: 16rpx;
+  margin-left: 44rpx;
+  color: rgb(161, 161, 161);
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  transition: all .4s ease;
 }

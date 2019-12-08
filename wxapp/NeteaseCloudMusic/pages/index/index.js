@@ -13,7 +13,32 @@ Page({
     newSongs: [],
     rank: [],
     singerList: [],
-    MvList: []
+    MvList: [],
+    sideShow: false,
+    maskOpacity: 0,
+    maskDisplay: 'none',
+    sideData: [
+      {
+        iconClass: 'icon-fujinderen',
+        text: '附近的人'
+      },
+      {
+        iconClass: 'icon-yanchu',
+        text: '演出'
+      },
+      {
+        iconClass: 'icon-dingshitingzhibofang',
+        text: '定时停止播放'
+      },
+      {
+        iconClass: 'icon-zaixiantinggemianliuliang',
+        text: '在线听歌免流量'
+      },
+      {
+        iconClass: 'icon-shezhi',
+        text: '设置'
+      }
+    ]
   },
   // 点击切换页面
   switchNav (e) {
@@ -28,6 +53,28 @@ Page({
     this.setData({
       currentId: e.detail.current
     })
+  },
+  // 显示侧边栏
+  showSide () {
+    let that = this
+    that.setData({
+      sideShow: true,
+      maskOpacity: 0.3,
+      maskDisplay: 'block'
+    })
+  },
+  // 隐藏侧边栏
+  hiddenSide () {
+    let that = this
+    that.setData({
+      sideShow: false,
+      maskOpacity: 0
+    })
+    setTimeout(() => {
+      that.setData({
+        maskDisplay: 'none'
+      })
+    }, 400)
   },
   // 轮播图
   getBanner () {
@@ -139,20 +186,28 @@ Page({
   },
   // 去歌单页面
   toSongSheet () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../songSheet/songSheet'
     })
   },
   // 去每日推荐页面
   toDateRecommend () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../dateRecommend/dateRecommend'
     })
   },
   // 去搜索界面
   toSearch () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../search/search'
+    })
+  },
+  /* 查看歌单详情 */
+  songSheetDetail(e) {
+    // console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../songSheetDetail/songSheetDeatil?id=' + id
     })
   },
   /**
