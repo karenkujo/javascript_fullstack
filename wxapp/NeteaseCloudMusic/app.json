@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/songSheetDetail/songSheetDeatil",
     "pages/index/index",
+    "pages/songSheetDetail/songSheetDeatil",
     "pages/songSheet/songSheet",
     "pages/play/play",
     "pages/search/search",

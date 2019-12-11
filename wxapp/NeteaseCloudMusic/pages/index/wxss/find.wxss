@@ -230,4 +230,9 @@
   font-size: 20rpx;
   padding: 4rpx;
   color: rgb(138, 141, 141);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

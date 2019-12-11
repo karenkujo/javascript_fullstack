@@ -14,7 +14,7 @@
   </view>
 
   <!-- 四个页面 -->
-  <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav">
+  <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav" skip-hidden-item-layout="true">
     <!-- 歌手 -->
     <swiper-item class="swiper-item">
       <view class="singer">
@@ -103,7 +103,7 @@
             <span class="more-songs">新歌推荐</span>
           </view>
           <ul class="songList">
-            <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}">
+            <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}" data-id="{{item.id}}" bind:tap="play">
               <view class="song_img">
                 <image class="" mode="widthFix" src="{{item.song.album.blurPicUrl}}">
                 </image>
@@ -120,7 +120,7 @@
             <span class="more-albums">更多新碟</span>
           </view>
           <ul class="albumList">
-            <li class="album" wx:for="{{albums}}" wx:key="index">
+            <li class="album" wx:for="{{albums}}" wx:key="index" data-id="{{item.id}}" bind:tap="songSheetDetail">
               <view class="album_img">
                 <image class="" mode="widthFix" src="{{item.picUrl}}">
                 </image>
@@ -140,7 +140,7 @@
           <view class="officalRank">
             <view class="officalRank-title">官方榜</view>
             <ul class="officalRank-content">
-              <li class="officalRank-item" wx:for="{{rank}}" wx:key="{{index}}" wx:if="{{index < 4}}">
+              <li class="officalRank-item" wx:for="{{rank}}" wx:key="{{index}}" wx:if="{{index < 4}}" data-name="{{item.name}}" bind:tap="rankDetail">
                 <view class="avatar-wrapper">
                   <image src="{{item.coverImgUrl}}" mode="widthFix" />
                   <text class="update">{{item.updateFrequency}}</text>
@@ -162,7 +162,8 @@
             <view class="recommendRank-title">推荐榜</view>
             <ul class="recommendRank-content">
               <li class="recommendRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
-              wx:if="{{index == 4||index == 6||index == 23||index == 5||index == 7||index == 9}}">
+              wx:if="{{index == 4||index == 6||index == 23||index == 5||index == 7||index == 9}}"
+              data-name="{{item.name}}" bind:tap="rankDetail">
                 <view class="avatar-wrapper">
                   <image src="{{item.coverImgUrl}}" mode="widthFix" />
                   <text class="update">{{item.updateFrequency}}</text>
@@ -176,7 +177,8 @@
             <view class="globalRank-title">全球榜</view>
             <ul class="globalRank-content">
               <li class="globalRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
-              wx:if="{{index == 12||index == 14||index == 15||index == 16||index == 18||index == 19}}">
+              wx:if="{{index == 12||index == 14||index == 15||index == 16||index == 18||index == 19}}"
+              data-name="{{item.name}}" bind:tap="rankDetail">
                 <view class="avatar-wrapper">
                   <image src="{{item.coverImgUrl}}" mode="widthFix" />
                   <text class="update">{{item.updateFrequency}}</text>
@@ -190,7 +192,8 @@
             <view class="moreRank-title">更多榜单</view>
             <ul class="moreRank-content">
               <li class="moreRank-item" wx:for="{{rank}}" wx:key="{{index}}" 
-              wx:if="{{index >= 4&&index !== 12&&index !== 14&&index !== 15&&index !== 16&&index !== 18&&index !== 19&&index !== 23&&index !== 9&&index !== 7&&index !== 6&&index !== 5&&index !==4}}">
+              wx:if="{{index >= 4&&index !== 12&&index !== 14&&index !== 15&&index !== 16&&index !== 18&&index !== 19&&index !== 23&&index !== 9&&index !== 7&&index !== 6&&index !== 5&&index !==4}}"
+              data-name="{{item.name}}" bind:tap="rankDetail">
                 <view class="avatar-wrapper">
                   <image src="{{item.coverImgUrl}}" mode="widthFix" />
                   <text class="update">{{item.updateFrequency}}</text>

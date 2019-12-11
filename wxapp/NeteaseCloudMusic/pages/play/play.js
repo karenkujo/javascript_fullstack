@@ -87,7 +87,7 @@ Page({
           let currentTime = that.formatTime(backgroundAudioManager.currentTime)
           durationNum = Math.round(backgroundAudioManager.duration)
           let duration = that.formatTime(backgroundAudioManager.duration)
-          if (!that.data.dragstate) {
+          if (!that.data.dragstate) { //当进度条被拖动时不更新数据
             that.setData({
               currentTime: currentTime,
               duration: duration,
