@@ -7,7 +7,8 @@
     <!-- <div @click="oSure">
       <i-button size="default" ref="sure" >确认</i-button>
     </div> -->
-    {{message}}
+    <div>{{message}}</div>
+    <div class="button" @click="showToast">Toast</div>
   </div>
 </template>
 
@@ -36,6 +37,9 @@ export default {
     },
     getMssage(msg) {
       this.message = msg
+    },
+    showToast () {
+      this.$toast('网络异常')
     }
   }
 }
