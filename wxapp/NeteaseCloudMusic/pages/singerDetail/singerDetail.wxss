@@ -1,0 +1,146 @@
+@import "../../iconfont/iconfont";
+.singer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+.singer-header {
+  box-sizing: border-box;
+  padding: 40rpx 36rpx 40rpx 36rpx;
+  position: relative;
+  height: 550rpx;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 550rpx;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.background image {
+  width: 100%;
+  height: 100%;
+}
+.singer-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 510rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+}
+.content-header {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.icon-zanting {
+  font-size: 50rpx;
+  padding: 0 24rpx 0 0;
+}
+.playAll {
+  position: relative;
+  bottom: 6rpx;
+}
+.playAll .text1{
+  font-size: 30rpx;
+}
+.songList {
+  width: 100%;
+  position: relative;
+}
+.song-item {
+  display: flex;
+  box-sizing: border-box;
+  padding: 16rpx 0;
+  align-items: center;
+}
+.number {
+  padding: 0 30rpx;
+  width: 50rpx;
+  color: rgb(131, 131, 131);
+  font-size: 32rpx;
+  text-align: center;
+}
+.song-content {
+  width: 70%;
+}
+.song-content .title {
+  font-size: 30rpx;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-height: 50rpx;
+}
+.song-content .artist {
+  font-size: 26rpx;
+  color: rgb(185, 183, 183);
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.addPlayList {
+  position: absolute;
+  font-size: 46rpx;
+  right: 70rpx;
+}
+
+/* 专辑列表 */
+.albumList {
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 36rpx;
+}
+.album-item {
+  box-sizing: border-box;
+  position: relative;
+  padding: 16rpx 0;
+  display: flex;
+}
+.album-avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+}
+.album-avatar image {
+  width: 90rpx;
+  height: 90rpx;
+}
+.album-content {
+  position: relative;
+  height: 45rpx;
+}
+.album-content .name {
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 2rpx 0;
+  color: rgb(66, 66, 68);
+}
+.album-content .time {
+  display: inline-block;
+  font-size: 22rpx;
+  position: relative;
+  bottom: 6rpx;
+  margin-right: 10rpx;
+  color: rgb(185, 183, 183);
+}
+.album-content .size {
+  display: inline-block;
+  font-size: 22rpx;
+  position: relative;
+  bottom: 6rpx;
+  color: rgb(185, 183, 183);
+}

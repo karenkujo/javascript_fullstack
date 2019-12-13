@@ -1,0 +1,42 @@
+<view class="singer">
+  <view class="singer-header">
+    <view class="background">
+      <image class="" src="{{singerInfo.picUrl}}" mode="aspectFill" />
+    </view>
+  </view>
+  <view class="singer-content">
+    <view class="content-header">
+      <view class="iconfont icon-zanting" data-id="{{singerSongs[0].id}}" bind:tap="play"></view>
+      <view class="playAll" data-id="{{singerSongs[0].id}}" bind:tap="play">
+        <span class="text1">播放热门50首</span>
+      </view>
+    </view>
+    <view class="songList">
+      <view class="song-item" wx:for="{{singerSongs}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="play">
+        <view class="number">{{index + 1}}</view>
+        <view class="song-content">
+          <view class="title">{{item.name}}</view>
+          <view class="artist">{{item.ar[0].name}} - {{item.al.name}}</view>
+        </view>
+        <view class="addPlayList">+</view>
+      </view>
+    </view>
+    <view class="content-header">
+      <view class="playAll">
+        <span class="text1" style="margin-left: 20rpx;">专辑</span>
+      </view>
+    </view>
+    <view class="albumList">
+      <view class="album-item" wx:for="{{singerAlbums}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="songSheetDetail">
+        <view class="album-avatar">
+          <image class="" src="{{item.picUrl}}" mode="" />
+        </view>
+        <view class="album-content">
+          <view class="name">{{item.name}}</view>
+          <view class="time">{{item.publishTime}}</view>
+          <view class="size">歌曲{{item.size}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

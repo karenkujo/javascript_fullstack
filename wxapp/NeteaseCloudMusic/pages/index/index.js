@@ -145,7 +145,7 @@ Page({
     wx.request({
       url: baseUrl + '/toplist/detail',
       success (res) {
-        console.log(res.data.list)
+        // console.log(res.data.list)
         that.setData({
           rank: res.data.list
         })
@@ -171,7 +171,7 @@ Page({
     wx.request({
       url: baseUrl + '/mv/first',
       success (res) {
-        // console.log(res.data.data)
+        console.log(res.data.data)
         that.setData({
           MvList: res.data.data
         })
@@ -210,6 +210,13 @@ Page({
       url: '../songSheetDetail/songSheetDeatil?id=' + id
     })
   },
+  /* 查看歌手详情 */
+  singerDetail (e) {
+    let id = e.currentTarget.dataset.id
+    wx.redirectTo({
+      url: '../singerDetail/singerDetail?id=' + id
+    })
+  },
   /* 播放新歌 */
   play (e) {
     // console.log(e.currentTarget)
@@ -221,6 +228,18 @@ Page({
   /* 查看排行榜详情 */
   rankDetail (e) {
     console.log(e.currentTarget.dataset.name)
+    let name = e.currentTarget.dataset.name
+    wx.redirectTo({
+      url: '../songSheetDetail/songSheetDeatil?name=' + name
+    })
+  },
+  /* mv详情 */
+  mvDetail (e) {
+    let id = e.currentTarget.dataset.id
+    console.log(id)
+    wx.redirectTo({
+      url: '../mvDetail/mvDetail?id=' + id
+    })
   },
   /**
    * 生命周期函数--监听页面加载

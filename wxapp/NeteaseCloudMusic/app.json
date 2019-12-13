@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/mvDetail/mvDetail",
     "pages/index/index",
+    "pages/singerDetail/singerDetail",
     "pages/songSheetDetail/songSheetDeatil",
     "pages/songSheet/songSheet",
     "pages/play/play",

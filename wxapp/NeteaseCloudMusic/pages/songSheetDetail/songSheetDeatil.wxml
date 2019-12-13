@@ -1,4 +1,5 @@
 <view class="songSheet">
+  <van-toast id="van-toast" />
   <view class="songSheet-header">
     <view class="background">
       <image class="" src="{{songSheetDetail.coverImgUrl}}" mode="scaleToFill" />
@@ -28,12 +29,6 @@
       <view class="playAll" data-id="{{songSheetDetail.tracks[0].id}}" bind:tap="play">
         <span class="text1">播放全部</span>
         <span class="text2">(共{{songSheetDetail.tracks.length}}首)</span>
-      </view>
-      <view class="collection">
-        <view class="icon">+</view>
-        <view class="collectionTxt">
-          <span class="text">收藏({{songSheetDetail.subscribedCount}})</span>
-        </view>
       </view>
     </view>
     <view class="songList">

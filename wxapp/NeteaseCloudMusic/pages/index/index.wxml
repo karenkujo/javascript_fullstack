@@ -20,7 +20,7 @@
       <view class="singer">
         <view class="singer-content">
           <ul class="singerList">
-            <li class="singer-item" wx:for="{{singerList}}" wx:key="index">
+            <li class="singer-item" wx:for="{{singerList}}" wx:key="index" data-id="{{item.id}}" bind:tap="singerDetail">
               <view class="avatar-wrapper">
                 <image src="{{item.picUrl}}" mode="aspectFill" />
               </view>
@@ -209,7 +209,7 @@
     <swiper-item class="swiper-item">
       <view class="video">
         <view class="video-wrapper">
-          <view class="video-item" wx:for="{{MvList}}" wx:key="{{index}}">
+          <view class="video-item" wx:for="{{MvList}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="mvDetail">
             <view class="playVideo">
               <image src="{{item.cover}}" mode="widthFit" />
             </view>
@@ -220,6 +220,7 @@
       </view>
     </swiper-item>
   </swiper>
+  <!-- 侧边栏 -->
   <view class="mask" style="opacity: {{maskOpacity}}; display: {{maskDisplay}};" bind:tap="hiddenSide"></view>
   <view class="sideBar {{sideShow ? 'show' : '' }}" style="right: {{sideWidth}}">
     <view class="side-wrapper">
