@@ -1,3 +1,33 @@
 <view class="video">
-  <video src="{{mvUrl}}" autoplay="true"></video>
+  <video src="{{mvUrl}}" autoplay></video>
+  <view class="video-info">
+    <view class="title">{{mvDeatil.name}}</view>
+    <view class="playCount">{{mvDeatil.playCount}}次观看</view>
+    <view class="publishTime">{{mvDeatil.publishTime}}发布</view>
+    <view class="desc">{{mvDeatil.desc}}</view>
+    <view class="mvData">
+      <view class="icon-wrapper">
+        <view class="iconfont icon-dianzan"></view>
+        <view class="text">{{mvDeatil.likeCount}}</view>
+      </view>
+      <view class="icon-wrapper">
+        <view class="iconfont icon-shoucang"></view>
+        <view class="text">{{mvDeatil.subCount}}</view>
+      </view>
+      <view class="icon-wrapper">
+        <view class="iconfont icon-pinglunpt-wangyiicon"></view>
+        <view class="text">{{mvDeatil.commentCount}}</view>
+      </view>
+      <view class="icon-wrapper">
+        <view class="iconfont icon-fenxiang"></view>
+        <view class="text">{{mvDeatil.shareCount}}</view>
+      </view>
+    </view>
+    <view class="artist">
+      <view class="avatar">
+        <image class="" src="{{singer.img1v1Url}}" mode="scaleToFill" />
+      </view>
+      <view class="name">{{mvDeatil.artistName}}</view>
+    </view>
+  </view>
 </view>

@@ -142,13 +142,11 @@
   align-items: center;
 }
 .progress-wrapper {
-  height: 4rpx;
   flex: 1;
   margin: 0 30rpx;
-  background-color: rgba(214, 203, 203, .4);
   position: relative;
 }
-.progress-bar {
+/* .progress-bar {
   height: 4rpx;
   background-color: rgba(230, 219, 219, .8);
 }
@@ -160,7 +158,7 @@
   position: absolute;
   top: -5rpx;
   transform: translateX(-50%);
-}
+} */
 .currentTime, .countTime {
   font-size: 26rpx;
   color: rgba(214, 203, 203, .4);

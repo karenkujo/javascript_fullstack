@@ -171,7 +171,7 @@ Page({
     wx.request({
       url: baseUrl + '/mv/first',
       success (res) {
-        console.log(res.data.data)
+        // console.log(res.data.data)
         that.setData({
           MvList: res.data.data
         })

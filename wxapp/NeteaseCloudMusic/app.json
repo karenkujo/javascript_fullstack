@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/mvDetail/mvDetail",
     "pages/index/index",
+    "pages/play/play",
+    "pages/mvDetail/mvDetail",
     "pages/singerDetail/singerDetail",
     "pages/songSheetDetail/songSheetDeatil",
     "pages/songSheet/songSheet",
-    "pages/play/play",
     "pages/search/search",
     "pages/logs/logs",
     "pages/dateRecommend/dateRecommend"

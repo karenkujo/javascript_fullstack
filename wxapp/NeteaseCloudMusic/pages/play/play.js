@@ -1,10 +1,7 @@
 // pages/play/play.js
 const baseUrl = 'http://localhost:3000'
-let startX = 0
-let leftX = 0
 let durationNum = 0
 let currentTimeNum = 0
-let progressWidth = 0
 Page({
 
   /**
@@ -54,7 +51,7 @@ Page({
       },
       success(res) {
         if (res.data.code === 200) {
-          console.log(res.data)
+          // console.log(res.data)
           wx.setNavigationBarTitle({   // 设置页面头部标题
             title: res.data.songs[0].name
           })
@@ -80,10 +77,10 @@ Page({
       let query = wx.createSelectorQuery()
       query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
         // console.log(rect.width)
-        progressWidth = rect.width
         backgroundAudioManager.onTimeUpdate(() => { // 监听音乐播放器数据更新
           let percent = backgroundAudioManager.currentTime / backgroundAudioManager.duration
           let left = Math.round(percent * rect.width)
+          // console.log(left)
           let currentTime = that.formatTime(backgroundAudioManager.currentTime)
           durationNum = Math.round(backgroundAudioManager.duration)
           let duration = that.formatTime(backgroundAudioManager.duration)
@@ -104,36 +101,42 @@ Page({
   },
   // 拖动进度条
   dragStart (e) {
-    // console.log(e.touches[0].clientX)
-    startX = e.touches[0].clientX
-    leftX = this.data.left
-    this.setData({
+    let that = this
+    that.setData({
       dragstate: true
+    })
+    let query = wx.createSelectorQuery()
+    query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条圆
+      // console.log(e.touches[0].clientX - rect.left)
+      let left = e.touches[0].clientX - rect.left
+      let percent = left / rect.width
+      currentTimeNum = Math.round(durationNum * percent)
+      that.data.backgroundAudioManager.seek(currentTimeNum)
+      that.setData({
+        left: Math.round(left)
+      })
+    }).exec(() => {
+      that.setData({
+        dragstate: false
+      })
     })
   },
   dragMove (e) {
     let that = this
-    // console.log(e.touches[0].clientX)
-    let endX = e.touches[0].clientX
-    let diffX = endX - startX
-    // console.log(diffX + leftX)
-    let left = leftX + diffX
-    if (left < 0) {
-      left = 0
-    } else if (left > 240.4) {
-      left = 240.4
-    }
+    that.setData({
+      dragstate: true
+    })
+    // console.log(e.detail.value)
     let query = wx.createSelectorQuery()
     let currentTime
       query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
         // console.log(rect.width)
-        let percent = left / rect.width
+        let percent = e.detail.value / rect.width
         currentTimeNum = Math.round(durationNum * percent)
         currentTime = that.formatTime(durationNum * percent)
     }).exec(() => {
       that.setData({
         currentTime: currentTime,
-        left: Math.round(left)
       })
     })
   },
@@ -143,30 +146,6 @@ Page({
     that.data.backgroundAudioManager.seek(currentTimeNum)
     that.setData({
       dragstate: false
-    })
-  },
-  // 点击进度条跳转
-  skip (e) {
-    let that = this
-    // console.log(e)
-    that.setData({
-      dragstate: true
-    })
-    let left = that.data.left
-    let query = wx.createSelectorQuery()
-    query.select('.progress-circle').boundingClientRect((rect) => {  // 获取进度条圆
-      // console.log(e.touches[0].clientX - rect.left)
-      left = e.touches[0].clientX - rect.left + left
-      let percent = left / progressWidth
-      currentTimeNum = Math.round(durationNum * percent)
-      that.data.backgroundAudioManager.seek(currentTimeNum)
-      that.setData({
-        left: left
-      })
-    }).exec(() => {
-      that.setData({
-        dragstate: false
-      })
     })
   },
   // 格式化时间数据

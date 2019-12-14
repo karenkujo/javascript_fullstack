@@ -1,3 +1,75 @@
+@import "../../iconfont/iconfont";
+.video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+}
 video {
   width: 100%;
+}
+.video-info {
+  box-sizing: border-box;
+  padding: 0 36rpx;
+  overflow: hidden;
+}
+.title {
+  font-size: 32rpx;
+  padding: 10rpx 0;
+}
+.playCount {
+  font-size: 26rpx;
+  color: rgb(189, 191, 192);
+  padding: 10rpx 0;
+}
+.publishTime {
+  font-size: 26rpx;
+  color: rgb(160, 160, 160);
+  padding-top: 10rpx;
+}
+.desc {
+  font-size: 26rpx;
+  color: rgb(160, 160, 160);
+  letter-spacing: 2rpx;
+  line-height: 40rpx;
+  text-align: justify;
+}
+.mvData {
+  display: flex;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.icon-wrapper {
+  flex: 1;
+}
+.iconfont {
+  font-size: 40rpx;
+}
+.icon-wrapper .text {
+  font-size: 26rpx;
+  padding: 8rpx 0;
+  color: rgb(169, 170, 172);
+}
+.artist {
+  padding: 30rpx 0;
+  border-top: 1px solid rgba(7, 17, 27, .1);
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.avatar image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.name {
+  font-size: 26rpx;
+  color: rgb(119, 118, 118);
 }

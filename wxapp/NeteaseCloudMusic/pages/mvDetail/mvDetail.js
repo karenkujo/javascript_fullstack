@@ -7,17 +7,18 @@ Page({
    */
   data: {
     mvUrl: '',
-    mvDeatil: {}
+    mvDeatil: {},
+    singer: {}
   },
   /* 获取MV地址 */
-  getMvUrl (id) {
+  getMvUrl(id) {
     let that = this
     wx.request({
       url: baseUrl + '/mv/url',
       data: {
         id: id
       },
-      success (res) {
+      success(res) {
         if (res.data.code == 200) {
           // console.log(res.data.data)
           that.setData({
@@ -28,18 +29,44 @@ Page({
     })
   },
   /* 获取MV详情 */
-  getMvDetail (id) {
+  getMvDetail(id) {
     let that = this
     wx.request({
       url: baseUrl + '/mv/detail',
       data: {
         mvid: id
       },
-      success (res) {
+      success(res) {
         if (res.data.code == 200) {
-          console.log(res.data.data)
+          // console.log(res.data.data)
+          if (res.data.data.playCount >= 100000000) {
+            let num = res.data.data.playCount / 100000000
+            res.data.data.playCount = num.toFixed(1) + '亿'
+          }
+          if (res.data.data.playCount >= 100000) {
+            res.data.data.playCount = Math.round(res.data.data.playCount / 10000) + '万'
+          }
           that.setData({
             mvDeatil: res.data.data
+          })
+          that.getSinger(res.data.data.artistId)
+        }
+      }
+    })
+  },
+  /* 获取歌手信息 */
+  getSinger(id) {
+    let that = this
+    wx.request({
+      url: baseUrl + '/artists',
+      data: {
+        id: id
+      },
+      success(res) {
+        if (res.data.code == 200) {
+          console.log(res.data.artist)
+          that.setData({
+            singer: res.data.artist
           })
         }
       }
@@ -49,9 +76,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options.id) 10900391
-    this.getMvUrl(10900391)
-    this.getMvDetail(10900391)
+    // console.log(options.id)
+    this.getMvUrl(options.id)
+    this.getMvDetail(options.id)
   },
 
   /**

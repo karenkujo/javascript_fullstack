@@ -24,15 +24,12 @@
     </view>
     <view class="progress">
       <view class="currentTime">{{currentTime}}</view>
-      <view class="progress-wrapper" bind:touchstart="skip">
-        <view class="progress-bar" style="width: {{left * 2}}rpx;"></view>
-        <!-- touchstart 事件阻止冒泡 -->
-        <view class="progress-circle" style="left: {{left * 2}}rpx;" 
-        catchtouchstart="dragStart"  
-        bind:touchmove="dragMove"
-        bind:touchend="dragEnd"
-        ></view>
-      </view>
+      <slider class="progress-wrapper" max="240" step="1" block-size="12" value="{{left}}
+      backgroundColor="rgba(214, 203, 203, .4)" activeColor="rgba(230, 219, 219, .8)"
+      catchtouchstart="dragStart"
+      bindchanging="dragMove"
+      bindchange="dragEnd"
+      ></slider>
       <view class="countTime">{{duration}}</view>
     </view>
     <view class="control-wrapper">
