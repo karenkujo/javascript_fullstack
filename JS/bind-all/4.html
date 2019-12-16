@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     Function.prototype.myBind = function (oThis, ...aArgs) {
+      var fToBind = this
+      // fToBind 有 prototype   返回出去的fBound没有  所以要继承一下
+      var fBound = function (...bArgs) {
+        // 拿到所有的参数
+        // 绑定 this 没有考虑优先级
+        // 如果被new 调用 this 指向 new 完的实例 否则指向第一个参数
+        let isNew = this instanceof fBound
+        return fToBind.apply(isNew ? this : oThis, aArgs.concat(bArgs))
+      }
+      fBound.prototype = Object.create(this.prototype)
+      return fBound
+    }
+    function sum(a, b, c) {
+      this.a = 789
+      return a + b + c
+    }
+    sum.prototype.abc = function () {}
+
+    let obj = {}
+    var a = sum.myBind(obj, 1)
+    // console.log(a(2, 3))
+    let c = new a()
+    console.log(c)
+    console.log(obj)
+    console.log(a.prototype.abc)
+  </script>
+</body>
+</html>
