@@ -35,7 +35,7 @@
     <scroll-view scroll-y="true" bindscrolltolower="scrollLower" lower-threshold="{{30||20||10||0}}" class="suggest" wx:if="{{showsuggest}}">
       <view class="suggest-content">
         <block wx:for="{{songs}}" wx:key="{{index}}">
-          <view class="suggest-item" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="play">
+          <view class="suggest-item" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="play">
             <view class="iconfont icon-sousuo" style="font-size: 40rpx; color: #fff;" ></view>
             <view class="text">{{item.name}} - {{item.artists[0].name}}</view>
           </view>

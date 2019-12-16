@@ -86,7 +86,7 @@
   padding: 10rpx 20rpx 0 0;
   position: absolute;
   left: 34rpx;
-  bottom: 40rpx;
+  bottom: 20rpx;
 }
 .desc .text {
   font-size: 20rpx;

@@ -219,10 +219,13 @@ Page({
   },
   /* 播放新歌 */
   play (e) {
-    // console.log(e.currentTarget)
-    let id = e.currentTarget.dataset.id
+    let songs = this.data.newSongs
+    let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
+    let playList = wx.getStorageSync('playList')
+    playList = [currentSong, ...playList]
+    wx.setStorageSync('playList', playList)
     wx.redirectTo({
-      url: '../play/play?id=' + id
+      url: '../play/play'
     })
   },
   /* 查看排行榜详情 */

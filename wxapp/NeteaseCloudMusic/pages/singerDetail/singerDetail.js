@@ -68,10 +68,12 @@ Page({
 },
   /* 播放歌曲 */
   play(e) {
-    console.log(e)
-    let id = e.currentTarget.dataset.id
+    let songs = this.data.singerSongs
+    let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
+    songs = [currentSong, ...songs]
+    wx.setStorageSync('playList', songs)
     wx.navigateTo({
-      url: '../play/play?id=' + id
+      url: '../play/play'
     })
   },
   /* 查看歌单详情 */

@@ -117,24 +117,29 @@ Page({
       name: name,
       id: id
     }
-    let currentHistory = this.data.SearchHistory
+    let currentHistory = wx.getStorageSync('SearchHistory')
     for (let item of currentHistory) {
       if (item.id === history.id) {
         return
       }
     }
     currentHistory = [...new Set([history, ...currentHistory])]
+    wx.setStorageSync('SearchHistory', currentHistory)
+    // console.log(this.data.SearchHistory)
     this.setData({
       SearchHistory: currentHistory
     })
-    // console.log(this.data.SearchHistory)
   },
   // 去播放音乐界面
   play (e) {
-    let id = e.currentTarget.dataset.id
     this.saveSearchHistory(e.currentTarget.dataset.name, e.currentTarget.dataset.id)
+    let songs = this.data.songs
+    let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
+    songs = [currentSong, ...songs]
+    wx.setStorageSync('playList', songs)
+    // console.log(wx.getStorageSync('playList'))
     wx.navigateTo({
-      url: '../play/play?id=' + id
+      url: '../play/play'
     })
   },
   // 点击热门搜索或者搜索历史
@@ -152,6 +157,10 @@ Page({
    */
   onLoad: function (options) {
     this.getHotSearch ()
+    let currentHistory = wx.getStorageSync('SearchHistory')
+    this.setData({
+      SearchHistory: currentHistory
+    })
   },
 
   /**

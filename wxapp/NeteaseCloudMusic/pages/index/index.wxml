@@ -103,7 +103,7 @@
             <span class="more-songs">新歌推荐</span>
           </view>
           <ul class="songList">
-            <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}" data-id="{{item.id}}" bind:tap="play">
+            <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}" data-index="{{index}}" bind:tap="play">
               <view class="song_img">
                 <image class="" mode="widthFix" src="{{item.song.album.blurPicUrl}}">
                 </image>

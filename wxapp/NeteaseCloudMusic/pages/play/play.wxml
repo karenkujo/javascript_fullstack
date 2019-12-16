@@ -34,9 +34,9 @@
     </view>
     <view class="control-wrapper">
       <view class="iconfont icon-xunhuanbofang"></view>
-      <view class="iconfont icon-shangyiqu"></view>
+      <view class="iconfont icon-shangyiqu" bind:tap="preSong"></view>
       <view class="iconfont {{handleState ? 'icon-bofang-wangyiicon' : 'icon-zanting'}} " bindtap="swichState"></view>
-      <view class="iconfont icon-xiayiqu"></view>
+      <view class="iconfont icon-xiayiqu" bind:tap="nextSong"></view>
       <view class="iconfont icon-caidan1"></view>
     </view>
   </view>

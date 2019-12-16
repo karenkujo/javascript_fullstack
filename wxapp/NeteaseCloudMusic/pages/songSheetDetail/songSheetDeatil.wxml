@@ -25,14 +25,18 @@
   </view>
   <view class="songSheet-content">
     <view class="content-header">
-      <view class="iconfont icon-zanting" data-id="{{songSheetDetail.tracks[0].id}}" bind:tap="play"></view>
-      <view class="playAll" data-id="{{songSheetDetail.tracks[0].id}}" bind:tap="play">
+      <view class="iconfont icon-zanting" data-index="{{0}}" bind:tap="play"></view>
+      <view class="playAll" data-index="{{0}}" bind:tap="play">
         <span class="text1">播放全部</span>
         <span class="text2">(共{{songSheetDetail.tracks.length}}首)</span>
       </view>
     </view>
     <view class="songList">
-      <view class="song-item" wx:for="{{songSheetDetail.tracks}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="play">
+      <view class="song-item" 
+      wx:for="{{songSheetDetail.tracks}}" 
+      wx:key="{{index}}"
+      data-index="{{index}}"
+      bind:tap="play">
         <view class="number">{{index + 1}}</view>
         <view class="song-content">
           <view class="title">{{item.name}}</view>

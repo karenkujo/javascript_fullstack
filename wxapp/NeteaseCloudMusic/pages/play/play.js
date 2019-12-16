@@ -19,13 +19,14 @@ Page({
     state: true,
     handleState: true,
     left: 0,
-    dragstate: false
+    dragstate: false,
+    playList: [],
+    currentSong: 0
   },
   // 请求音乐url
   getMusicUrl(id) {
     let that = this
     wx.request({
-
       url: baseUrl + '/song/url',
       data: {
         id: id
@@ -162,8 +163,45 @@ Page({
       backgroundAudioManager.src = that.data.musicUrl
       backgroundAudioManager.title = that.data.name
       backgroundAudioManager.singer = that.data.singer
+      backgroundAudioManager.onEnded(function () { // 监听背景音频自然播放结束事件 
+        that.nextSong()
+      })
       resolve(backgroundAudioManager)
       reject('创建失败')
+    })
+  },
+  /* 上一曲 */
+  preSong () {
+    let that = this
+    let playList = that.data.playList
+    let currentSong = that.data.currentSong
+    if (currentSong == 0) {
+      that.getMusicUrl(playList[playList.length - 1].id)
+      that.setData({
+        currentSong: playList.length - 1
+      })
+      return
+    }
+    that.getMusicUrl(playList[currentSong - 1].id)
+    that.setData({
+      currentSong: currentSong - 1
+    })
+  },
+  /* 下一曲 */
+  nextSong () {
+    let that = this
+    let playList = that.data.playList
+    let currentSong = that.data.currentSong
+    if (currentSong == playList.length - 1) {
+      that.getMusicUrl(playList[0].id)
+      that.setData({
+        currentSong: 0
+      })
+      return
+    }
+    that.getMusicUrl(playList[currentSong + 1].id)
+    that.setData({
+      currentSong: currentSong + 1
     })
   },
   // 播放器状态 过渡动画
@@ -191,11 +229,19 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  // onLoad: function (options) {
+  //   this.setData({
+  //     id: options.id
+  //   })
+  //   this.getMusicUrl(options.id) //29122124
+  // },
   onLoad: function (options) {
+    let playList = wx.getStorageSync('playList')
+    this.getMusicUrl(playList[0].id)
     this.setData({
-      id: options.id
+      playList: playList,
+      currentSong: 0
     })
-    this.getMusicUrl(options.id) //29122124
   },
 
   /**
