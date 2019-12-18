@@ -38,16 +38,45 @@
 // 实际上，不仅仅是数组，任何具有Iterator 接口、且每个成员都是一个双元素的数组的数据结构都可以当作Map构造函数的参数。
 // 所以Set、Map都可以用来生成新的Map
 
-const map = new Map();
+// const map = new Map();
 
-const k1 = ['a'];
-const k2 = ['a'];
+// const k1 = ['a'];
+// const k2 = ['a'];
 
-map
-.set(k1, 111)
-.set(k2, 222);
+// map
+// .set(k1, 111)
+// .set(k2, 222);
 
-map.get(k1) // 111
-map.get(k2) // 222
+// map.get(k1) // 111
+// map.get(k2) // 222
 
 // 表面是针对同一个键，但实际上这是两个不同的数组实例，内存地址是不一样的
+
+// Map 转为对象
+function strMapToObj(strMap) {
+  let obj = Object.create(null);
+  for (let [k,v] of strMap) {
+    obj[k] = v;
+  }
+  return obj;
+}
+
+const myMap = new Map()
+  .set('yes', true)
+  .set('no', false)
+strMapToObj(myMap)
+// { yes: true, no: false }
+
+
+// 对象转为 Map
+
+function objToStrMap(obj) {
+  let strMap = new Map();
+  for (let k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
+
+objToStrMap({yes: true, no: false})
+// Map {"yes" => true, "no" => false}

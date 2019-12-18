@@ -68,7 +68,7 @@
         event.target.style.backgroundColor = 'rgb(54, 207, 200)'
       })
       $('table td').bind('dragover', function(event) {
-       event.originalEvent.preventDefault()
+       event.originalEvent.preventDefault() // 阻止此事件默认行为 让drop事件正常使用
       })
       $('table td').bind('drop', function(event) {
         event = event.originalEvent
