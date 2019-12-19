@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- router-link -->
+  <a href="#/">home</a>
+  <a href="#/book">book</a>
+  <a href="#/movie">movie</a>
+  <a id="content">content</a>
+
+  <script>
+    // #/book
+    class VueRouter {
+      constructor(opts) {
+        const { routes } = opts
+        this.routes = routes
+        this.init()
+      }
+      init () {
+        // <img src="" />
+        // 请求外部资源的 标签  img link ..  浏览器还会接着发出请求
+        // DOM 树 +  外部资源加载完毕   ->   load
+        window.addEventListener('load', this.updateView.bind(this)) 
+        window.addEventListener('hashchange', this.updateView.bind(this))
+      }
+      updateView () {
+        // #/book
+        const hash = window.location.hash.slice(1)
+        const match = this.routes.find(route => route.path === hash)
+        if (match) {
+          document.getElementById('content').innerHTML = match.component
+        }
+      }
+    }
+    new VueRouter({
+      routes: [
+        {
+          path: '/',
+          component: 'home'
+        },
+        {
+          path: '/book',
+          component: 'book'
+        },
+        {
+          path: '/movie',
+          component: 'movie'
+        },
+      ]
+    })
+  </script>
+</body>
+</html>
