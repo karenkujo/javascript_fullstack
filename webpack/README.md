@@ -25,3 +25,20 @@ postcss-loader 提供前缀
 autoprefixer 进行浏览器的部分兼容补全
 
 # 抽取样式将css单独打包
+
+
+# 压缩打包
+- 压缩css (optimize-css-assets-webpack-plugin)
+- 压缩js (uglifyjs-webpack-plugin)
+
+# 为css、js文件添加hash值，防止浏览器缓存
+
+# html 打包
+- npm i html-webpack-plugin --save-dev
+
+# 清理目录
+- clean-webpack-plugin
+
+# webpack处理图片和优化
+- file-loader 使图片能被打包
+- image-webpack-loader 优化
