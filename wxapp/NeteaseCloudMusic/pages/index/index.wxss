@@ -55,7 +55,7 @@ page {
   left: 0;
   right: 0;
   top: 100rpx;
-  height: calc(100vh - 100rpx);
+  height: calc(100vh - 220rpx);
 }
 /* 取消侧边滚动条 */
 ::-webkit-scrollbar {

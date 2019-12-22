@@ -24,7 +24,7 @@
     </view>
     <view class="progress">
       <view class="currentTime">{{currentTime}}</view>
-      <slider class="progress-wrapper" max="240" step="1" block-size="12" value="{{left}}
+      <slider class="progress-wrapper" max="240" step="1" block-size="12" value="{{left}}"
       backgroundColor="rgba(214, 203, 203, .4)" activeColor="rgba(230, 219, 219, .8)"
       catchtouchstart="dragStart"
       bindchanging="dragMove"
@@ -33,11 +33,25 @@
       <view class="countTime">{{duration}}</view>
     </view>
     <view class="control-wrapper">
-      <view class="iconfont icon-xunhuanbofang"></view>
+      <view class="iconfont {{playState[0]}}" bind:tap="swichPlayState"></view>
       <view class="iconfont icon-shangyiqu" bind:tap="preSong"></view>
       <view class="iconfont {{handleState ? 'icon-bofang-wangyiicon' : 'icon-zanting'}} " bindtap="swichState"></view>
       <view class="iconfont icon-xiayiqu" bind:tap="nextSong"></view>
-      <view class="iconfont icon-caidan1"></view>
+      <view class="iconfont icon-caidan1" bind:tap="showList"></view>
+    </view>
+  </view>
+  <view class="mask1" style="display: {{maskDisplay}}; opacity: {{maskOpacity}};" bind:tap="hiddenList"></view>
+  <view class="playList-wrapper {{showList ? 'active' : ''}}">
+    <view class="title">播放列表({{playList.length}})首</view>
+    <view class="playList">
+      <view class="play-item {{currentSong == index ? 'playing' : ''}}" 
+      wx:for="{{ playList }}" wx:key="{{index}}"
+      data-index="{{index}}"
+      bind:tap="play"
+      >
+        <view class="name">{{item.name}}</view>
+        <view class="artist">-{{item.artists[0].name || item.ar[0].name}}</view>
+      </view>
     </view>
   </view>
 </view>

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-action-sheet": "../../miniprogram_npm/vant-weapp/action-sheet/index",
+    "music-bar": "../../components/musicBar"
+  }
 }

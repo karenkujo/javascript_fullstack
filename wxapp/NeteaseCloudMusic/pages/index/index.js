@@ -219,12 +219,11 @@ Page({
   },
   /* 播放新歌 */
   play (e) {
-    let songs = this.data.newSongs
+    let songs = [...new Set(this.data.newSongs)]
     let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
-    let playList = wx.getStorageSync('playList')
-    playList = [currentSong, ...playList]
-    wx.setStorageSync('playList', playList)
-    wx.redirectTo({
+    songs = [currentSong, ...songs]
+    wx.setStorageSync('playList', songs)
+    wx.navigateTo({
       url: '../play/play'
     })
   },
@@ -261,7 +260,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    this.musicBar = this.selectComponent('#musicBar')
+    this.musicBar.getData()
   },
 
   /**

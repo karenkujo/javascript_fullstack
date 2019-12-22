@@ -61,14 +61,25 @@ Page({
     let  Y = date.getFullYear() + '-'
     let  M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth() + 1) + '-'
     let  D = date.getDate() + ' '
-    let  h = date.getHours() + ':'
-    let  m = date.getMinutes() + ':'
-    let  s = date.getSeconds()
     return Y + M + D
-},
+  },
+  /* 添加歌曲到播放列表 */
+  addPlayList (e) {
+    let songs = [...new Set(this.data.singerSongs)]
+    let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
+    let playList = wx.getStorageSync('playList')
+    playList = [...playList, currentSong]
+    wx.setStorageSync('playList', playList)
+    wx.showToast({
+      title: '添加到播放列表成功',
+      icon: 'none',
+      duration: 2000
+    })
+  },
   /* 播放歌曲 */
-  play(e) {
-    let songs = this.data.singerSongs
+  play (e) {
+    let songs = [...new Set(this.data.singerSongs)]
+    // console.log(songs)
     let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
     songs = [currentSong, ...songs]
     wx.setStorageSync('playList', songs)

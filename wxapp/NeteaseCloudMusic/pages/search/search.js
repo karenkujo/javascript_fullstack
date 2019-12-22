@@ -133,7 +133,7 @@ Page({
   // 去播放音乐界面
   play (e) {
     this.saveSearchHistory(e.currentTarget.dataset.name, e.currentTarget.dataset.id)
-    let songs = this.data.songs
+    let songs = [...new Set(this.data.songs)]
     let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
     songs = [currentSong, ...songs]
     wx.setStorageSync('playList', songs)

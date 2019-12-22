@@ -157,9 +157,22 @@ Page({
   //     }
   //   })
   // },
-  // 去播放音乐界面
+   /* 添加歌曲到播放列表 */
+   addPlayList (e) {
+    let songs = [...new Set(this.data.songSheetDetail.tracks)]
+    let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
+    let playList = wx.getStorageSync('playList')
+    playList = [...playList, currentSong]
+    wx.setStorageSync('playList', playList)
+    wx.showToast({
+      title: '添加到播放列表成功',
+      icon: 'none',
+      duration: 2000
+    })
+  },
+  /* 去播放音乐界面 */
   play(e) {
-    let songs = this.data.songSheetDetail.tracks
+    let songs = [...new Set(this.data.songSheetDetail.tracks)]
     let currentSong = songs.splice(e.currentTarget.dataset.index, 1)[0]
     songs = [currentSong, ...songs]
     wx.setStorageSync('playList', songs)

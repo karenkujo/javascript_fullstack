@@ -21,7 +21,11 @@ Page({
     left: 0,
     dragstate: false,
     playList: [],
-    currentSong: 0
+    currentSong: 0,
+    showList: false,
+    maskDisplay: 'none',
+    maskOpacity: 0,
+    playState: ['icon-xunhuanbofang', 'icon-suijibofang-wangyiicon', 'icon-danquxunhuan']
   },
   // 请求音乐url
   getMusicUrl(id) {
@@ -53,16 +57,22 @@ Page({
       success(res) {
         if (res.data.code === 200) {
           // console.log(res.data)
-          wx.setNavigationBarTitle({   // 设置页面头部标题
-            title: res.data.songs[0].name
-          })
           that.setData({
             name: res.data.songs[0].name,
             picUrl: res.data.songs[0].al.picUrl,
             singer: res.data.songs[0].ar[0].name
           })
+          wx.setStorageSync('name', res.data.songs[0].name)
+          wx.setStorageSync('picUrl', res.data.songs[0].al.picUrl)
+          wx.setStorageSync('singer', res.data.songs[0].ar[0].name)
           // console.log(that.data.name)
-          that.setProgress()
+          that.getBackgroundAudioManager()  // 调用创建播放器方法
+            .then((backgroundAudioManager) => {
+              that.setData({
+                backgroundAudioManager: backgroundAudioManager
+              })
+              that.setProgress()
+            })
         }
       }
     })
@@ -70,14 +80,14 @@ Page({
   // 进度条
   setProgress() {
     let that = this
-    that.getBackgroundAudioManager()  // 调用创建播放器方法
-    .then((backgroundAudioManager) => {
-      that.setData({
-        backgroundAudioManager: backgroundAudioManager
-      })
-      let query = wx.createSelectorQuery()
-      query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
-        // console.log(rect.width)
+    let backgroundAudioManager = that.data.backgroundAudioManager
+    let query = wx.createSelectorQuery()
+    query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
+      // console.log(rect.width)
+      if (rect) { // 防止在其他页面更换歌曲时渲染出错
+        wx.setNavigationBarTitle({   // 实时设置页面头部标题
+          title: that.data.name
+        })
         backgroundAudioManager.onTimeUpdate(() => { // 监听音乐播放器数据更新
           let percent = backgroundAudioManager.currentTime / backgroundAudioManager.duration
           let left = Math.round(percent * rect.width)
@@ -97,11 +107,11 @@ Page({
           currentTime = null
           duration = null
         })
-      }).exec()
-    })
+      }
+    }).exec()
   },
   // 拖动进度条
-  dragStart (e) {
+  dragStart(e) {
     let that = this
     that.setData({
       dragstate: true
@@ -122,7 +132,7 @@ Page({
       })
     })
   },
-  dragMove (e) {
+  dragMove(e) {
     let that = this
     that.setData({
       dragstate: true
@@ -130,18 +140,18 @@ Page({
     // console.log(e.detail.value)
     let query = wx.createSelectorQuery()
     let currentTime
-      query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
-        // console.log(rect.width)
-        let percent = e.detail.value / rect.width
-        currentTimeNum = Math.round(durationNum * percent)
-        currentTime = that.formatTime(durationNum * percent)
+    query.select('.progress-wrapper').boundingClientRect((rect) => {  // 获取进度条宽度
+      // console.log(rect.width)
+      let percent = e.detail.value / rect.width
+      currentTimeNum = Math.round(durationNum * percent)
+      currentTime = that.formatTime(durationNum * percent)
     }).exec(() => {
       that.setData({
         currentTime: currentTime,
       })
     })
   },
-  dragEnd () {
+  dragEnd() {
     let that = this
     // console.log(currentTimeNum)
     that.data.backgroundAudioManager.seek(currentTimeNum)
@@ -150,7 +160,7 @@ Page({
     })
   },
   // 格式化时间数据
-  formatTime (num) {
+  formatTime(num) {
     let min = Math.floor(Math.round(num) / 60)
     let sec = Math.round(num) % 60
     return `${(Array(2).join(0) + min).slice(-2)}:${(Array(2).join(0) + sec).slice(-2)}`
@@ -164,45 +174,76 @@ Page({
       backgroundAudioManager.title = that.data.name
       backgroundAudioManager.singer = that.data.singer
       backgroundAudioManager.onEnded(function () { // 监听背景音频自然播放结束事件 
-        that.nextSong()
+        let playList = wx.getStorageSync('playList')
+        let currentSong = that.data.currentSong
+        if (that.data.playState[0] === 'icon-danquxunhuan') { // 如果单曲循环的话再次播放，否则调用播放下一曲方法
+          that.getMusicUrl(playList[currentSong].id)
+        } else {
+          that.nextSong()
+        }
       })
       resolve(backgroundAudioManager)
       reject('创建失败')
     })
   },
   /* 上一曲 */
-  preSong () {
+  preSong() {
     let that = this
-    let playList = that.data.playList
+    let playList = wx.getStorageSync('playList')
     let currentSong = that.data.currentSong
-    if (currentSong == 0) {
-      that.getMusicUrl(playList[playList.length - 1].id)
+    let playState = that.data.playState
+    if (playState[0] === 'icon-xunhuanbofang' || playState[0] === 'icon-danquxunhuan') {
+      if (currentSong == 0) {
+        that.getMusicUrl(playList[playList.length - 1].id)
+        that.setData({
+          currentSong: playList.length - 1,
+          playList: playList
+        })
+        return
+      }
+      that.getMusicUrl(playList[currentSong - 1].id)
       that.setData({
-        currentSong: playList.length - 1
+        currentSong: currentSong - 1,
+        playList: playList
       })
-      return
+    } else if (playState[0] === 'icon-suijibofang-wangyiicon') {
+      let currentSong = Math.floor(Math.random() * playList.length)
+      that.getMusicUrl(playList[currentSong].id)
+      that.setData({
+        currentSong: currentSong,
+        playList: playList
+      })
     }
-    that.getMusicUrl(playList[currentSong - 1].id)
-    that.setData({
-      currentSong: currentSong - 1
-    })
   },
   /* 下一曲 */
-  nextSong () {
+  nextSong() {
     let that = this
-    let playList = that.data.playList
+    let playList = wx.getStorageSync('playList')
     let currentSong = that.data.currentSong
-    if (currentSong == playList.length - 1) {
-      that.getMusicUrl(playList[0].id)
+    let playState = that.data.playState
+    if (playState[0] === 'icon-xunhuanbofang' || playState[0] === 'icon-danquxunhuan') { // 列表循环或单曲循环
+      if (currentSong == playList.length - 1) {
+        that.getMusicUrl(playList[0].id)
+        that.setData({
+          currentSong: 0,
+          playList: playList
+        })
+        return
+      }
+      that.getMusicUrl(playList[currentSong + 1].id)
       that.setData({
-        currentSong: 0
+        currentSong: currentSong + 1,
+        playList: playList
       })
-      return
+    } else if (playState[0] === 'icon-suijibofang-wangyiicon') { // 随机播放
+      let currentSong = Math.floor(Math.random() * playList.length)
+      // console.log(currentSong)
+      that.getMusicUrl(playList[currentSong].id)
+      that.setData({
+        currentSong: currentSong,
+        playList: playList
+      })
     }
-    that.getMusicUrl(playList[currentSong + 1].id)
-    that.setData({
-      currentSong: currentSong + 1
-    })
   },
   // 播放器状态 过渡动画
   swichState() {
@@ -226,6 +267,81 @@ Page({
       }
     }, time)
   },
+  /* 展示播放列表 */
+  showList() {
+    let playList = wx.getStorageSync('playList')
+    this.setData({
+      playList: playList,
+      showList: true,
+      maskDisplay: 'block',
+      maskOpacity: .5
+    })
+  },
+  /* 隐藏播放列表 */
+  hiddenList() {
+    let that = this
+    that.setData({
+      showList: false,
+      maskOpacity: 0
+    })
+    setTimeout(() => {
+      that.setData({
+        maskDisplay: 'none'
+      })
+    }, 500)
+  },
+  /* 播放列表选择播放 */
+  play(e) {
+    // console.log(e.currentTarget.dataset.index)
+    let playList = wx.getStorageSync('playList')
+    this.getMusicUrl(playList[e.currentTarget.dataset.index].id)
+    this.setData({
+      currentSong: e.currentTarget.dataset.index
+    })
+  },
+  /* 改变播放顺序 */
+  swichPlayState() {
+    let playState = this.data.playState
+    let splice = playState.splice(0, 1)
+    playState = [...playState, ...splice]
+    console.log(playState)
+    this.setData({
+      playState: playState
+    })
+    if (playState[0] === 'icon-xunhuanbofang') {
+      wx.showToast({
+        title: '列表循环',
+        icon: 'none'
+      })
+    } else if (playState[0] === 'icon-suijibofang-wangyiicon') {
+      wx.showToast({
+        title: '随机播放',
+        icon: 'none'
+      })
+    } else {
+      wx.showToast({
+        title: '单曲循环',
+        icon: 'none'
+      })
+    }
+  },
+  /* 监听属性变化 */
+  watch: {
+    currentSong(val, old) {
+      if (val !== '') {
+        // console.log(val)
+        getApp().globalData.currentSong = val;
+        console.log(getApp().globalData.currentSong)
+      }
+    },
+    playList(val, old) {
+      if (val !== '') {
+        // console.log(val)
+        getApp().globalData.playList = val;
+        console.log(getApp().globalData.playList)
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -233,7 +349,7 @@ Page({
   //   this.setData({
   //     id: options.id
   //   })
-  //   this.getMusicUrl(options.id) //29122124
+  //   this.getMusicUrl(options.id)
   // },
   onLoad: function (options) {
     let playList = wx.getStorageSync('playList')
@@ -242,13 +358,17 @@ Page({
       playList: playList,
       currentSong: 0
     })
+    console.log(playList)
+    getApp().watch(this.data, this.watch, this) // 调用app.js的监听属性方法
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.setNavigationBarTitle({   // 设置页面头部标题
+      title: this.data.name
+    })
   },
 
   /**

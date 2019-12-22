@@ -33,8 +33,49 @@ App({
       }
     })
   },
+  observe(obj, key, fun, caller){
+    var val = obj[key];
+    Object.defineProperty(obj, key, {
+      configurable: true,
+      enumerable: true,
+      set(value) {
+        // console.log('set ',key)
+        val = value;
+        fun.call(caller, value, val)
+      },
+      get() {
+        return val;
+      }
+    })
+  },
+
+ // 监听特定data对象的属性变化
+ // caller :保留this指针
+  watch(data, watch, caller){
+    Object.keys(watch).forEach(v => {
+      this.observe(data, v, watch[v], caller);
+    })
+  },
+
+  //app 全局属性监听
+  watchAppData: function (method) {
+    var obj = this.globalData;
+    Object.keys(obj).forEach((key) => {
+      Object.defineProperty(obj, key, {
+        configurable: true,
+        enumerable: true,
+        set: function (value) {
+          obj[key] = value
+        },
+        get: function () {
+          return obj[key]
+        }
+      })
+    })
+  },
   globalData: {
     userInfo: null,
-    playList: []
+    playList: [],
+    currentSong: 0
   }
 })

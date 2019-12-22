@@ -1,0 +1,10 @@
+<view class="musicBar" bind:tap="play">
+  <view class="musicImg">
+    <image class="" src="{{musicImgUrl}}" mode="scaleToFill" />
+  </view>
+  <view class="content">
+    <view class="title">{{musicName}}</view>
+    <view class="singer">{{musicSinger}}</view>
+  </view>
+  <view class="iconfont icon-bofang-wangyiicon"></view>
+</view>

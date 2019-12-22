@@ -141,11 +141,14 @@
   box-sizing: border-box;
   padding: 16rpx 0;
   align-items: center;
+  position: relative;
 }
 .number {
-  padding: 0 40rpx;
+  padding: 0 30rpx;
+  width: 50rpx;
   color: rgb(131, 131, 131);
   font-size: 32rpx;
+  text-align: center;
 }
 .song-content {
   width: 70%;
@@ -171,6 +174,7 @@
   -webkit-box-orient: vertical;
 }
 .addPlayList {
+  position: absolute;
   font-size: 46rpx;
-  padding: 0 30rpx;
+  right: 50rpx;
 }

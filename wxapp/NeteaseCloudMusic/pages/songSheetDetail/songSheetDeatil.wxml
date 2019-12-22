@@ -42,7 +42,7 @@
           <view class="title">{{item.name}}</view>
           <view class="artist">{{item.ar[0].name}} - {{item.al.name}}</view>
         </view>
-        <view class="addPlayList">+</view>
+        <view class="addPlayList" data-index="{{index}}" catch:tap="addPlayList">+</view>
       </view>
     </view>
   </view>

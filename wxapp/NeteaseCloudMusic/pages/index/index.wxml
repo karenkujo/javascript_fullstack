@@ -12,7 +12,6 @@
     <!-- 搜索 -->
     <view class="iconfont icon-sousuo" style="font-size: 60rpx;" bindtap="toSearch"></view>
   </view>
-
   <!-- 四个页面 -->
   <swiper class="index-pages" current="{{currentId}}" bindchange="scollNav" skip-hidden-item-layout="true">
     <!-- 歌手 -->
@@ -220,6 +219,7 @@
       </view>
     </swiper-item>
   </swiper>
+  <music-bar id="musicBar"></music-bar>
   <!-- 侧边栏 -->
   <view class="mask" style="opacity: {{maskOpacity}}; display: {{maskDisplay}};" bind:tap="hiddenSide"></view>
   <view class="sideBar {{sideShow ? 'show' : '' }}" style="right: {{sideWidth}}">
