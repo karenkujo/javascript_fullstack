@@ -65,6 +65,9 @@ Page({
           wx.setStorageSync('name', res.data.songs[0].name)
           wx.setStorageSync('picUrl', res.data.songs[0].al.picUrl)
           wx.setStorageSync('singer', res.data.songs[0].ar[0].name)
+          getApp().globalData.name = res.data.songs[0].name
+          getApp().globalData.picUrl = res.data.songs[0].al.picUrl
+          getApp().globalData.singer = res.data.songs[0].ar[0].name
           // console.log(that.data.name)
           that.getBackgroundAudioManager()  // 调用创建播放器方法
             .then((backgroundAudioManager) => {
@@ -331,6 +334,7 @@ Page({
       if (val !== '') {
         // console.log(val)
         getApp().globalData.currentSong = val;
+        wx.setStorageSync('currentSong', val)
         console.log(getApp().globalData.currentSong)
       }
     },
@@ -338,6 +342,7 @@ Page({
       if (val !== '') {
         // console.log(val)
         getApp().globalData.playList = val;
+        wx.setStorageSync('playList', val)
         console.log(getApp().globalData.playList)
       }
     }
@@ -360,6 +365,7 @@ Page({
     })
     console.log(playList)
     getApp().watch(this.data, this.watch, this) // 调用app.js的监听属性方法
+    getApp().globalData.play = this // 将当前页面作用域传到全局
   },
 
   /**

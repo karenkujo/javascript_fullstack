@@ -58,24 +58,40 @@ App({
   },
 
   //app 全局属性监听
-  watchAppData: function (method) {
+  watchAppData: function (method, caller) {
     var obj = this.globalData;
     Object.keys(obj).forEach((key) => {
-      Object.defineProperty(obj, key, {
-        configurable: true,
-        enumerable: true,
-        set: function (value) {
-          obj[key] = value
-        },
-        get: function () {
-          return obj[key]
-        }
-      })
+      var val = obj[key]
+      if (key == 'name') {
+        Object.defineProperty(obj, key, {
+          configurable: true,
+          enumerable: true,
+          set: function (value) {
+            val = value
+            console.log('setting')
+            method.call(caller) // 改变this指向!!! 使其指向musicBar组件
+          },
+          get: function () {
+            return val
+          }
+        })
+      }
     })
+  },
+  playMusic () {
+    let play = this.globalData.play // 获取play页面作用域
+    // console.log(play)
+    play.swichState()
+    this.globalData.handleState = play.data.handleState
   },
   globalData: {
     userInfo: null,
     playList: [],
-    currentSong: 0
+    currentSong: 0,
+    name: '',
+    picUrl: '',
+    singer: '',
+    play: null,
+    handleState: true
   }
 })

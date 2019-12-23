@@ -261,7 +261,8 @@ Page({
    */
   onReady: function () {
     this.musicBar = this.selectComponent('#musicBar')
-    this.musicBar.getData()
+    this.musicBar.getData() // 调用组件方法
+    getApp().watchAppData(this.musicBar.getData, this.musicBar) // 监听全局变量
   },
 
   /**

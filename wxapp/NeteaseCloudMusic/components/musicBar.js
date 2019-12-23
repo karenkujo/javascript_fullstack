@@ -13,7 +13,8 @@ Component({
   data: {
     musicImgUrl: '',
     musicName: '',
-    musicSinger: ''
+    musicSinger: '',
+    handleState: true
   },
 
   /**
@@ -21,24 +22,37 @@ Component({
    */
   methods: {
     getData () {
-      this.setData({
-        musicImgUrl: wx.getStorageSync('picUrl'),
-        musicName: wx.getStorageSync('name'),
-        musicSinger: wx.getStorageSync('singer')
-      })
+      console.log('getData')
       getApp().globalData.currentSong = wx.getStorageSync('currentSong')
       getApp().globalData.playList = wx.getStorageSync('playList')
-      console.log(getApp().globalData.playList)
+      let musicName = wx.getStorageSync('name')
+      let musicImgUrl = wx.getStorageSync('picUrl')
+      let musicSinger = wx.getStorageSync('singer')
+      console.log(musicName, musicSinger)
+      console.log(this.data)
+      this.setData({
+        musicName: musicName,
+        musicImgUrl: musicImgUrl,
+        musicSinger: musicSinger
+      })
     },
     play () {
       let playList = [...new Set(getApp().globalData.playList)]
+      console.log(playList)
       let currentSong = getApp().globalData.currentSong
       let preSongs = playList.splice(0, currentSong)
       playList = [...playList, ...preSongs]
       wx.setStorageSync('playList', playList)
+      wx.setStorageSync('currentSong', 0)
       console.log(playList)
       wx.navigateTo({
         url: '/pages/play/play'
+      })
+    },
+    swichState () {
+      getApp().playMusic()
+      this.setData({
+        handleState: getApp().globalData.handleState
       })
     }
   }
