@@ -1,0 +1,17 @@
+{
+  "name": "fp-memorize",
+  "version": "1.0.0",
+  "description": "1. 相同的输入会有相同的输出\r 2. 不会产生副作用\r f(x) = x ^ 2\r f(1) = 1\r f(3) = 9\r f(3) = 9",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  }
+}
