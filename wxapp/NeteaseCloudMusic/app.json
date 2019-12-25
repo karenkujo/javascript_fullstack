@@ -7,8 +7,7 @@
     "pages/songSheetDetail/songSheetDeatil",
     "pages/songSheet/songSheet",
     "pages/search/search",
-    "pages/logs/logs",
-    "pages/dateRecommend/dateRecommend"
+    "pages/logs/logs"
   ],
   "requiredBackgroundModes": [
     "audio"

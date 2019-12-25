@@ -1,5 +1,5 @@
 // pages/mvDetail/mvDetail.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 Page({
 
   /**
@@ -68,8 +68,16 @@ Page({
           that.setData({
             singer: res.data.artist
           })
+          wx.hideLoading()
         }
       }
+    })
+  },
+  toSingerDetail () {
+    // console.log(this.data.singer.id)
+    let id = this.data.singer.id
+    wx.navigateTo({
+      url: '../singerDetail/singerDetail?id=' + id
     })
   },
   /**
@@ -77,6 +85,9 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.id)
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getMvUrl(options.id)
     this.getMvDetail(options.id)
   },

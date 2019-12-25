@@ -1,5 +1,5 @@
 // pages/songSheetDetail/songSheetDeatil.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 
 Page({
 
@@ -59,6 +59,7 @@ Page({
           that.setData({
             songSheetDetail: res.data.playlist
           })
+          wx.hideLoading()
         }
       }
     })
@@ -91,6 +92,7 @@ Page({
           that.setData({
             songSheetDetail: res.data.playlist
           })
+          wx.hideLoading()
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -130,6 +132,7 @@ Page({
           that.setData({
             songSheetDetail: songSheetDetail
           })
+          wx.hideLoading()
         }
       }
     })
@@ -164,6 +167,7 @@ Page({
     let playList = wx.getStorageSync('playList')
     playList = [...playList, currentSong]
     wx.setStorageSync('playList', playList)
+    getApp().globalData.playList = playList
     wx.showToast({
       title: '添加到播放列表成功',
       icon: 'none',
@@ -185,6 +189,9 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.name)
+    wx.showLoading({
+      title: '加载中'
+    })
     if (options.id) {
       this.getsongSheetDetail(options.id)
       console.log(options.id)

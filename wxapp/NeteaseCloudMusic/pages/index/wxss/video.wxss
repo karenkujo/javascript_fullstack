@@ -31,16 +31,17 @@
 .briefDesc {
   margin-top: 8rpx;
   font-size: 28rpx;
-   /* 显示一行超出打点 */
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 1;
-   -webkit-box-orient: vertical;
+  padding: 0 24rpx;
+  /* 显示一行超出打点 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .video-item .name {
   font-size: 26rpx;
   line-height: 26rpx;
   color: rgb(175, 171, 166);
-  padding: 14rpx 0 28rpx 0;
+  padding: 14rpx 24rpx 28rpx 24rpx;
 }

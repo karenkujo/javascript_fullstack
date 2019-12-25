@@ -23,7 +23,7 @@
         <view class="text">{{mvDeatil.shareCount}}</view>
       </view>
     </view>
-    <view class="artist">
+    <view class="artist" bind:tap="toSingerDetail">
       <view class="avatar">
         <image class="" src="{{singer.img1v1Url}}" mode="scaleToFill" />
       </view>

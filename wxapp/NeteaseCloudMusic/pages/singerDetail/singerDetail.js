@@ -1,5 +1,5 @@
 // pages/singerDetail/singerDetail.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 Page({
 
   /**
@@ -51,6 +51,7 @@ Page({
           that.setData({
             singerAlbums: res.data.hotAlbums
           })
+          wx.hideLoading()
         }
       }
     })
@@ -70,6 +71,7 @@ Page({
     let playList = wx.getStorageSync('playList')
     playList = [...playList, currentSong]
     wx.setStorageSync('playList', playList)
+    getApp().globalData.playList = playList
     wx.showToast({
       title: '添加到播放列表成功',
       icon: 'none',
@@ -100,6 +102,9 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options.id)
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getSingerSongs(options.id)
     this.getSingeralbum(options.id)
   },

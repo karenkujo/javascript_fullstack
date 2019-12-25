@@ -1,5 +1,5 @@
 // pages/search/search.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 Page({
 
   /**
@@ -24,10 +24,11 @@ Page({
       success (res) {
         if (res.data.code === 200) {
           // console.log(res.data.result.hots)
+          that.setData({
+            hotSearch: res.data.result.hots
+          })
+          wx.hideLoading()
         }
-        that.setData({
-          hotSearch: res.data.result.hots
-        })
       }
     })
   },
@@ -96,15 +97,19 @@ Page({
   },
   // 搜索事件
   onChange (e) {
+    console.log(e)
     let that = this
     if(e.detail == '') {
       that.setData({
-        showsuggest: false
+        showsuggest: false,
+        query: ''
       })
       return
     }
     if (e.detail) {
-      that.data.query = e.detail
+      that.setData({
+        query: e.detail
+      })
     }
     that.setData({
       showsuggest: true
@@ -144,18 +149,22 @@ Page({
   },
   // 点击热门搜索或者搜索历史
   onSearchBox (e) {
-    // console.log(e.currentTarget.dataset.name)
+    console.log(e.currentTarget.dataset.name)
     let that = this
     that.setData({
-      query: e.currentTarget.dataset.name,
       showsuggest: true
     })
-    that.getSuggest(that.data.query)
+    let obj = {}
+    obj.detail = e.currentTarget.dataset.name
+    that.onChange(obj)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getHotSearch ()
     let currentHistory = wx.getStorageSync('SearchHistory')
     this.setData({

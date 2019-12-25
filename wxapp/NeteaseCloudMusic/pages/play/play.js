@@ -1,5 +1,5 @@
 // pages/play/play.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 let durationNum = 0
 let currentTimeNum = 0
 Page({
@@ -42,6 +42,15 @@ Page({
             musicUrl: res.data.data[0].url
           })
         }
+        if (res.data.data[0].url == null) {
+          that.nextSong()
+          wx.showToast({
+            title: '抱歉, 该歌曲没有版权',
+            icon: 'none',
+            duration: 800
+          })
+          return
+        }
         that.getMusicDetail(id)
       }
     })
@@ -74,6 +83,7 @@ Page({
               that.setData({
                 backgroundAudioManager: backgroundAudioManager
               })
+              wx.hideLoading()
               that.setProgress()
             })
         }
@@ -357,6 +367,9 @@ Page({
   //   this.getMusicUrl(options.id)
   // },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     let playList = wx.getStorageSync('playList')
     this.getMusicUrl(playList[0].id)
     this.setData({

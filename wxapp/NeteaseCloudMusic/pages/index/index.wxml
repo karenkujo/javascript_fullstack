@@ -61,11 +61,11 @@
             <view class="iconfont icon-paixingbang"></view>
             <text>排行榜</text>
           </li>
-          <li class="menu-item">
+          <li class="menu-item" bindtap="toDianTai">
             <view class="iconfont icon-diantai"></view>
             <text>电台</text>
           </li>
-          <li class="menu-item">
+          <li class="menu-item" bind:tap="toZhiBo">
             <view class="iconfont icon-zhibo"></view>
             <text>直播</text>
           </li>
@@ -99,7 +99,7 @@
         <view class="songs">
           <view class="songs-title">
             <span class="songs-title_item">新歌</span>
-            <span class="more-songs">新歌推荐</span>
+            <span class="more-songs" bind:tap="moreNewSong">新歌推荐</span>
           </view>
           <ul class="songList">
             <li class="song" wx:for="{{newSongs}}" wx:key="{{index}}" wx:if="{{index < 3}}" data-index="{{index}}" bind:tap="play">
@@ -116,7 +116,7 @@
         <view class="albums">
           <view class="albums-title">
             <span class="albums-title_item">新碟</span>
-            <span class="more-albums">更多新碟</span>
+            <span class="more-albums" bind:tap="moreNewAlbum">更多新碟</span>
           </view>
           <ul class="albumList">
             <li class="album" wx:for="{{albums}}" wx:key="index" data-id="{{item.id}}" bind:tap="songSheetDetail">

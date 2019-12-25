@@ -1,5 +1,5 @@
 // pages/index/index.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 Page({
 
   /**
@@ -175,6 +175,7 @@ Page({
         that.setData({
           MvList: res.data.data
         })
+        wx.hideLoading()
       }
     })
   },
@@ -186,19 +187,34 @@ Page({
   },
   // 去歌单页面
   toSongSheet () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../songSheet/songSheet'
     })
   },
   // 去每日推荐页面
   toDateRecommend () {
-    wx.redirectTo({
-      url: '../dateRecommend/dateRecommend'
+    wx.showToast({
+      title: '该功能未完善',
+      icon: 'none'
+    })
+  },
+  // 去电台界面
+  toDianTai () {
+    wx.showToast({
+      title: '该功能未完善',
+      icon: 'none'
+    })
+  },
+  // 去直播界面
+  toZhiBo () {
+    wx.showToast({
+      title: '该功能未完善',
+      icon: 'none'
     })
   },
   // 去搜索界面
   toSearch () {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../search/search'
     })
   },
@@ -206,14 +222,28 @@ Page({
   songSheetDetail(e) {
     // console.log(e.currentTarget.dataset.id)
     let id = e.currentTarget.dataset.id
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../songSheetDetail/songSheetDeatil?id=' + id
+    })
+  },
+  /* 更多新歌 */
+  moreNewSong () {
+    wx.showToast({
+      title: '该功能未完善',
+      icon: 'none'
+    })
+  },
+  /* 更多新碟 */
+  moreNewAlbum () {
+    wx.showToast({
+      title: '该功能未完善',
+      icon: 'none'
     })
   },
   /* 查看歌手详情 */
   singerDetail (e) {
     let id = e.currentTarget.dataset.id
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../singerDetail/singerDetail?id=' + id
     })
   },
@@ -231,7 +261,7 @@ Page({
   rankDetail (e) {
     console.log(e.currentTarget.dataset.name)
     let name = e.currentTarget.dataset.name
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../songSheetDetail/songSheetDeatil?name=' + name
     })
   },
@@ -239,7 +269,7 @@ Page({
   mvDetail (e) {
     let id = e.currentTarget.dataset.id
     console.log(id)
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../mvDetail/mvDetail?id=' + id
     })
   },
@@ -247,6 +277,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getBanner()
     this.getsongList()
     this.getAlbums()

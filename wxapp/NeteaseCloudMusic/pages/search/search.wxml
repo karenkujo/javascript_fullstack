@@ -2,12 +2,18 @@
 <view class="search">
   <view class="search-wrapper">
     <view class="search-box">
-      <van-search value="{{query}}" placeholder="请输入搜索关键词" bind:change="onChange" background="#C62F2F" />
+      <van-search class="input" 
+      value="{{query}}" 
+      placeholder="请输入搜索关键词" 
+      bind:change="onChange"
+      background="#C62F2F"
+      clearable="{{false}}"
+      show-action="{{true}}" />
     </view>
     <view class="hot-search" wx:if="{{!showsuggest}}">
       <view class="title">热门搜索</view>
       <view class="hot-content">
-        <view class="hot-item" wx:for="{{hotSearch}}" wx:key="{{index}}" data-name="{{item.first}}" bindtap="onSearchBox">
+        <view class="hot-item" wx:for="{{hotSearch}}" wx:key="{{index}}" data-name="{{item.first}}" bind:tap="onSearchBox">
           <view class="hot-name">
             <view class="text1">{{index + 1}}</view>
             <view class="text2">{{item.first}}</view>

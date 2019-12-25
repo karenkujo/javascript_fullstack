@@ -1,5 +1,5 @@
 // pages/songSheet/songSheet.js
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://neteasecloudmusicapi.zhaoboy.com'
 Page({
 
   /**
@@ -118,6 +118,7 @@ Page({
           that.setData({
             acgSongList: res.data.playlists
           })
+          wx.hideLoading()
         }
       }
     })
@@ -134,6 +135,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getRecSongSheet()
     this.getChiSongSheet()
     this.getJapSongSheet()
