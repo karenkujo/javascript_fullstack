@@ -1,6 +1,6 @@
-var Koa = require('koa');
-var Router = require('koa-router');
-const koaStatic = require('koa-static')
+var Koa = require('koa')
+var Router = require('koa-router')
+const md5 = require('md5')
  
 var app = new Koa();
 var router = new Router();
@@ -31,8 +31,24 @@ router.get('/app1.js', async (ctx) => {
   console.log('app1.js 请求', a ++)
   const fs = require('fs')
   const content = fs.readFileSync('./app1.js', 'utf-8')
+  const stat = fs.statSync('./app1.js')
+  console.log(stat)
+  const etag = md5(content)
+  // console.log(etag)
   const time = Date.now() + 1000 * 30 // 30s
-  ctx.set('cache-control', 'public,max-age=30') // 30s
+  if (ctx.req.headers['if-none-match'] === etag) {
+    ctx.status = 304
+    ctx.body = ''
+    return
+  }
+  if (ctx.req.headers['if-modified-since'] === stat.mtime) {
+    ctx.status = 304
+    ctx.body = ''
+    return
+  }
+  ctx.set('cache-control', 'public,max-age=30') // 30s   public所有设备
+  ctx.set('Etag', etag)
+  ctx.set('Last-Modified', stat.mtime)
   ctx.body = content
 })
 app
