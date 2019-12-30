@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr = [1, 2, 3, 4, 5]
+    arr.push(6)
+    arr[6] = 6  // vue不会引起页面刷新
+    // 劫持
+    //1. push shift .......
+    //2. arr[0] = .........
+    // 备份原push
+    let originalPush = Array.prototype.push
+    // 重写push
+    Array.prototype.push = function(...args) {
+      console.log('我知道数组改变了')
+      // push恢复
+      originalPush.call(this, ...args)
+    }
+    arr.push(7)
+    console.log(arr)
+  </script>
+</body>
+</html>

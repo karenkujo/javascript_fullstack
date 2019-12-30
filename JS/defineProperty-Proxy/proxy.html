@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let data = {
+      name: 'name'
+    }
+    let proxyData = new Proxy(data, {
+      get(target, key, receiver) {
+        if (key.startsWith('_')) {
+          throw new Error('private property')
+        }
+        else {
+          return Reflect.get(target, key, receiver)
+        }
+      },
+      set(target, key, value, receiver) {
+        console.log(receiver)
+        console.log('改变了')
+        // 恢复 set 能力
+        return Reflect.set(target, key, value, receiver)
+      },
+      deleteProperty(target, key) {
+        console.log('del')
+        return Reflect.deleteProperty(target, key)
+      },
+      has(target, key) {
+        console.log('has')
+        return Reflect.has(target, key)
+      }
+    })
+    proxyData.name = 456
+    console.log(data.name)
+    proxyData.age = 18
+    console.log(proxyData)
+    delete data.age
+    console.log(proxyData)
+    console.log('name' in proxyData)
+    console.log(proxyData._age)
+  </script>
+</body>
+</html>
