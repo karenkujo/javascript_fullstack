@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const PENDING = 'PENDING'
+    const RESOLVE = 'RESOLVE'
+    const REJECT = 'REJECT'
+    function MyPromise(cb) {
+      let self = this
+      self.status = PENDING
+      // console.log(this)
+      function resolve(val) {
+        // 外面调用 resolve(123)
+        // console.log(val)
+        self.data = val
+        self.status = RESOLVE
+        // 执行 then 里面的回调
+        self.onResolve && self.onResolve(val)
+        // 
+      }
+      cb(resolve)
+    }
+    MyPromise.prototype.then = function(onResolve) {
+      if (this.status === RESOLVE) {
+        onResolve(this.data)
+      }
+      if (this.status === PENDING) {
+        // 告诉构造函数里面的resolve
+        // this.onResolve = onResolve
+        // 处理链式调用 返回Promise
+        return new MyPromise((resolve) => {
+          // 1. resolve???
+          // 2. 上一步的结果在this.data里面
+          // resolve(this.data)
+          this.onResolve = function(val) {
+            // 1: 上一个then 拿到结果
+            let res = onResolve(val)
+            resolve(res)
+          }
+        })
+      }
+    }
+
+    let p = new MyPromise((resolve) => {
+      setTimeout(() => {
+        resolve(123)
+      }, 3000)
+    })
+    p.then(res => {
+      console.log(res)
+      return(res)
+    })
+    .then(res => {
+      console.log('res2', res)
+    })
+  </script>
+</body>
+</html>
