@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function pageChange() {
+      console.log(location.href, "记录+1")
+    }
+    window.addEventListener('hashchange', pageChange)
+
+    // 监控浏览器 前进/后退 按钮
+    // forward/back/go
+    window.addEventListener('popstate', pageChange)
+    // pushState / replaceState
+    let hooks = ['pushState', 'replaceState']
+    hooks.forEach(hook => {
+      let mehtod = window.history[hook]
+      window.history[hook] = function (...args) {
+        setTimeout(() => {
+          pageChange()
+        }, 0)
+        return mehtod.call(window.history, ...args)
+      }
+    })
+
+
+    // import './router.js'
+  </script>
+</body>
+
+</html>
