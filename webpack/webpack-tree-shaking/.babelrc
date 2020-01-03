@@ -1,0 +1,13 @@
+{
+  "presets": [],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "lodash",
+        "libraryDirectory": "", // 假设加了dist  则 'lodash' -> 'lodash/dist/includes'
+        "camel2DashComponentName": false  // default: true
+      }      
+    ]
+  ]
+}
