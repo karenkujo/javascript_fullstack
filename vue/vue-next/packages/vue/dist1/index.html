@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./vue.global.js"></script>
+  <script>
+    function usePosition() {
+      let position = Vue.reactive({x: 0, y: 0})
+      function update(e) {
+        // console.log(e)
+        position.x = e.pageX
+        position.y = e.pageY
+      }
+      Vue.onMounted(() => {
+        window.addEventListener('mousemove', update)
+      })
+
+      return Vue.toRefs(position) // 它能让非响应式的数据变成响应式的
+    }
+    const App = {
+      setup () { // created 只执行一次
+        let state = Vue.reactive({name: 'wn'})
+        // console.log(state)
+        let {x, y} = usePosition()
+        function change() {
+          state.name = '猛哥'
+        }
+        return { // 让这个对象作为渲染的上下文
+          state,
+          change,
+          x,
+          y
+        }
+      },
+      template: `<div @click="change">{{state.name}} x: {{x}}, y: {{y}}</div>`
+    }
+
+    Vue.createApp().mount(App, app)
+  </script>
+</body>
+</html>
