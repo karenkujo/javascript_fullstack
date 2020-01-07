@@ -1,0 +1,15 @@
+<script>
+  function foo(a, ...b) {
+    // 自定义模板字符串的拼接
+    // return 'my name is lilei' // str取返回值而不是foo后面的内容
+    console.log(a)
+    console.log(b)
+    return a[0] + b[0].toUpperCase()
+  }
+  let name = 'lihua'
+  let age = 18
+  // let str = foo`my name is ${name}`
+  // console.log(str)
+  let str1 = foo`my name is ${name}, my age is ${age}`
+  console.log(str1)
+</script>
