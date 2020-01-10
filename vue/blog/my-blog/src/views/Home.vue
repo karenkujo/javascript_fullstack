@@ -1308,6 +1308,7 @@ export default class Home extends Vue {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 10;
   .content {
     position: fixed;
     left: 0;

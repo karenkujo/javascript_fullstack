@@ -34,7 +34,7 @@
         </el-row>
       </div>
     </div>
-    <RegisterAndLogin></RegisterAndLogin>
+    <RegisterAndLogin :visible="visible" :handleFlag="handleFlag" @cancel="handleCancel"></RegisterAndLogin>
   </div>
 </template>
 
@@ -86,9 +86,17 @@ export default class Nav extends Vue {
       name: "关于"
     }
   ]
-  private handleClick(value: string) {
 
+  private visible: boolean = false
+  private handleFlag: string
+  private handleClick(value: string) {
+    this.visible = true
+    this.handleFlag = value
   }
+  private handleCancel(value: boolean) {
+    this.visible = value
+  }
+
   private handleSelect() {}
 }
 </script>
