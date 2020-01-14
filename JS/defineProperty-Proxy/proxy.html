@@ -9,7 +9,8 @@
 <body>
   <script>
     let data = {
-      name: 'name'
+      name: 'name',
+      arr: [1, 2, 3]
     }
     let proxyData = new Proxy(data, {
       get(target, key, receiver) {
