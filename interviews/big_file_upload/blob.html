@@ -16,7 +16,7 @@
     // blob 协议在本地就把它立马显示出来，配上上传进度，更好的用户体验
     document.getElementById('file')
     .addEventListener('change', (e) => {
-      const file = event.target.files[0]
+      const file = e.target.files[0]
       // console.log(Object.prototype.toString.call(file))
       const URL = window.URL
       const objectUrl = URL.createObjectURL(file)
