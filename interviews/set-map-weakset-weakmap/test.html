@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const a = [{ name: 'cbusia' }]
+    const b = [[1, 2, 3, 4, 7], [5, 3, 6, 4]]
+    const ws = new WeakSet(b)
+    console.log(ws)
+
+    const m2 = new Map([['bar', 2], ['baz', 3]])
+    const m3 = new Map([{ 'name': 15 }])
+    console.log(m2)
+
+    function objToStrMap(obj) {
+      let strMap = new Map();
+      for (let k in obj) {
+        strMap.set(k, obj[k]);
+      }
+      return strMap;
+    }
+
+    console.log(objToStrMap({ yes: true, no: false }))
+
+    const wm = new WeakMap();
+    let key = [1, 2];
+    let obj = [2, 3];
+
+    wm.set(key, obj);
+    console.log(wm.get(key))
+    // Object {foo: 1}
+
+    
+  </script>
+</body>
+
+</html>

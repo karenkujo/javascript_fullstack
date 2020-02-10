@@ -157,6 +157,7 @@ export default {
     },
     async handleUpload (e) {
       // 大量的任务
+      console.log(this.container.file)
       if (!this.container.file) return;
       this.status = Status.uploading;
 
@@ -259,12 +260,11 @@ export default {
     },
     handleFileChange(e) {
       // 分割文件
-      const [ file ] = e.target.files; // 拿到第一个文件
-      // console.log(e.target.files);
+      const file = e.target.files[0]; // 拿到第一个文件
+      console.log(e.target.files[0]);
       this.container.file = file;
-      this.resetData();
-      Object.assign(this.$data, this.$options.data());
-      
+      // this.resetData();
+      // Object.assign(this.$data, this.$options.data());
     }
   },
   components: {
