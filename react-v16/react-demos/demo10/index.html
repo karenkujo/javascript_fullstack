@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../build/react.development.js"></script>
+  <script src="../build/react-dom.development.js"></script>
+  <script src="../build/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="example"></div>
+
+  <script type="text/babel">
+  class Hello extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = {
+        opacity: 1
+      }
+    }
+    componentDidMount () {
+      // setInterval是一个异步操作，会进入到浏览器的任务队列,被挂起
+    this.timer = setInterval(() => {
+        this.setState({
+          opacity: this.state.opacity - 0.05
+        })
+      }, 100)
+    }
+    componentDidUpdate () {
+      if (this.state.opacity <= 0.1) {
+        clearInterval(this.timer)
+        this.timer = setInterval(() => {
+          this.setState({
+          opacity: this.state.opacity + 0.05
+        })
+        }, 100)
+      } else if (this.state.opacity >= 1) {
+        clearInterval(this.timer)
+        this.timer = setInterval(() => {
+        this.setState({
+          opacity: this.state.opacity - 0.05
+        })
+      }, 100)
+      }
+    }
+    render () {
+      return (
+        <div style={{opacity: this.state.opacity}}>
+          hello {this.props.name}
+        </div>
+      )
+    }
+  }
+    ReactDOM.render(
+      <Hello name="world" />,
+      document.getElementById('example')
+    )
+  </script>
+</body>
+</html>
