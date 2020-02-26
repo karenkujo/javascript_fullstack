@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../build/react.development.js"></script>
+  <script src="../build/react-dom.development.js"></script>
+  <script src="../build/babel.min.js"></script>
+  <script src="../build/prop-types.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="example"></div>
+
+  <!-- PropsTypes -->
+  <script type="text/babel">
+
+    class MyTitle extends React.Component {
+      constructor (props) {
+        super(props)
+        this.state = {
+          aqua: {
+            name: 'aqua',
+            age: 5
+          }
+        }
+      }
+      // static propTypes = {
+      //   title: PropTypes.string
+      // }
+
+      // static defaultProps = {
+      //     title: 'hello world'
+      // }
+      handleClick = () => {
+        this.setState({
+          aqua: {
+            name: 'mea',
+            age: 37
+          }
+        })
+        console.log(this.state)
+      }
+      render () {
+        return (
+          <div>
+            <MyTitle2 {...this.state.aqua} />
+            <button onClick={this.handleClick}>click me</button>
+          </div>
+          )
+      }
+    }
+
+    class MyTitle2 extends React.Component {
+      render () {
+        console.log(this.props)
+        return (
+          <div>
+            <div>{this.props.name}</div>
+            <div>{this.props.age}</div>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <MyTitle />,
+      document.getElementById('example')
+    )
+  </script>
+</body>
+</html>

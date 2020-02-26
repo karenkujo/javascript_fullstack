@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../build/react.development.js"></script>
+  <script src="../build/react-dom.development.js"></script>
+  <script src="../build/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="example"></div>
+
+  <script type="text/babel">
+    var arr = [
+      <h1 key="1">hello world</h1>,
+      <h2 key="2">react is good</h2>
+    ]
+    var arr2 = [
+      'wn',
+      'mg'
+    ]
+    ReactDOM.render( // jsx 中允许直接插入js变量，荣是数组则会自动展开
+      <div>{arr2}</div>,
+      document.getElementById('example')
+    )
+  </script>
+</body>
+</html>
