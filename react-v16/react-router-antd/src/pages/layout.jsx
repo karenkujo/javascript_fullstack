@@ -75,7 +75,7 @@ class PageLayout extends React.Component {
           <Sider>
             <Menu defaultOpenKeys={['sub1']} mode="inline" style={{width: 256, height: '90vh', overflow: 'auto', minWidth: 200}}>
               <Menu.SubMenu key="sub1" title={<span><SmileOutlined></SmileOutlined>部分UI组件实践</span>}>
-                <Menu.Item key="sub-1"><Link to="/table">表格展示1</Link></Menu.Item>
+                <Menu.Item key="sub-1"><Link to={{pathname: '/table', search: '?id=1'}}>表格展示1</Link></Menu.Item>
                 <Menu.Item key="sub-2">标签页面1</Menu.Item>
               </Menu.SubMenu>
               <Menu.SubMenu key="sub2" title={<span><SmileOutlined></SmileOutlined>部分UI组件实践</span>}>
