@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Hmoe extends Component {
+class Home extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Hmoe extends Component {
   }
 }
 
-export default Hmoe;
+export default Home;

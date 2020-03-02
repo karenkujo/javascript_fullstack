@@ -1,4 +1,3 @@
-import loadeable from '../utils/loadable'
 import loadable from '../utils/loadable'
 
 const List = loadable(() => import('../pages/web/list/list'))
@@ -6,7 +5,7 @@ const List = loadable(() => import('../pages/web/list/list'))
 const webRoutes = [
   {
     menu: true,
-    icon: 'home',
+    icon: '<HomeOutlined />',
     title: '首页',
     path: '/web/index',
     component: List
