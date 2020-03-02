@@ -23,13 +23,13 @@ class Index extends Component {
 
           <Layout className="wrapper-container">
             <Layout className="wrapper-content">
-              <Content style={{ paddingTop: 24, margin: 0, minHeight: contentHeight, height: '100%', overflow: 'initial' }}>
+              <Content style={{ display: 'flex', paddingTop: 24, margin: 0, minHeight: contentHeight, height: '100%', overflow: 'initial' }}>
                 <Col
                   lg={{ span: 5, offset: 1 }}
                   md={{ span: 6, offset: 1 }}
                   xs={{ span: 0 }}
                 >
-                  left
+                  <SiderCustom />
                 </Col>
                 <Col
                   lg={{ span: 16, offset: 1 }}
@@ -42,7 +42,7 @@ class Index extends Component {
                 </Col>
               </Content>
             </Layout>
-            <Footer>persional blog</Footer>
+            <Footer style={{textAlign: 'center'}}>persional blog</Footer>
           </Layout>
         </Layout>
       </div>
