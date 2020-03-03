@@ -1,102 +1,19 @@
 import React, { Component } from 'react';
-import avatar from '../../../assets/test.png'
-import { Card, Tag, Divider } from 'antd'
-import './index.less'
-import { color } from '../../../utils/index'
+import { Card, Timeline } from 'antd'
+import { ClockCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
 
-class SideCustom extends Component {
+class Archive extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tags: [
-        {
-          "createdAt": "2019-03-30 12:47",
-          "updatedAt": "2019-03-30 12:47",
-          "id": 1,
-          "name": "Node"
-        },
-        {
-          "createdAt": "2019-03-30 12:47",
-          "updatedAt": "2019-03-30 12:47",
-          "id": 2,
-          "name": "Vue"
-        },
-        {
-          "createdAt": "2019-03-30 12:47",
-          "updatedAt": "2019-03-30 12:47",
-          "id": 3,
-          "name": "React"
-        },
-        {
-          "createdAt": "2019-03-30 12:47",
-          "updatedAt": "2019-03-30 12:47",
-          "id": 4,
-          "name": "Koa"
-        },
-        {
-          "createdAt": "2019-03-30 12:47",
-          "updatedAt": "2019-03-30 12:47",
-          "id": 5,
-          "name": "Nginx"
-        },
-        {
-          "createdAt": "2019-03-31 15:54",
-          "updatedAt": "2019-03-31 15:54",
-          "id": 7,
-          "name": "Mysql"
-        },
-        {
-          "createdAt": "2019-03-31 15:54",
-          "updatedAt": "2019-03-31 15:54",
-          "id": 8,
-          "name": "Sequelize"
-        },
-        {
-          "createdAt": "2019-04-10 18:49",
-          "updatedAt": "2019-04-10 18:49",
-          "id": 9,
-          "name": "JS"
-        },
-        {
-          "createdAt": "2019-04-10 20:15",
-          "updatedAt": "2019-04-10 20:15",
-          "id": 10,
-          "name": "less"
-        },
-        {
-          "createdAt": "2019-04-10 20:15",
-          "updatedAt": "2019-04-10 20:15",
-          "id": 11,
-          "name": "axios"
-        },
-        {
-          "createdAt": "2019-04-10 20:16",
-          "updatedAt": "2019-04-10 20:16",
-          "id": 12,
-          "name": "xshell"
-        },
-        {
-          "createdAt": "2019-04-10 20:17",
-          "updatedAt": "2019-04-10 20:17",
-          "id": 13,
-          "name": "es6"
-        },
-        {
-          "createdAt": "2019-11-11 10:59",
-          "updatedAt": "2019-11-11 10:59",
-          "id": 14,
-          "name": "Jenkins"
-        }
-      ],
-      articleData: [],
       data: [
         {
           "createdAt": "2019-11-11 10:57",
-          "updatedAt": "2020-03-01 18:16",
+          "updatedAt": "2020-03-03 16:51",
           "id": 7,
           "title": "blog 迁移到 http://xiangxi.red/doc",
-          "readedCount": 64,
+          "readedCount": 77,
           "author": "gong",
           "summary": "迁移",
           "category": [
@@ -109,10 +26,10 @@ class SideCustom extends Component {
         },
         {
           "createdAt": "2019-04-15 22:27",
-          "updatedAt": "2020-03-01 12:11",
+          "updatedAt": "2020-03-03 16:02",
           "id": 6,
           "title": "event loop 回答得最难受的一次面试",
-          "readedCount": 153,
+          "readedCount": 157,
           "author": "Gong",
           "summary": "记一次最近面试中的 event loop",
           "category": [
@@ -125,10 +42,10 @@ class SideCustom extends Component {
         },
         {
           "createdAt": "2019-04-13 15:21",
-          "updatedAt": "2020-03-01 12:43",
+          "updatedAt": "2020-03-03 09:15",
           "id": 5,
           "title": "面试题的细嚼慢咽，真香啊",
-          "readedCount": 95,
+          "readedCount": 96,
           "author": "Gong",
           "summary": "你觉得可以从 const let 聊到内存分配、垃圾回收、浅拷贝、深拷贝、闭包、原型、防抖、节流 吗 ？",
           "category": [
@@ -141,10 +58,10 @@ class SideCustom extends Component {
         },
         {
           "createdAt": "2019-04-10 18:50",
-          "updatedAt": "2020-02-25 13:19",
+          "updatedAt": "2020-03-03 16:15",
           "id": 4,
           "title": "JS 数组去重",
-          "readedCount": 66,
+          "readedCount": 67,
           "author": "Gong",
           "summary": "数组去重的多种方式",
           "category": [
@@ -157,10 +74,10 @@ class SideCustom extends Component {
         },
         {
           "createdAt": "2019-03-31 15:53",
-          "updatedAt": "2020-03-02 13:47",
+          "updatedAt": "2020-03-03 15:38",
           "id": 3,
           "title": "node + koa + mysql 搭建博客 server 端",
-          "readedCount": 314,
+          "readedCount": 315,
           "author": "Gong",
           "summary": "基于 koa2 框架构建 noder server、sequelize 操作数据库，为web端提供接口服务 ",
           "category": [
@@ -180,45 +97,23 @@ class SideCustom extends Component {
   }
   render() {
     return (
-      <div className="sider-container">
-        <div className="admin-info">
-          <header>
-            <img src={avatar} title="karen" alt="avatar" />
-          </header>
-          <p className="admin-name">
-            karen
-          </p>
-          <p className="admin-desc">
-            唯有那份眩目，
-            <br />
-            未曾忘却。
-          </p>
-        </div>
-        <div className="recent-article">
-          <Card>
-            <Divider orientation="left">最近文章</Divider>
-            <ul className="recent-list">
-              {this.state.data.map((v, i) => (
-                <li key={i}>{v.title}</li>
-              ))}
-            </ul>
-          </Card>
-        </div>
-        <div className="tags-wrapper">
-          <Card>
-            <Divider orientation="left">标签</Divider>
-            <div className="tags-content">
-              {
-                this.state.tags.map(v => (
-                  <Tag color={color[Math.floor(Math.random()*color.length)]} key={v.id}>{v.name}</Tag>
-                ))
-              }
-            </div>
-          </Card>
-        </div>
+      <div>
+        <Card bordered={false} style={{boxSizing: 'border-box', padding: 30}}>
+          <Timeline>
+          <Timeline.Item style={{fontSize: '20px', lineHeight: '30px'}} dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />} color="red">2019</Timeline.Item>
+            {this.state.data.map((v, i) => (
+              <Timeline.Item key={i}>
+                <Link to="web/detail">
+                  <span style={{marginRight: 20}}>{v.createdAt.split(' ')[0]}</span>
+                  <span>{v.title}</span>
+                </Link>
+              </Timeline.Item>
+            ))}
+          </Timeline>
+        </Card>
       </div>
-    )
+    );
   }
 }
 
-export default SideCustom
+export default Archive;
