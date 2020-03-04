@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { List } from 'antd'
-import { Link } from 'react-router-dom'
 
 class Star extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class Star extends Component {
           header="文章收藏"
           itemLayout="horizontal"
           dataSource={this.state.data}
-          style={{backgroundColor: '#fff', paddingLeft: '30PX', paddingRight: '30px', paddingBottom: '30px'}}
+          style={{backgroundColor: '#fff', padding: '30px'}}
           pagination={{
             onChange: page => {
               console.log(page);

@@ -25,8 +25,7 @@ class HeaderCustom extends Component {
     const menuList = list.map((item, i) => {
       return <Menu.Item key={i} onClick={this.handleClick}>
                 <Link to={item.path}>
-                  {/* {item.icon} */}
-                  <HomeOutlined />
+                  <item.icon />
                   <span className="nav-text">{item.title}</span>
                 </Link>
               </Menu.Item>
