@@ -19,7 +19,7 @@ function HOC (WrappedComponent) {
     render () {
       const newProps = {
         name: {
-          value: this.setState.name,
+          value: this.state.name,
           onChange: this.onChange
         }
       }
