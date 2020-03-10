@@ -20,3 +20,7 @@
 # 无状态组件
 
 # redux中发送异步请求获取数据
+
+# redux-thunk 实现ajax数据请求
+
+# 到底什么事redux中间件

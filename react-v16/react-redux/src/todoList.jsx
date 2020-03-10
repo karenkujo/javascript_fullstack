@@ -2,9 +2,8 @@
 import React, { Component } from 'react'
 import 'antd/dist/antd.css';
 import store from './store/index'
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction, initListAction } from './store/actionCreators'
+import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
-import axios from 'axios'
 // store 的创建
 
 class ToduList extends Component {
@@ -16,12 +15,8 @@ class ToduList extends Component {
   }
 
   componentDidMount () {
-    axios.get('https://api.github.com/users/octocat/gists').then(res => {
-      console.log(res)
-      const data = res.data
-      const action = initListAction(Object.keys(data[0].owner))
-      store.dispatch(action)
-    })
+    const action = getTodoList()
+    store.dispatch(action) // action为函数，且store集成了thunk，dispatch直接执行action方法
   }
 
   handleInputChange = (e) => {
