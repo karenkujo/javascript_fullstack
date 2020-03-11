@@ -23,4 +23,6 @@
 
 # redux-thunk 实现ajax数据请求
 
-# 到底什么事redux中间件
+# 到底什么是redux中间件
+
+# redux-saga中间件 实现ajax数据请求

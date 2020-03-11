@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import 'antd/dist/antd.css';
 import store from './store/index'
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList } from './store/actionCreators'
+import { getInitList, getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 // store 的创建
 
@@ -14,9 +14,12 @@ class ToduList extends Component {
     this.handleItemDelete = this.handleItemDelete.bind(this)
   }
 
-  componentDidMount () {
-    const action = getTodoList()
-    store.dispatch(action) // action为函数，且store集成了thunk，dispatch直接执行action方法
+  componentDidMount() {
+    const action = getInitList()
+    store.dispatch(action)
+    console.log(action)
+    // const action = getTodoList()
+    // store.dispatch(action) // action为函数，且store集成了thunk，dispatch直接执行action方法
   }
 
   handleInputChange = (e) => {
@@ -42,7 +45,7 @@ class ToduList extends Component {
     store.dispatch(action)
   }
 
-  handleItemDelete (index) {
+  handleItemDelete(index) {
     console.log(index)
     // const action = {
     //   type: DELETE_TODO_ITEM,
@@ -54,7 +57,7 @@ class ToduList extends Component {
 
   render() {
     return (
-      <TodoListUI 
+      <TodoListUI
         inputValue={this.state.inputValue}
         handleInputChange={this.handleInputChange}
         handleBtnClick={this.handleBtnClick}
