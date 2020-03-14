@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { CSSTransition } from 'react-transition-group'
+import { connect } from 'react-redux'
+import { actionCreators } from './store' 
 import {
   HeaderWrapper,
   Logo,
@@ -11,62 +13,59 @@ import {
   SearchWrapper
 } from './style.js'
 
-class Header extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      focused: false
-    }
-  }
+function Header (props) {
+  return (
+    <HeaderWrapper>
+      <Logo />
+      <Nav>
+        <NavItem className="left active">首页</NavItem>
+        <NavItem className="left">下载App</NavItem>
+        <NavItem className="right">登录</NavItem>
+        <NavItem className="right">
+          <span className="iconfont">&#xe602;</span>
+        </NavItem>
+        <SearchWrapper>
+          <CSSTransition
+            timeout={200}
+            in={props.focused}
+            classNames="slide"
+          >
+            {/* 入场 slide-enter  slide-enter-active */}
+            {/* 出场 slide-exit  slide-enter-exit-active */}
+            <NavSearch
+              className={props.focused ? 'focused' : ''}
+              onFocus={props.handleInputFoucs}
+              onBlur={props.handleInputBlur}
+            ></NavSearch>
+          </CSSTransition>
+          <span className={props.focused ? 'focused iconfont' : 'iconfont'}>&#xe63f;</span>
+        </SearchWrapper>
+      </Nav>
+      <Addition>
+        <Button className="writting">
+          <span className="iconfont">&#xe611;</span>
+        </Button>
+        <Button className="reg">注册</Button>
+      </Addition>
+    </HeaderWrapper>
+  )
+}
 
-  handleInputFoucs = () => {
-    this.setState({
-      focused: true
-    })
-  }
-  handleInputBlur = () => {
-    this.setState({
-      focused: false
-    })
-  }
-
-  render() {
-    return (
-      <HeaderWrapper>
-        <Logo />
-        <Nav>
-          <NavItem className="left active">首页</NavItem>
-          <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
-          <NavItem className="right">
-            <span className="iconfont">&#xe602;</span>
-          </NavItem>
-          <SearchWrapper>
-            <CSSTransition 
-              timeout={200} 
-              in={this.state.focused}
-              classNames="slide"
-              >
-              {/* 入场 slide-enter  slide-enter-active */}
-              {/* 出场 slide-exit  slide-enter-exit-active */}
-              <NavSearch
-                className={this.state.focused ? 'focused' : ''}
-                onFocus={this.handleInputFoucs}
-                onBlur={this.handleInputBlur}
-              ></NavSearch>
-            </CSSTransition>
-            <span className={this.state.focused ? 'focused iconfont' : 'iconfont'}>&#xe63f;</span>
-          </SearchWrapper>
-        </Nav>
-        <Addition>
-          <Button className="writting">
-            <span className="iconfont">&#xe611;</span>
-          </Button>
-          <Button className="reg">注册</Button>
-        </Addition>
-      </HeaderWrapper>
-    );
+const mapStateToProps = (state) => {
+  return {
+    focused: state.header.get('focused')
   }
 }
 
-export default Header;
+const mapActionToProps = (dispatch) => {
+  return {
+    handleInputFoucs() {
+      dispatch(actionCreators.searchFocus())
+    },
+    handleInputBlur() {
+      dispatch(actionCreators.searchBlur())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Header)
