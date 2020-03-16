@@ -1,0 +1,53 @@
+{
+  "success": true,
+  "data": {
+    "topicList": [
+      {
+        "id": 1,
+        "title": "社会热点",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      },
+      {
+        "id": 2,
+        "title": "手绘",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      }
+    ],
+    "articleList": [
+      {
+        "id": 1,
+        "title": "“因为10个口罩，我看到了妻子的另一面，终止了两年的婚外恋”",
+        "desc": "01 作家詹迪·尼尔森曾说：“遇见灵魂伴侣的感觉，就好像是走进一座你曾经住过的房子里——你认识那些家具，认识墙上的画，架上的书，抽屉里的东西：如...",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      },
+      {
+        "id": 2,
+        "title": "“因为10个口罩，我看到了妻子的另一面，终止了两年的婚外恋”",
+        "desc": "01 作家詹迪·尼尔森曾说：“遇见灵魂伴侣的感觉，就好像是走进一座你曾经住过的房子里——你认识那些家具，认识墙上的画，架上的书，抽屉里的东西：如...",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      },
+      {
+        "id": 3,
+        "title": "“因为10个口罩，我看到了妻子的另一面，终止了两年的婚外恋”",
+        "desc": "01 作家詹迪·尼尔森曾说：“遇见灵魂伴侣的感觉，就好像是走进一座你曾经住过的房子里——你认识那些家具，认识墙上的画，架上的书，抽屉里的东西：如...",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      },
+      {
+        "id": 4,
+        "title": "“因为10个口罩，我看到了妻子的另一面，终止了两年的婚外恋”",
+        "desc": "01 作家詹迪·尼尔森曾说：“遇见灵魂伴侣的感觉，就好像是走进一座你曾经住过的房子里——你认识那些家具，认识墙上的画，架上的书，抽屉里的东西：如...",
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      }
+    ],
+    "recommendList": [
+      {
+        "id": 1,
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      },
+      {
+        "id": 2,
+        "imgUrl": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3695817738,785382056&fm=26&gp=0.jpg"
+      }
+    ]
+  }
+}
