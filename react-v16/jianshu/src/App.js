@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './common/header/index'
-import store from './store/index'
+import Header from './common/header'
+import store from './store'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/home'
@@ -8,17 +8,15 @@ import Detail from './pages/detail'
 
 function App() {
   return (
-    <div>
-      <Provider store={store}>
-        <Header />
-        <BrowserRouter>
-          <div>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/detail" component={Detail}></Route>
-          </div>
-        </BrowserRouter>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <Header />
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/detail" component={Detail}></Route>
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
