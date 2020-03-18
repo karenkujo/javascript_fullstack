@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
+import { withRouter } from 'react-router-dom'
 import {
   DetailWrapper,
   Header,
@@ -8,8 +9,8 @@ import {
 } from './style'
 
 class Detail extends Component {
-  componentWillMount() {
-    this.props.getDetail()
+  componentDidMount() {
+    this.props.getDetail(this.props.match.params.id)
   }
   render() {
     return (
@@ -27,10 +28,10 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  getDetail() {
-    let action = actionCreators.getDetail()
+  getDetail(id) {
+    let action = actionCreators.getDetail(id)
     action(dispatch)
   }
 })
 
-export default connect(mapState, mapDispatch)(Detail)
+export default connect(mapState, mapDispatch)(withRouter(Detail))
