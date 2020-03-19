@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1.用于创建特定类型的对象
+    // js中构造函数比较特殊的地方，new
+
+    var AA = {
+      zaomen: function (huawen) {
+        // if (!(this instanceof zaomen)) {
+        //   return new zaomen(huawen)
+        // }
+        var _huawen = '普通的花纹'
+        if (huawen) {
+          _huawen = huawen
+        }
+        this.suo = '普通的锁'
+        this.huawen = _huawen
+        this.create = function () {
+          return this.suo + this.huawen
+        }
+      }
+    }
+
+    var BB = {
+      zaomen: function (huawen) {
+        // if (!(this instanceof zaomen)) {
+        //   return new zaomen(huawen)
+        // }
+        var _huawen = '普通的花纹'
+        if (huawen) {
+          _huawen = huawen
+        }
+        this.suo = '普通的锁'
+        this.huawen = _huawen
+        this.create = function () {
+          return this.suo + this.huawen
+        }
+      }
+    }
+
+
+
+    var xiaozhang = new AA.zaomen()
+    alert(xiaozhang.create())
+
+    var xiaoli = new BB.zaomen('绚丽的花纹')
+    alert(xiaoli.create())
+
+    // 1. 什么是构造函数模式
+    // 2. 构造函数模式的作用和使用注意事项
+    // 3. 构造函数模式的设计代码
+  </script>
+</body>
+
+</html>
