@@ -14,3 +14,5 @@ hashChangeComplete
 # lazyloading
 
 # Hooks 让函数组件具有类组件的能力
+
+# redux
