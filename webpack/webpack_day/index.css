@@ -1,0 +1,10 @@
+@import './other.css';
+body {
+  background-color: pink;
+}
+.pic {
+  width: 320px;
+  height: 180px;
+  column-count: 3;
+  transform: translate(100px, 100px);
+}
