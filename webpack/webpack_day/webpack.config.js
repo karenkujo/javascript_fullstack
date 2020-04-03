@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack')
 
 module.exports = {
   mode: "development",
@@ -34,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+        use: ["style-loader", "css-loader", "postcss-loader"]
       },
       {
         test: /\.scss$/, // loader是有执行顺序的，从后往前
@@ -50,9 +51,10 @@ module.exports = {
     }),
     // 在打包之前，先帮我们把上一次生成的目录删除
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].css"
-    })
+    // new MiniCssExtractPlugin({
+    //   filename: "[name].css"
+    // }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: "./build",
@@ -60,6 +62,8 @@ module.exports = {
     port: "8081",
     proxy: {
       '/api': 'http://localhost:3000'
-    }
+    },
+    hot: true,
+    hotOnly: true // 即使HMR不生效，浏览器也不会自动刷新
   }
 }
