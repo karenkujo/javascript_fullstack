@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function foo() {
+      // return 'foo'
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(123)
+        }, 2000)
+      })
+    }
+    function* test() {
+      console.log('start')
+      let a = yield foo()
+      console.log('a', a) // a??? 和 yiled 后面的值没有任何关系
+      let b = yield 2
+      console.log('b', b)
+      console.log('end')
+    }
+    // let res = test()
+    // // a 的值可以通过next方法传递
+    // // next 方法传递的参数 就是上一个yield的返回值
+    // console.log(res.next())
+    // console.log(res.next('A VALUE'))
+    // console.log(res.next('B VALUE'))
+    // generate 内部相比普通函数而言，是可以中止的，
+    // 相比普通函数而言，是通过一步步的next来调用的
+
+    function generatorAutoRun(gen) {
+      let g = gen()
+      function next(value) {
+        let res = g.next(value)
+        console.log(res)
+        if (res.done) return
+        next(res.value)
+      }
+      next()
+    }
+    generatorAutoRun(test)
+  </script>
+</body>
+</html>
