@@ -40,6 +40,24 @@ module.exports = {
       {
         test: /\.scss$/, // loader是有执行顺序的，从后往前
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          // options: {
+          //   // "presets": [
+          //   //   ["@babel/preset-env",
+          //   //     {
+          //   //       useBuiltIns: "usage", // 按需加载
+          //   //       corejs: 2
+          //   //     }
+          //   //   ]
+          //   // ],
+          //   "plugins": ["@babel/plugin-transform-runtime"]
+          // }
+        }
       }
     ]
   },
