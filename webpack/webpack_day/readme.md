@@ -5,3 +5,7 @@
   }
 - package.json:
   "sideEffects": "false",   排除某些模块
+
+# development  vs  production  模式区分打包
+
+# code Splitting  代码分割

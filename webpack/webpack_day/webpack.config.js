@@ -5,18 +5,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack')
 
 module.exports = {
-  // mode: "development",
-  mode: "production",
+  mode: "development",
+  // mode: "production",
   entry: "./index.js", // 指定打包的入口
   // 指定打包后的资源位置
   output: {
     // 公共路径设置
     // publicPath: "https://cdn.baidu.com",
-    path: path.resolve(__dirname, "./build"),
+    path: path.resolve(__dirname, "./dist"),
     filename: "index.js",
   },
-  // devtool: "cheap-module-eval-source-map", // 开发环境
-  devtool: "cheap-module-source-map", // 线上环境
+  devtool: "cheap-module-eval-source-map", // 开发环境
+  // devtool: "cheap-module-source-map", // 线上环境
   module: {
     // 遇到不认识的模块，就在这里找loader
     rules: [
@@ -76,7 +76,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: "./build",
+    contentBase: "./dist",
     open: true,
     port: "8081",
     proxy: {

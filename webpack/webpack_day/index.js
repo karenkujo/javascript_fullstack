@@ -1,9 +1,11 @@
-import { add } from './a'
-
-add(1, 2)
-
+import _ from 'lodash'
+console.log(_.join(["a", "b", "c"], "****"))  // 1MB
 
 
+
+// import { add } from './a'
+
+// add(1, 2)
 
 
 // import React, { Component } from 'react';
