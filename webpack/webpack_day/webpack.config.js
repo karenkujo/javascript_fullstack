@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack')
 
 module.exports = {
-  mode: "development",
+  // mode: "development",
+  mode: "production",
   entry: "./index.js", // 指定打包的入口
   // 指定打包后的资源位置
   output: {
@@ -14,8 +15,8 @@ module.exports = {
     path: path.resolve(__dirname, "./build"),
     filename: "index.js",
   },
-  devtool: "cheap-module-eval-source-map", // 开发环境
-  // devtool: "cheap-module-source-map", // 线上环境
+  // devtool: "cheap-module-eval-source-map", // 开发环境
+  devtool: "cheap-module-source-map", // 线上环境
   module: {
     // 遇到不认识的模块，就在这里找loader
     rules: [
@@ -42,7 +43,7 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -83,5 +84,8 @@ module.exports = {
     },
     hot: true,
     hotOnly: true // 即使HMR不生效，浏览器也不会自动刷新
+  },
+  optimization: {
+    usedExports: true
   }
 }

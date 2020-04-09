@@ -5,6 +5,7 @@
         "useBuiltIns": "usage", // 按需加载
         "corejs": 2
       }
-    ]
+    ],
+    "@babel/preset-react"
   ]
 }
