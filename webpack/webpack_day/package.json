@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bundle": "webpack --config ./build/webpack.common.js",
+    "bundle": "webpack --profile --json > stats.json --config ./build/webpack.common.js",
     "build": "webpack --env.production --config ./build/webpack.common.js",
     "server": "webpack-dev-server --config ./build/webpack.common.js"
   },
@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",

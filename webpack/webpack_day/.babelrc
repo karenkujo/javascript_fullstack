@@ -5,7 +5,8 @@
         "useBuiltIns": "usage", // 按需加载
         "corejs": 2
       }
-    ],
-    "@babel/preset-react"
-  ]
+    ]
+    // "@babel/preset-react",
+  ],
+  "plugins": ["@babel/plugin-syntax-dynamic-import"]
 }

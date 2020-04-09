@@ -1,5 +1,12 @@
-import _ from 'lodash'
-console.log(_.join(["a", "b", "c"], "****"))  // 1MB
+document.addEventListener('click', () => {
+  import(/* webpackPrefetch: true */"./click").then(({ default: func }) => {
+    func()
+  })
+})
+
+
+// import _ from 'lodash'
+// console.log(_.join(["a", "b", "c"], "****"))  // 1MB
 
 
 
