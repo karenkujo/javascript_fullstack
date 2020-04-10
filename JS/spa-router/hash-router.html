@@ -30,6 +30,7 @@
       }
       updateView () {
         // #/book
+        console.log(this)
         const hash = window.location.hash.slice(1)
         const match = this.routes.find(route => route.path === hash)
         if (match) {
