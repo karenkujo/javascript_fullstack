@@ -16,3 +16,10 @@
 所谓的性能优化，就是以上的步骤加在一起，时间尽可能的短，所以基本也就是两大方向
 1. 少加载文件
 2. 少执行代码
+
+# 浏览器的缓存机制
+广义上来说， 缓存可以分为4个
+1. http cache
+2. Service Worker cache
+3. Memory cache
+4. Push cache
