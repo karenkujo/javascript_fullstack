@@ -86,3 +86,40 @@ gzip(线上一定要打开) accept-encoding: gzip  开启gzip
   https://developer.mozilla.org/zh-CN/docs/Web/API/Performance_API
 
 # 节流防抖
+
+# DOM 操作实在是太慢了
+  1. 回流：当我们对DOM的修改引发DOM的几何信息发生变化 (比如修改元素的宽，高，隐藏元素等)时，浏览器需要重新计算元素的几何属性 (其它元素的几何信息也可能因此受到影响)，再将计算结果绘制出来，这个过程叫回流，也叫重排
+  2. 重绘：当我们对DOM的修改导致了样式变化，却没有影响其几何属性 (比如修改了颜色或背景图片)时，浏览器不需要重新计算元素的几何属性，直接为改元素绘制新的样式 (跳过了上述的回流环节)。这个过程叫做重绘
+
+  重绘不一定导致回流，回流一定会导致重绘
+
+  回流是影响最大的
+    1. 窗体，字体大小发生变化
+    2. 增加样式表
+    3. 内容变化
+    4. class属性变化
+    5. offsetWidth 和 offsetHeight
+    6. fixed
+
+# lazy-load
+
+# Vue
+  1. v-if 和 v-show
+  初始化性能 vs 频繁切换性能
+
+  2. 和渲染无关的数据，不要放在data上，data也不要嵌套太多层
+  3. nextTick
+      修改数据的当下，视图不会立刻更新，而是等同一时间循环中的所有数据变化完成之后，再统一进行视图更新
+      this.$nextTick(() => {
+        // dom 更新了
+      })
+  4. Object.freeze()
+      冻结数据，取消setters
+
+# react
+  1. 只传递需要的props
+      不要随便<Component {...props} />
+  2. key 和 无状态组件
+  3. pureComponent(渲染时机)  shouldComponentUpdate
+  4. 少在render中绑定事件
+  5. 长列表优化
