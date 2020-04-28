@@ -17,16 +17,36 @@ function diff(oldTree, newTree) {
   return patches
 }
 
+function isString(node) {
+  return Object.prototype.toString.call(node) === '[object String]'
+}
+
 const ATTRS = 'ATTRS'
-function walk(oldTree, newTree, index, patches) {
+const TEXT = 'TEXT'
+const REMOVE = 'REMOVE'
+const REPLACE = 'REPLACE'
+let Index = 0
+function walk(oldNode, newNode, index, patches) {
   let currentPatch = []
-  if (oldTree.type === newTree.type) {
+  if (!newNode) {
+    currentPatch.push({type: REMOVE, index})
+  } else if (isString(oldNode) && isString(newNode)) { // 判断文本是否一致
+    if (oldNode !== newNode) {
+      currentPatch.push({type: TEXT, text: newNode})
+    }
+  } else if (oldNode.type === newNode.type) {
     // 比较属性书否有更改
-    let attrs = diffAttr(oldTree.props, newTree.props)
+    let attrs = diffAttr(oldNode.props, newNode.props)
     if (Object.keys(attrs).length > 0) {
       currentPatch.push({type: ATTRS, attrs})
     }
+    // 如果有子节点，就遍历子节点
+    diffChildren(oldNode.children, newNode.children, index, patches)
+  } else {
+    // 说明结点被替换了
+    currentPatch.push({type: REPLACE, newNode})
   }
+
   if (currentPatch.length > 0) { // 当前元素确实有补丁
     // 将元素和补丁对应起来，放大到大补丁包中
     patches[index] = currentPatch
@@ -50,6 +70,15 @@ function diffAttr(oldAttrs, newAttrs) {
     }
   }
   return patch
+}
+
+function diffChildren(oldChildren, newChildren, index, patches) {
+  // 比较老的第一个和新的第一个
+  oldChildren.forEach((child, idx) => {
+    // 索引不应该是index了-------
+    // index每次传递给walk时，index是递增的
+    walk(child, newChildren[idx], ++Index, patches)
+  })
 }
 
 export default diff
