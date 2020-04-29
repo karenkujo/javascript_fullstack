@@ -37,6 +37,12 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
 
+  config.view = {
+    mapping: {
+      '.html': 'ejs'
+    }
+  }
+
   return {
     ...config,
     ...userConfig,
