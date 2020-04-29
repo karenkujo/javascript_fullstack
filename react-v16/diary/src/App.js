@@ -1,12 +1,18 @@
 import React from 'react';
-import { Button } from 'antd-mobile'
+import Home from './Home'
+import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
-function App() {
+const RouterMap = () => {
   return (
-    <div className="App">
-      <Button type="primary">111</Button>
-    </div>
-  );
+  <Router>
+    {/* Switch 和 js 中的 switch差不多，匹配到了就不再进行了 */}
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
+  </Router>
+  )
 }
 
-export default App;
+export default RouterMap;
