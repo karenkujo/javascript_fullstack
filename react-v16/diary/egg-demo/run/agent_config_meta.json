@@ -1,0 +1,327 @@
+{
+  "keys": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+  "middleware": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+  "security": {
+    "csrf": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "ignoreJSON": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "type": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "useSession": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "cookieName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "sessionName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "headerName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "bodyName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "queryName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "refererWhiteList": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+    "protocolWhiteList": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "value": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.local.js",
+      "maxAge": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "value": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "value": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "policy": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+    }
+  },
+  "cors": {
+    "origin": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+    "credentials": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+    "allowMethods": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js"
+  },
+  "view": {
+    "mapping": {
+      ".html": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js"
+    },
+    "root": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js",
+    "cache": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view@2.1.2@egg-view\\config\\config.default.js"
+  },
+  "mysql": {
+    "client": {
+      "host": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "port": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "user": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "password": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+      "database": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js"
+    },
+    "app": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+    "agent": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\config\\config.default.js",
+    "default": {
+      "database": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-mysql@3.0.0@egg-mysql\\config\\config.default.js",
+      "connectionLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-mysql@3.0.0@egg-mysql\\config\\config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "key": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "encrypt": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-security@2.8.0@egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-i18n@2.1.1@egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\config\\config.default.js",
+      "development": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-watcher@3.1.1@egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js",
+      "file": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-schedule@3.6.4@egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "fields": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "files": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-multipart@2.10.2@egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "fastReady": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-development@2.4.3@egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-logrotator@3.1.0@egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "dir": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "dynamic": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "preload": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "buffer": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-static@2.2.0@egg-static\\config\\config.default.js"
+  },
+  "ejs": {
+    "root": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.default.js",
+    "cache": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.local.js",
+    "debug": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.default.js",
+    "compileDebug": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.default.js",
+    "delimiter": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.default.js",
+    "strict": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg-view-ejs@2.0.1@egg-view-ejs\\config\\config.default.js"
+  },
+  "env": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "name": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "cookies": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "proxy": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "maxIpsCount": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "ipHeaders": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "hostHeaders": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "version": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "description": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "private": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "egg": {
+      "declarations": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "egg": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-bin": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-cors": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-mysql": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-scripts": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-view-ejs": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "autod-egg": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-bin": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-ci": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "egg-mock": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "eslint": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "eslint-config-egg": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "start": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "stop": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "dev": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "debug": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "test": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "test-local": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "cov": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "lint": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "ci": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "autod": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "repository": {
+      "type": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "url": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "author": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "license": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "baseDir": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "HOME": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "rundir": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "notFound": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "sitefile": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "middlewares": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "httpClient": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "encoding": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "formLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "jsonLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "textLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "strict": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "depth": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "parameterLimit": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "onerror": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "encoding": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "env": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "level": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "consoleLevel": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "outputJSON": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "buffer": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "appLogName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "coreLogName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "agentLogName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "errorLogName": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "maxSockets": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "maxSockets": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "logging": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "serverTimeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "port": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+      "hostname": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js",
+    "responseTimeout": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\javascript_fullstack\\react-v16\\diary\\egg-demo\\node_modules\\_egg@2.26.0@egg\\config\\config.default.js"
+}
