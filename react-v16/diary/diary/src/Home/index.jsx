@@ -14,7 +14,6 @@ const Home = () => {
       setList(res.data)
     })
   }, [])
-  console.log(list)
   return (
     <div className="diary-list">
       {
@@ -23,11 +22,9 @@ const Home = () => {
             <Card className="diary-item">
               <Card.Header
                 title={item.title}
-                thumb={item.url}
-                extra={<span>晴</span>}
               />
               <Card.Body>
-                <div>{item.content}</div>
+                <div className="diary-content">{item.content}</div>
               </Card.Body>
               <Card.Footer content={item.date} />
             </Card>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Toast } from 'antd-mobile'
 
-axios.defaults.baseURL = process.env.NODE_ENV  == 'development' ? 'http://localhost:7001' : ''
+axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:7001' : ''
 
 // 跨域请求凭证
 axios.defaults.withCredentials = false

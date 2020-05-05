@@ -1,11 +1,26 @@
+.diary-list {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 100px;
+  overflow-y: scroll;
+}
 .diary-list .diary-item{
   margin-bottom: 20px;
 }
 .diary-item .am-card-header-content{
   flex: 7 1;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 0;
+  font-size: 16px;
+  color: rgb(70, 70, 70);
 }
-.diary-item .am-card-header-content img{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.diary-list .diary-item .diary-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(109, 109, 109);
 }

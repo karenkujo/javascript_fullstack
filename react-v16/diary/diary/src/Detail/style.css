@@ -1,0 +1,17 @@
+.diary-detail .am-navbar-title {
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.diary-detail .am-navbar-left {
+  flex: 0 0 40px;
+}
+.diary-detail .am-navbar-right {
+  flex: 0 0 40px;
+}
+.diary-detail .my-list .am-list-line .am-list-content {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: rgb(109, 109, 109);
+}

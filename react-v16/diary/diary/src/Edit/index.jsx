@@ -6,7 +6,7 @@ import moment from 'moment'
 import { getQueryString } from '../utils'
 import { useHistory } from 'react-router-dom'
 
-const Edit = () => {
+const Edit = (props) => {
   const history = useHistory()
   const [title, setTitle] = useState('')
   const [content, setCoutent] = useState('')
@@ -27,7 +27,9 @@ const Edit = () => {
           setTitle(res.data[0].title)
           setCoutent(res.data[0].content)
           setDate(new Date(res.data[0].date))
-          setFile([{url: res.data[0].url}])
+          if (res.data[0].url) {
+            setFile([{ url: res.data[0].url }])
+          }
         }
       })
     }
@@ -48,12 +50,20 @@ const Edit = () => {
       params['id'] = id
       axios.post('/update', params).then(res => {
         Toast.success('修改成功')
-        history.push(`/detail?id=${id}`)
+        sessionStorage.setItem('tabbarSelect', 'blueTab')
+        setTimeout(() => {
+          history.push(`/detail?id=${id}`)
+        }, 1000);
       })
       return
     }
     axios.post('/add', params).then(res => {
       Toast.success('添加成功')
+      sessionStorage.setItem('tabbarSelect', 'blueTab')
+      setTimeout(() => {
+        history.push('/')
+        window.location.reload()
+      }, 1000)
     })
   }
 
@@ -72,15 +82,17 @@ const Edit = () => {
           value={content}
           onChange={(value) => setCoutent(value)}
         />
-        <DatePicker
-          mode="date"
-          title="请选择日期"
-          extra="请选择日期"
-          value={date}
-          onChange={date => setDate(date)}
-        >
-          <List.Item arrow="horizontal">日期</List.Item>
-        </DatePicker>
+        <div className="datePicker">
+          <DatePicker
+            mode="date"
+            title="请选择日期"
+            extra="请选择日期"
+            value={date}
+            onChange={date => setDate(date)}
+          >
+            <List.Item arrow="horizontal">日期</List.Item>
+          </DatePicker>
+        </div>
         <ImagePicker
           files={files}
           onChange={onChange}
