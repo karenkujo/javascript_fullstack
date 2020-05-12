@@ -2,36 +2,40 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  ActivityIndicator,
+  Button,
+  Image
 } from 'react-native';
 
 class App extends Component {
   render() {
     return (
-      <View style={{
-        flexDirection: 'row',
-        height: 200,
-        backgroundColor: 'pink',
-        // justifyContent: 'center', 
-        // alignItems: 'center'
-      }}>
-        <View style={style.item}>
-          <View>
-            <Text>1</Text>
-          </View>
-          <View style={style.item}>
-            <Text>2</Text>
-          </View>
-          <View style={[style.item, style.itemCenter]}>
-            <Text style={style.text}>3</Text>
-          </View>
-        </View>
+      <View style={style.container}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Button
+          onPress={() => { alert('hello world') }}
+          title="Learn More"
+        />
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={{ uri: 'https://facebook.github.io/react-native/img/tiny_logo.png' }}
+        />
+        <Image
+          source={require('../../img/logo.png')}
+        />
       </View>
     );
   }
 }
 
+
 const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: 'center'
+  },
   item: {
     flex: 1,
     backgroundColor: 'aqua',
@@ -42,7 +46,7 @@ const style = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    color: '#000000'
+    color: '#fff'
   }
 })
 
